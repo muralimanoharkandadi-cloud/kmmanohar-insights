@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
+
+# Legacy archive
+quarantine/
+
+# OS
+.DS_Store
+Thumbs.db
