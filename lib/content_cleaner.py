@@ -22,13 +22,6 @@ def clean_content(html: str) -> str:
     if not html:
         return ""
 
-    html = re.sub(
-        r'&lt;(?:p|div)[^&]*&gt;.*?Visit Us on: https://kmmanoharinsights\.netlify\.app/.*?&lt;/(?:p|div)&gt;',
-        "",
-        html,
-        flags=re.IGNORECASE | re.DOTALL,
-    )
-
     soup = BeautifulSoup(html, "html.parser")
 
     # Remove <!--more-->
