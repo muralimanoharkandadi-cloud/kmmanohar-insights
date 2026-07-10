@@ -41,23 +41,58 @@ def get_next_link(root):
 
 
 def load_all_entries(source="feed.atom"):
-    xml = load_feed(source)
-    root = ET.fromstring(xml)
+    if not (source.startswith("http://") or source.startswith("https://")):
+        # Local file snapshot - single load, no pagination needed.
+        root = ET.fromstring(load_feed(source))
+        return root.findall("atom:entry", ATOM)
+
+    # Live feed: paginate explicitly via start-index rather than relying
+    # solely on rel="next" links, which can truncate early for some Blogger
+    # feed configurations. Dedup by entry id in case of any overlap between
+    # pages, and stop once a page comes back short of a full page (the
+    # standard signal that we've reached the end).
+    from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+
+    parts = urlsplit(source)
+    params = dict(parse_qsl(parts.query))
+    params.pop("start-index", None)
+    max_results = int(params.get("max-results", "150"))
+    params["max-results"] = str(max_results)
 
     entries = []
+    seen_ids = set()
+    start_index = 1
+    MAX_PAGES = 50  # safety cap: 50 * max_results should comfortably exceed any realistic post count
 
-    while True:
-        entries.extend(root.findall("atom:entry", ATOM))
+    for _ in range(MAX_PAGES):
+        params["start-index"] = str(start_index)
+        query = urlencode(params)
+        page_url = urlunsplit((parts.scheme, parts.netloc, parts.path, query, ""))
+        print(f"Loading {page_url}")
 
-        next_url = get_next_link(root)
+        xml = load_feed(page_url)
+        root = ET.fromstring(xml)
+        page_entries = root.findall("atom:entry", ATOM)
 
-        if not next_url:
+        if not page_entries:
             break
 
-        print(f"Loading {next_url}")
+        new_on_this_page = 0
+        for entry in page_entries:
+            entry_id = entry.findtext("atom:id", default=None, namespaces=ATOM)
+            if entry_id and entry_id in seen_ids:
+                continue
+            if entry_id:
+                seen_ids.add(entry_id)
+            entries.append(entry)
+            new_on_this_page += 1
 
-        xml = load_feed(next_url)
-        root = ET.fromstring(xml)
+        print(f"  -> {len(page_entries)} entries on this page, {new_on_this_page} new, {len(entries)} total so far")
+
+        if len(page_entries) < max_results or new_on_this_page == 0:
+            break
+
+        start_index += max_results
 
     return entries
 

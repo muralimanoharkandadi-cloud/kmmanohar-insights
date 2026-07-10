@@ -79,6 +79,27 @@ def build_toc_and_ids(html_content):
     return modified, toc_items
 
 
+BACK_TO_TOC = '<p class="back-to-toc"><a href="#article-top">&uarr; Back to Table of Contents</a></p>'
+
+
+def insert_back_to_toc(html_content, min_sections=2):
+    """Insert a 'Back to Table of Contents' link right before each h2 (after
+    the first) and at the very end of the content, so every section can
+    jump back to the TOC. Skipped entirely for short articles with fewer
+    than min_sections headings, where a TOC/back-link adds clutter rather
+    than navigation value."""
+    positions = [m.start() for m in re.finditer(r"<h2[ >]", html_content)]
+    if len(positions) < min_sections:
+        return html_content
+
+    # insert before every h2 except the first one, working backwards so
+    # earlier insertions don't shift later positions
+    for pos in reversed(positions[1:]):
+        html_content = html_content[:pos] + BACK_TO_TOC + html_content[pos:]
+
+    return html_content + BACK_TO_TOC
+
+
 def strip_leading_duplicate_title(html_content, title):
     """Blogger content sometimes repeats the post title as its own h2/h3/h4
     at the very top; drop it since the page <h1> already shows it."""
@@ -108,6 +129,7 @@ def load_and_prepare():
                 a["title"],
             )
         )
+        content = insert_back_to_toc(content)
 
         articles.append({
             **a,
@@ -147,6 +169,7 @@ def render_head(title, description, canonical_path, og_image=None, extra_schema=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8508625480348460" crossorigin="anonymous"></script>
 {extra_schema}
 </head>
 """
@@ -165,7 +188,7 @@ def render_header():
 
 
 def render_footer():
-    return f"""<footer><a class="brand" href="/"><span class="brand-orbit">KM</span><span>K M Manohar <b>Insights</b></span></a><p>Where ideas meet impact.</p><div><a href="/#stories">Latest</a><a href="/archive/">Archive</a><a href="/search/">Search</a><a href="{BLOGSPOT_URL}">Blogspot</a></div><small>&copy; <span id="year">2026</span> {SITE_NAME}</small></footer>
+    return f"""<footer><a class="brand" href="/"><span class="brand-orbit">KM</span><span>K M Manohar <b>Insights</b></span></a><p>Where ideas meet impact.</p><div><a href="/#stories">Latest</a><a href="/archive/">Archive</a><a href="/search/">Search</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms-and-conditions/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="{BLOGSPOT_URL}">Blogspot</a></div><small>&copy; <span id="year">2026</span> {SITE_NAME}</small></footer>
 <script src="/app.js"></script>
 </body>
 </html>"""
@@ -188,7 +211,7 @@ def render_article_page(article, all_articles, index_by_id):
     toc_html = ""
     if len(article["toc_items"]) >= 2:
         items = "\n".join(f'<li><a href="#{anchor}">{esc(text)}</a></li>' for anchor, text in article["toc_items"])
-        toc_html = f'<nav class="toc" aria-label="Table of contents"><h2>In This Article</h2><ol>{items}</ol></nav>'
+        toc_html = f'<nav class="toc" id="article-top" aria-label="Table of contents"><h2>In This Article</h2><ol>{items}</ol></nav>'
 
     tags_html = ""
     if article["labels"]:
@@ -336,6 +359,100 @@ def render_archive_search_page(kind, articles):
     return body
 
 
+STATIC_PAGES = {
+    "about": {
+        "title": "About Us",
+        "content": """
+<p class="lead">K M Manohar Insights is an independent science and technology publication, written and curated by one person: K M Manohar.</p>
+<p>This site exists for a simple reason — most breakthroughs in AI, quantum computing, biotechnology, materials science, and clean energy are reported either too shallowly (a press-release rewrite) or too technically (a paper only specialists can parse). K M Manohar Insights tries to sit in between: independent analysis that explains why a discovery matters, without dumbing it down.</p>
+<h2>What we cover</h2>
+<p>Every article falls into one of five clusters: Digital Intelligence (AI, cybersecurity, robotics), Frontier Technologies (quantum computing, semiconductors, materials science), Human Future (biotech, health, fundamental science), Sustainable Future (clean energy, climate, emerging systems), and India &amp; Society (policy, defence, space, enterprise).</p>
+<h2>Editorial independence</h2>
+<p>K M Manohar Insights is self-funded and editorially independent. Articles are not sponsored, and no company has editorial input into what gets covered or how. Where the site earns revenue — for example through advertising — that revenue has no bearing on editorial coverage.</p>
+<h2>Get in touch</h2>
+<p>Questions, corrections, or story tips are always welcome — see the <a href="/contact/">Contact</a> page.</p>
+""",
+    },
+    "privacy-policy": {
+        "title": "Privacy Policy",
+        "content": """
+<p class="lead">This Privacy Policy explains what information K M Manohar Insights collects, how it is used, and the choices available to visitors.</p>
+<h2>Information we collect</h2>
+<p>This site does not require account creation and does not directly collect personal information such as your name or address. If you subscribe to the newsletter, we collect the email address you provide, solely to send you updates from this site. You may unsubscribe at any time.</p>
+<h2>Cookies and third-party advertising</h2>
+<p>This site uses Google AdSense to display advertising. Google, as a third-party vendor, uses cookies to serve ads based on a visitor's prior visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the Internet.</p>
+<p>You may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google's Ads Settings</a>. Alternatively, you can opt out of a third-party vendor's use of cookies for personalized advertising by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener">www.aboutads.info</a>.</p>
+<h2>Analytics</h2>
+<p>This site may use analytics services to understand aggregate traffic patterns (e.g. which articles are read most, which countries visitors come from). This data is anonymized and aggregated; it is not used to identify individual visitors.</p>
+<h2>Third-party links</h2>
+<p>Articles may link to external sources, including the Blogspot journal (kmmanohar1602.blogspot.com) and referenced research. This Privacy Policy does not extend to those external sites — please review their own privacy policies.</p>
+<h2>Children's privacy</h2>
+<p>This site does not knowingly collect information from children under 13. It is a general-audience science and technology publication not directed at children.</p>
+<h2>Changes to this policy</h2>
+<p>This Privacy Policy may be updated periodically. Continued use of the site after changes are posted constitutes acceptance of the revised policy.</p>
+<h2>Contact</h2>
+<p>Questions about this policy can be directed via the <a href="/contact/">Contact</a> page.</p>
+""",
+    },
+    "terms-and-conditions": {
+        "title": "Terms and Conditions",
+        "content": """
+<p class="lead">By accessing K M Manohar Insights, you agree to the following terms.</p>
+<h2>Content ownership</h2>
+<p>All original articles, analysis, and text on this site are the intellectual property of K M Manohar unless otherwise credited. Content may be shared via the provided links; reproduction of full articles elsewhere requires prior written permission.</p>
+<h2>No professional advice</h2>
+<p>Content on this site is for informational and educational purposes only. Nothing published here constitutes financial, medical, legal, or investment advice. See the full <a href="/disclaimer/">Disclaimer</a> for details.</p>
+<h2>External links</h2>
+<p>This site links to third-party sources, research papers, and the author's Blogspot journal for reference and further reading. K M Manohar Insights is not responsible for the content, accuracy, or practices of external sites.</p>
+<h2>Advertising</h2>
+<p>This site displays advertising served by Google AdSense and possibly other advertising partners. Advertisements are clearly distinguishable from editorial content. K M Manohar Insights does not endorse products or services advertised by third parties.</p>
+<h2>Limitation of liability</h2>
+<p>While every effort is made to ensure accuracy, K M Manohar Insights makes no warranties about the completeness or reliability of any content and will not be liable for any loss or damage arising from its use.</p>
+<h2>Changes to these terms</h2>
+<p>These terms may be updated from time to time. Continued use of the site constitutes acceptance of the current terms.</p>
+""",
+    },
+    "disclaimer": {
+        "title": "Disclaimer",
+        "content": """
+<p class="lead">The information provided on K M Manohar Insights is for general informational purposes only.</p>
+<h2>Not professional advice</h2>
+<p>Articles covering health, biotechnology, finance, or policy topics are journalistic analysis, not professional advice. Always consult a qualified professional (a doctor, financial advisor, or lawyer, as appropriate) before making decisions based on information found here.</p>
+<h2>Accuracy of information</h2>
+<p>Science and technology move quickly. While articles are researched carefully at the time of writing, subsequent developments may supersede specific claims, figures, or conclusions. Readers are encouraged to verify time-sensitive information independently.</p>
+<h2>External sources and links</h2>
+<p>Articles may reference or link to third-party research, news sources, or the author's own Blogspot journal. K M Manohar Insights does not control and is not responsible for the content of external sites.</p>
+<h2>Opinions</h2>
+<p>Analysis and commentary reflect the personal views of the author, K M Manohar, and not those of any organization, employer, or institution.</p>
+""",
+    },
+    "contact": {
+        "title": "Contact",
+        "content": """
+<p class="lead">Questions, corrections, story tips, or partnership enquiries — get in touch.</p>
+<h2>Email</h2>
+<p>The best way to reach K M Manohar Insights is by email: <a href="mailto:kmmanohar@yahoo.com">kmmanohar@yahoo.com</a></p>
+<h2>Journal</h2>
+<p>You can also find the full archive of articles on the original journal at <a href="https://kmmanohar1602.blogspot.com/" target="_blank" rel="noopener">kmmanohar1602.blogspot.com</a>.</p>
+<h2>Corrections</h2>
+<p>If you spot an error in any article, please include the article title and a brief description of the issue — corrections are reviewed and addressed promptly.</p>
+""",
+    },
+}
+
+
+def render_static_page(slug, title, content_html):
+    body = render_head(title, f"{title} — {SITE_NAME}.", f"/{slug}/")
+    body += f'<body class="subpage">\n{render_header()}\n'
+    body += '<main class="article-page" style="--accent:#2fbf9b">\n<article>\n'
+    body += f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><span>{esc(title)}</span></nav>\n'
+    body += f'<header class="article-hero"><h1>{esc(title)}</h1></header>\n'
+    body += f'<div class="article-body">{content_html}</div>\n'
+    body += "</article>\n</main>\n"
+    body += render_footer()
+    return body
+
+
 # --------------------------------------------------------------------------
 # Homepage
 # --------------------------------------------------------------------------
@@ -454,18 +571,27 @@ def build():
     write(OUTPUT_DIR / "archive" / "index.html", render_archive_search_page("archive", articles))
     write(OUTPUT_DIR / "search" / "index.html", render_archive_search_page("search", articles))
 
+    # Static pages (About, Contact, Privacy, Terms, Disclaimer) - required for AdSense
+    for slug, page in STATIC_PAGES.items():
+        write(OUTPUT_DIR / slug / "index.html",
+              render_static_page(slug, page["title"], page["content"]))
+
     # Homepage
     write(OUTPUT_DIR / "index.html", render_home_page(articles))
 
     # sitemap.xml
     urls = ["/", "/archive/", "/search/"] + [f"/category/{s}/" for s, _ in cluster_list()] + \
+           [f"/{slug}/" for slug in STATIC_PAGES] + \
            [f"/articles/{a['slug']}/" for a in articles]
     sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sitemap += "\n".join(f"<url><loc>{SITE_URL}{u}</loc></url>" for u in urls)
     sitemap += "\n</urlset>"
     write(OUTPUT_DIR / "sitemap.xml", sitemap)
 
-    print(f"Built {len(articles)} articles + homepage + 5 category pages + archive + search")
+    # ads.txt - required by Google AdSense for Authorized Digital Sellers verification
+    write(OUTPUT_DIR / "ads.txt", "google.com, pub-8508625480348460, DIRECT, f08c47fec0942fa0\n")
+
+    print(f"Built {len(articles)} articles + homepage + 5 category pages + archive + search + {len(STATIC_PAGES)} static pages")
     print(f"Output: {OUTPUT_DIR.resolve()}")
 
 
