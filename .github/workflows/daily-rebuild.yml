@@ -1,0 +1,23 @@
+name: Daily site rebuild
+
+# Triggers a fresh Netlify deploy once a day. The build itself (see
+# netlify.toml) runs generate_site.py, which fetches the LIVE Blogger
+# Atom feed at build time — so any new post published since the last
+# build gets picked up automatically, with no repo changes needed here.
+
+on:
+  schedule:
+    - cron: "30 21 * * *"   # 03:00 IST daily (21:30 UTC previous day)
+  workflow_dispatch: {}       # lets you trigger it manually from the Actions tab
+
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Netlify build hook
+        run: |
+          if [ -z "${{ secrets.NETLIFY_BUILD_HOOK }}" ]; then
+            echo "NETLIFY_BUILD_HOOK secret is not set. See README for setup." >&2
+            exit 1
+          fi
+          curl -sf -X POST "${{ secrets.NETLIFY_BUILD_HOOK }}"
