@@ -1,0 +1,14 @@
+[build]
+  command = "pip install -r requirements.txt && python3 generate_site.py"
+  publish = "dist"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# Redirect the old teaser/Blogger-jump pattern if any external links still
+# point at the previous stub-page paths - safe no-op if none exist.
+[[redirects]]
+  from = "/articles/*/index.html"
+  to = "/articles/:splat/"
+  status = 301
+  force = false

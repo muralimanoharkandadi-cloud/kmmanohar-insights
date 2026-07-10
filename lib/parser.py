@@ -13,7 +13,9 @@ ATOM = {
 
 def load_feed(source="feed.atom"):
     if source.startswith("http://") or source.startswith("https://"):
-        with urlopen(source) as response:
+        from urllib.request import Request
+        req = Request(source, headers={"User-Agent": "Mozilla/5.0 (compatible; KMManoharInsightsBot/1.0)"})
+        with urlopen(req, timeout=30) as response:
             return response.read().decode("utf-8")
     else:
         feed = Path(source)
@@ -26,8 +28,8 @@ def load_feed(source="feed.atom"):
             errors="ignore",
         )
 
-def load_entries():
-    root = ET.fromstring(load_feed())
+def load_entries(source="feed.atom"):
+    root = ET.fromstring(load_feed(source))
     return root.findall("atom:entry", ATOM)
 
 
@@ -38,8 +40,8 @@ def get_next_link(root):
      return None
 
 
-def load_all_entries():
-    xml = load_feed()
+def load_all_entries(source="feed.atom"):
+    xml = load_feed(source)
     root = ET.fromstring(xml)
 
     entries = []
@@ -252,10 +254,10 @@ def build_article(entry):
     }
 
 
-def load_articles():
+def load_articles(source="feed.atom"):
     articles = []
 
-    entries = load_all_entries()
+    entries = load_all_entries(source)
 
     print(f"Loaded {len(entries)} entries")
 
