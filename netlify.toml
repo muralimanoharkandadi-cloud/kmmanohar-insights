@@ -12,3 +12,17 @@
   to = "/articles/:splat/"
   status = 301
   force = false
+
+# Normalize article URLs missing a trailing slash (some old inbound links
+# and leftover in-article references point at the bare slug).
+[[redirects]]
+  from = "/articles/:slug"
+  to = "/articles/:slug/"
+  status = 301
+  force = false
+
+# Custom branded 404 page instead of Netlify's generic default.
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

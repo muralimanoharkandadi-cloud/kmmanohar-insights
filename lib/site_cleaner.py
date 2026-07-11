@@ -128,18 +128,40 @@ def deep_clean(html: str) -> str:
         if _has_class(h4, ("explore-desc",)):
             h4.decompose()
 
-    # General safety net: any link pointing at a root-relative path that
-    # isn't one of this site's known-good sections is almost certainly a
-    # leftover Blogger-era URL (old teaser slugs, old category paths) that
-    # will 404 on the new site structure. Unwrap it — keep the link text,
-    # drop the dead link — rather than leaving a broken "Explore More"-style
-    # link anywhere in the article.
+    # General safety net: unwrap any link that isn't demonstrably safe.
+    # Blogger content carries three kinds of dangerous hrefs left over from
+    # the old site structure:
+    #   1. root-relative paths to old pages ("/some-old-slug/")
+    #   2. bare relative paths with NO leading slash ("some-slug/") - these
+    #      resolve against the CURRENT article's URL, which is how you get
+    #      garbage nested paths like /articles/post-a/post-b/post-c/
+    #   3. absolute URLs pointing at this site's own old page structure
+    # Genuine external links (to research papers, news sources, etc.),
+    # mailto:, and same-page "#anchor" links are left untouched.
     KNOWN_GOOD_PREFIXES = ("/articles/", "/category/", "/archive/", "/search/",
                             "/about/", "/contact/", "/privacy-policy/",
                             "/terms-and-conditions/", "/disclaimer/", "/#")
+    SITE_DOMAIN = "kmmanoharinsights.netlify.app"
+
+    def _is_safe_href(href):
+        href = href.strip()
+        if href.startswith("#") or href.startswith("mailto:") or href.startswith("tel:"):
+            return True
+        if SITE_DOMAIN in href:
+            # self-referential absolute link - only safe if it matches a
+            # known-good current path
+            path = href.split(SITE_DOMAIN, 1)[1]
+            return path in ("", "/") or path.startswith(KNOWN_GOOD_PREFIXES)
+        if href.startswith("http://") or href.startswith("https://"):
+            return True  # genuine external reference - keep as-is
+        if href.startswith("/"):
+            return href.startswith(KNOWN_GOOD_PREFIXES)
+        # anything else is a bare relative path with no leading slash or
+        # protocol - always unsafe, this is the main bug class
+        return False
+
     for a in soup.find_all("a", href=True):
-        href = a["href"]
-        if href.startswith("/") and not href.startswith(KNOWN_GOOD_PREFIXES):
+        if not _is_safe_href(a["href"]):
             a.unwrap()
 
     # Drop a standalone "Visit Us on: https://..." promo line if it survived

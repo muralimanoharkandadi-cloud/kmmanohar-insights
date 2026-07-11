@@ -33,7 +33,7 @@ LIVE_FEED_URL = "https://kmmanohar1602.blogspot.com/feeds/posts/default?alt=atom
 FEED_SOURCE = os.environ.get("FEED_SOURCE", LIVE_FEED_URL)
 
 OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "dist"))
-STATIC_FILES = ["styles.css", "app.js"]  # copied as-is into OUTPUT_DIR root
+STATIC_FILES = ["styles.css", "app.js", "favicon.ico", "robots.txt"]  # copied as-is into OUTPUT_DIR root
 
 
 # --------------------------------------------------------------------------
@@ -157,6 +157,7 @@ def render_head(title, description, canonical_path, og_image=None, extra_schema=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{SITE_URL}{canonical_path}">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <title>{esc(title)} | {SITE_NAME}</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{SITE_NAME}">
@@ -249,6 +250,17 @@ def render_article_page(article, all_articles, index_by_id):
   "datePublished": {json.dumps(article["published"])},
   "dateModified": {json.dumps(article["updated"] or article["published"])},
   "url": "{SITE_URL}/articles/{article['slug']}/"
+}}
+</script>
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Home", "item": "{SITE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": {json.dumps(cluster_name)}, "item": "{SITE_URL}/category/{cluster_slug}/"}},
+    {{"@type": "ListItem", "position": 3, "name": {json.dumps(article["title"])}, "item": "{SITE_URL}/articles/{article['slug']}/"}}
+  ]
 }}
 </script>"""
 
@@ -453,6 +465,24 @@ def render_static_page(slug, title, content_html):
     return body
 
 
+def render_404_page():
+    body = render_head("Page Not Found", f"This page doesn't exist on {SITE_NAME}.", "/404.html")
+    body += f'<body class="subpage">\n{render_header()}\n'
+    body += '<main class="article-page" style="--accent:#2fbf9b">\n<article>\n'
+    body += """<header class="article-hero" style="text-align:center">
+<p class="kicker" style="justify-content:center"><span></span> 404</p>
+<h1>This signal was lost.</h1>
+<p class="byline">The page you're looking for doesn't exist, or the link may be outdated.</p>
+</header>
+<div class="article-body" style="text-align:center">
+<p><a class="source-cta" href="/">Back to the homepage</a></p>
+</div>
+"""
+    body += "</article>\n</main>\n"
+    body += render_footer()
+    return body
+
+
 # --------------------------------------------------------------------------
 # Homepage
 # --------------------------------------------------------------------------
@@ -553,6 +583,9 @@ def build():
     if Path("assets").exists():
         shutil.copytree("assets", OUTPUT_DIR / "assets", dirs_exist_ok=True)
 
+    if Path(".well-known").exists():
+        shutil.copytree(".well-known", OUTPUT_DIR / ".well-known", dirs_exist_ok=True)
+
     articles = load_and_prepare()
     index_by_id = {a["id"]: i for i, a in enumerate(articles)}
 
@@ -587,6 +620,9 @@ def build():
     sitemap += "\n".join(f"<url><loc>{SITE_URL}{u}</loc></url>" for u in urls)
     sitemap += "\n</urlset>"
     write(OUTPUT_DIR / "sitemap.xml", sitemap)
+
+    # Custom 404 page (Netlify auto-detects /404.html at the publish root)
+    write(OUTPUT_DIR / "404.html", render_404_page())
 
     # ads.txt - required by Google AdSense for Authorized Digital Sellers verification
     write(OUTPUT_DIR / "ads.txt", "google.com, pub-8508625480348460, DIRECT, f08c47fec0942fa0\n")
