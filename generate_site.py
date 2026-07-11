@@ -491,7 +491,7 @@ def render_home_page(articles):
 <h2>K M Manohar</h2>
 <h3>Independent Sci-Tech Writer &amp; Research Curator</h3>
 <p>K M Manohar explains breakthrough discoveries that are shaping the future of technology — across AI, quantum computing, biotech, materials science, and beyond.</p>
-<a href="https://kmmanohar1602.blogspot.com/">Read the journal</a>
+<a href="/about/">More about this journal &rarr;</a>
 </div>
 <div class="principles">
 <p><span>01</span>Signal over noise</p>
