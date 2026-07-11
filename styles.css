@@ -1343,6 +1343,19 @@ footer small {
 /* ===== Long-form article body: headings, lists, TOC, explore-more, author card =====
    Added to support fully self-hosted long-form articles (previously only teaser + source-cta). */
 
+.article-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin: 8px auto
+}
+
+.article-body .separator {
+    text-align: center;
+    margin: 30px 0
+}
+
 .article-body h2 {
     font: 600 32px/1.2 "Newsreader";
     letter-spacing: -.5px;

@@ -95,8 +95,13 @@ def deep_clean(html: str) -> str:
     # template this is immediately followed by the "Visit Us on:" promo
     # line and a duplicate About the Author section, none of which should
     # appear (this generator renders its own related-articles + author box).
-    for heading in soup.find_all(["h2", "h3"]):
-        if heading.get_text(" ", strip=True) == "Explore More":
+    # Matched fuzzily (case-insensitive, ignoring emoji/punctuation) since
+    # different drafting sessions phrased this heading slightly differently
+    # ("Explore More", "🔍 Explore More", "Explore More ↗", etc.).
+    EXPLORE_MORE_RE = re.compile(r"explore\s*more", re.I)
+    for heading in soup.find_all(["h2", "h3", "h4"]):
+        heading_text = heading.get_text(" ", strip=True)
+        if EXPLORE_MORE_RE.search(heading_text) and len(heading_text) < 40:
             for sib in list(heading.find_next_siblings()):
                 sib.decompose()
             heading.decompose()
@@ -122,6 +127,20 @@ def deep_clean(html: str) -> str:
     for h4 in soup.find_all("h4"):
         if _has_class(h4, ("explore-desc",)):
             h4.decompose()
+
+    # General safety net: any link pointing at a root-relative path that
+    # isn't one of this site's known-good sections is almost certainly a
+    # leftover Blogger-era URL (old teaser slugs, old category paths) that
+    # will 404 on the new site structure. Unwrap it — keep the link text,
+    # drop the dead link — rather than leaving a broken "Explore More"-style
+    # link anywhere in the article.
+    KNOWN_GOOD_PREFIXES = ("/articles/", "/category/", "/archive/", "/search/",
+                            "/about/", "/contact/", "/privacy-policy/",
+                            "/terms-and-conditions/", "/disclaimer/", "/#")
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if href.startswith("/") and not href.startswith(KNOWN_GOOD_PREFIXES):
+            a.unwrap()
 
     # Drop a standalone "Visit Us on: https://..." promo line if it survived
     for div in soup.find_all(["div", "p"]):

@@ -29,7 +29,7 @@ BLOGSPOT_URL = "https://kmmanohar1602.blogspot.com/"
 # Live Blogger Atom feed (paginates automatically via lib.parser's rel="next"
 # handling). Overridable via FEED_SOURCE env var for local/offline testing
 # against the committed feed.atom snapshot.
-LIVE_FEED_URL = "https://kmmanohar1602.blogspot.com/feeds/posts/default?alt=atom&max-results=150"
+LIVE_FEED_URL = "https://kmmanohar1602.blogspot.com/feeds/posts/default?alt=atom&max-results=10"
 FEED_SOURCE = os.environ.get("FEED_SOURCE", LIVE_FEED_URL)
 
 OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "dist"))

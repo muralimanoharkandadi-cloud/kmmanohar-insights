@@ -89,11 +89,14 @@ def load_all_entries(source="feed.atom"):
 
         print(f"  -> {len(page_entries)} entries on this page, {new_on_this_page} new, {len(entries)} total so far")
 
-        if len(page_entries) < max_results or new_on_this_page == 0:
+        if new_on_this_page == 0:
+            # Either a genuinely empty page (end of feed) or every entry on
+            # this page was already seen (defensive stop against a loop).
             break
 
         start_index += max_results
 
+    print(f"Pagination complete: {len(entries)} unique entries loaded")
     return entries
 
 
