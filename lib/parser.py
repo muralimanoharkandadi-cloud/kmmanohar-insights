@@ -80,7 +80,9 @@ def load_all_entries(source="feed.atom"):
         new_on_this_page = 0
         for entry in page_entries:
             entry_id = entry.findtext("atom:id", default=None, namespaces=ATOM)
+            entry_title = entry.findtext("atom:title", default="(no title)", namespaces=ATOM)
             if entry_id and entry_id in seen_ids:
+                print(f"    SKIPPED (duplicate id): {entry_title}")
                 continue
             if entry_id:
                 seen_ids.add(entry_id)

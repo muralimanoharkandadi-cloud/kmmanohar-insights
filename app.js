@@ -78,3 +78,88 @@ if (signupForm) {
     note.textContent = `Thank you - the next insight will find its way to ${email.value}.`;
   });
 }
+
+// --- Engagement bar: Like / Comment / Follow / Share -----------------------
+const likeBtn = document.querySelector('[data-action="like"]');
+if (likeBtn) {
+  const slug = likeBtn.dataset.slug;
+  const countEl = likeBtn.querySelector('[data-like-count]');
+  const likedKey = `liked:${slug}`;
+  const alreadyLiked = localStorage.getItem(likedKey) === '1';
+  if (alreadyLiked) likeBtn.classList.add('is-active');
+
+  // Try to fetch the real shared count from the backend; fall back to
+  // showing nothing (button still works, just without a visible number)
+  // if the function isn't deployed/reachable yet.
+  fetch(`/.netlify/functions/like?slug=${encodeURIComponent(slug)}`)
+    .then((r) => (r.ok ? r.json() : null))
+    .then((data) => {
+      if (data && typeof data.count === 'number' && countEl) {
+        countEl.textContent = data.count > 0 ? data.count : '';
+      }
+    })
+    .catch(() => {});
+
+  likeBtn.addEventListener('click', () => {
+    if (localStorage.getItem(likedKey) === '1') return; // one like per visitor
+    localStorage.setItem(likedKey, '1');
+    likeBtn.classList.add('is-active');
+
+    fetch(`/.netlify/functions/like?slug=${encodeURIComponent(slug)}`, { method: 'POST' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (data && typeof data.count === 'number' && countEl) {
+          countEl.textContent = data.count;
+        } else if (countEl && !countEl.textContent) {
+          countEl.textContent = '1'; // backend unavailable - show a local-only count
+        }
+      })
+      .catch(() => {
+        if (countEl && !countEl.textContent) countEl.textContent = '1';
+      });
+  });
+}
+
+const commentBtn = document.querySelector('[data-action="comment"]');
+if (commentBtn) {
+  commentBtn.addEventListener('click', () => {
+    const target = document.querySelector('#comments');
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+const followBtn = document.querySelector('[data-action="follow"]');
+if (followBtn) {
+  followBtn.addEventListener('click', () => {
+    window.location.href = '/#newsletter';
+  });
+}
+
+const shareBtn = document.querySelector('[data-action="share"]');
+if (shareBtn) {
+  shareBtn.addEventListener('click', async () => {
+    const shareData = {
+      title: shareBtn.dataset.title || document.title,
+      url: window.location.href,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch (err) {
+        // user cancelled the share sheet - no action needed
+      }
+    } else if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        const label = shareBtn.querySelector('span:not(.engage-count)');
+        if (label) {
+          const original = label.textContent;
+          label.textContent = 'Copied!';
+          setTimeout(() => { label.textContent = original; }, 1800);
+        }
+      } catch (err) {
+        // clipboard write failed silently - nothing more we can do here
+      }
+    }
+  });
+}

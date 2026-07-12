@@ -93,50 +93,74 @@ def deep_clean(html: str) -> str:
     # generator strips inline styles, they'd otherwise survive as bare
     # unstyled paragraphs sitting awkwardly in the middle of the article
     # (right after the opening hook, and again after the hero image).
+    #
+    # This is written defensively because different drafting sessions
+    # produced inconsistent/sometimes malformed markup here - in some posts
+    # the box heading ends up merged into the same block as the preceding
+    # hook quote (a missing closing tag upstream), so a naive "decompose the
+    # whole containing <p>/<div>" approach can either fail to match at all
+    # or, worse, delete real content sharing that block. Instead: walk up
+    # past inline wrapper tags to find the nearest block container, only
+    # decompose that container wholesale if it holds nothing substantial
+    # besides the marker text itself, and locate the following Health:/
+    # Finance:/Relationships: lines via forward document-order traversal
+    # (find_next) rather than assuming a strict parent/sibling relationship.
     LIFE_SIGNAL_MARKERS = ("3 Life Signals You Shouldn't Ignore", "Tweak for the Day")
-
-    def _contains_marker(tag):
-        if tag.name in ("script", "style"):
-            return False
-        text = tag.get_text(" ", strip=True)
-        return any(marker in text for marker in LIFE_SIGNAL_MARKERS)
+    INLINE_WRAPPERS = ("strong", "em", "b", "i", "span", "font", "u")
 
     for marker in LIFE_SIGNAL_MARKERS:
-        heading = soup.find(string=lambda t: t and marker in t)
-        while heading:
-            # find the smallest block-level ancestor that contains this
-            # marker text and nothing but this box's content
-            container = heading.find_parent(["div", "p", "li"])
-            if container is None:
-                heading.extract()
-                heading = soup.find(string=lambda t: t and marker in t)
-                continue
+        while True:
+            node = soup.find(string=lambda t: t and marker in t)
+            if node is None:
+                break
 
-            if container.name == "div":
-                # the whole teal box is wrapped in a div - remove it whole
-                container.decompose()
+            block = node.parent
+            while block is not None and getattr(block, "name", None) in INLINE_WRAPPERS:
+                block = block.parent
+
+            # Collect up to 3 following Health:/Finance:/Relationships: lines,
+            # walking forward in document order regardless of nesting depth.
+            removed_items = 0
+            search_from = block if block is not None else node
+            cursor = search_from.find_next(["p", "div", "li"]) if hasattr(search_from, "find_next") else None
+            item_candidates = []
+            while cursor is not None and removed_items < 3:
+                item_text = cursor.get_text(" ", strip=True)
+                if any(m in item_text for m in ("Health:", "Finance:", "Relationships:")):
+                    item_candidates.append(cursor)
+                    removed_items += 1
+                    cursor = cursor.find_next(["p", "div", "li"])
+                else:
+                    break
+            for item in item_candidates:
+                item.decompose()
+
+            # Remove the heading itself. If its block container holds
+            # nothing but the marker (plus a short emoji/label prefix),
+            # remove the whole container; otherwise it's sharing space with
+            # unrelated real content (e.g. a merged hook quote), so only
+            # strip the marker text run and leave the rest intact.
+            if block is not None and block.name in ("div", "p", "li", "h2", "h3", "h4"):
+                block_text = block.get_text(" ", strip=True)
+                if len(block_text) <= len(marker) + 20:
+                    block.decompose()
+                else:
+                    # The marker is merged into the same text node as real
+                    # content (e.g. a missing closing tag upstream fused the
+                    # hook quote and the box heading together) - surgically
+                    # remove just the marker substring rather than deleting
+                    # the whole node, which would take the real text with it.
+                    cleaned = str(node).replace(marker, "").strip()
+                    if cleaned:
+                        node.replace_with(cleaned)
+                    else:
+                        node.extract()
             else:
-                # heading is its own <p>; the 3 numbered lines that follow
-                # are separate sibling <p> tags, each starting with
-                # "Health:", "Finance:", or "Relationships:" - remove only
-                # those, stopping the moment a non-matching paragraph appears
-                siblings_to_remove = []
-                sib = container.find_next_sibling()
-                count = 0
-                while sib is not None and count < 3:
-                    if sib.name not in ("p", "div"):
-                        break
-                    sib_text = sib.get_text(" ", strip=True)
-                    if not any(marker_text in sib_text for marker_text in ("Health:", "Finance:", "Relationships:")):
-                        break
-                    siblings_to_remove.append(sib)
-                    sib = sib.find_next_sibling()
-                    count += 1
-                for s in siblings_to_remove:
-                    s.decompose()
-                container.decompose()
-
-            heading = soup.find(string=lambda t: t and marker in t)
+                cleaned = str(node).replace(marker, "").strip()
+                if cleaned:
+                    node.replace_with(cleaned)
+                else:
+                    node.extract()
 
     for heading in soup.find_all(["h2", "h3", "h4", "p"]):
         if heading.get_text(" ", strip=True) == "Signal Depth Navigator":

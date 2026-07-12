@@ -26,6 +26,20 @@ SITE_URL = "https://kmmanoharinsights.netlify.app"
 SITE_NAME = "K M Manohar Insights"
 BLOGSPOT_URL = "https://kmmanohar1602.blogspot.com/"
 
+SOCIAL_LINKS = [
+    ("LinkedIn", "https://www.linkedin.com/in/k-m-manohar-50184250/"),
+    ("Facebook", "https://www.facebook.com/kmmanoharyahoo.co.uk"),
+    ("Instagram", "https://www.instagram.com/kmmanoharyahoo.co.uk/"),
+    ("X", "https://x.com/KandadiMurali"),
+    ("Reddit", "https://www.reddit.com/user/upstairs_medicine375/m/k_m_manohar/"),
+]
+
+# GISCUS_REPO_ID and GISCUS_CATEGORY_ID must be filled in once Giscus is set
+# up on the repo (see README) - until then the comments section renders a
+# friendly placeholder instead of a broken embed.
+GISCUS_REPO_ID = ""
+GISCUS_CATEGORY_ID = ""
+
 # Live Blogger Atom feed (paginates automatically via lib.parser's rel="next"
 # handling). Overridable via FEED_SOURCE env var for local/offline testing
 # against the committed feed.atom snapshot.
@@ -141,6 +155,17 @@ def load_and_prepare():
             "date_display": fmt_date(a["published"]),
         })
 
+    slug_counts = {}
+    for a in articles:
+        slug_counts[a["slug"]] = slug_counts.get(a["slug"], 0) + 1
+    collisions = {slug: count for slug, count in slug_counts.items() if count > 1}
+    if collisions:
+        print(f"WARNING: {len(collisions)} slug collision(s) detected - these posts will overwrite")
+        print("         each other's output page since they share the same URL:")
+        for slug, count in collisions.items():
+            titles = [a["title"] for a in articles if a["slug"] == slug]
+            print(f"  /{slug}/ ({count}x): {titles}")
+
     return articles
 
 
@@ -198,6 +223,57 @@ def render_footer():
 # --------------------------------------------------------------------------
 # Article page
 # --------------------------------------------------------------------------
+
+ICON_HEART = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>'
+ICON_COMMENT = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/></svg>'
+ICON_FOLLOW = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>'
+ICON_SHARE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>'
+
+
+def render_engagement_bar(article):
+    social_html = "".join(
+        f'<a href="{url}" target="_blank" rel="noopener" aria-label="{name}">{name[:2].upper()}</a>'
+        for name, url in SOCIAL_LINKS
+    )
+    return f"""<section class="engagement-bar">
+<div class="engagement-prompt">
+<h2>Enjoyed this article?</h2>
+<p>If this article helped you learn something new, support K M Manohar Insights.</p>
+</div>
+<div class="engagement-actions">
+<button class="engage-btn" data-action="like" data-slug="{esc(article['slug'])}">{ICON_HEART}<span>Like</span><span class="engage-count" data-like-count></span></button>
+<button class="engage-btn" data-action="comment">{ICON_COMMENT}<span>Comment</span></button>
+<button class="engage-btn" data-action="follow">{ICON_FOLLOW}<span>Follow</span></button>
+<button class="engage-btn" data-action="share" data-title="{esc(article['title'])}">{ICON_SHARE}<span>Share</span></button>
+</div>
+<div class="social-links">
+<span>Connect on Social Media</span>
+{social_html}
+</div>
+</section>"""
+
+
+def render_comments_section():
+    if GISCUS_REPO_ID and GISCUS_CATEGORY_ID:
+        embed = f"""<script src="https://giscus.app/client.js"
+data-repo="muralimanoharkandadi-cloud/kmmanohar-insights"
+data-repo-id="{GISCUS_REPO_ID}"
+data-category="Announcements"
+data-category-id="{GISCUS_CATEGORY_ID}"
+data-mapping="pathname"
+data-strict="0"
+data-reactions-enabled="1"
+data-emit-metadata="0"
+data-input-position="bottom"
+data-theme="light"
+data-lang="en"
+crossorigin="anonymous"
+async>
+</script>"""
+    else:
+        embed = '<p class="comments-placeholder">Comments are being set up — check back soon.</p>'
+    return f'<section id="comments" class="comments-section"><h2>Discussion</h2>{embed}</section>'
+
 
 def render_article_page(article, all_articles, index_by_id):
     cluster_slug, cluster_name = article["cluster_slug"], article["cluster_name"]
@@ -285,6 +361,8 @@ def render_article_page(article, all_articles, index_by_id):
     body += tags_html + "\n"
     body += f'<section class="about-author"><h2>About the Author</h2><p><strong>K M Manohar</strong> is an independent Sci-Tech writer and research curator who explains breakthrough discoveries that are shaping the future of technology.</p></section>\n'
     body += "</div>\n"  # .article-body
+    body += render_engagement_bar(article) + "\n"
+    body += render_comments_section() + "\n"
     body += related_html + "\n"
     body += prev_next_html + "\n"
     body += "</article>\n</main>\n"

@@ -1557,3 +1557,139 @@ footer small {
         padding: 22px 20px
     }
 }
+
+/* ===== Engagement bar: Like / Comment / Follow / Share ===== */
+.engagement-bar {
+    margin: 46px 0;
+    padding: 30px 34px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 16px
+}
+
+.engagement-prompt h2 {
+    font: 600 22px "Newsreader";
+    color: var(--ink);
+    margin: 0 0 6px
+}
+
+.engagement-prompt p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0 0 22px
+}
+
+.engagement-actions {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px
+}
+
+.engage-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    color: var(--ink);
+    font: 600 13px "DM Sans";
+    cursor: pointer;
+    transition: .2s
+}
+
+.engage-btn svg {
+    flex-shrink: 0
+}
+
+.engage-btn:hover {
+    border-color: var(--accent,var(--electric));
+    color: var(--accent,var(--electric));
+    transform: translateY(-1px)
+}
+
+.engage-btn.is-active {
+    background: var(--accent,var(--electric));
+    border-color: var(--accent,var(--electric));
+    color: #fff
+}
+
+.engage-btn .engage-count {
+    font: 700 11px "DM Sans";
+    opacity: .75
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line)
+}
+
+.social-links span {
+    font: 700 9px "DM Sans";
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-right: 4px
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font: 700 10px "DM Sans";
+    transition: .2s
+}
+
+.social-links a:hover {
+    background: var(--accent,var(--electric));
+    border-color: var(--accent,var(--electric));
+    color: #fff
+}
+
+@media(max-width: 640px) {
+    .engagement-bar {
+        padding: 24px 20px
+    }
+
+    .engagement-actions {
+        grid-template-columns: repeat(2,1fr)
+    }
+
+    .engage-btn span:not(.engage-count) {
+        display: inline
+    }
+}
+
+/* ===== Comments (Giscus) ===== */
+.comments-section {
+    margin: 46px 0
+}
+
+.comments-section h2 {
+    font: 600 26px "Newsreader";
+    color: var(--ink);
+    margin: 0 0 20px
+}
+
+.comments-placeholder {
+    color: var(--muted);
+    font-size: 14px;
+    padding: 24px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    text-align: center
+}
