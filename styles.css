@@ -2,6 +2,7 @@
     --navy: #020817;
     --blue: #071a54;
     --electric: #176bff;
+    --electric-text: #1255cc;
     --cyan: #3fdaf2;
     --violet: #5426dc;
     --paper: #f4f6fb;
@@ -315,7 +316,7 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
 }
 
 .eyebrow {
-    color: var(--electric);
+    color: var(--electric-text);
     margin: 0 0 16px
 }
 
@@ -340,9 +341,9 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
 
 .analyst-copy a {
     display: inline-block;
-    border-bottom: 1px solid var(--electric);
+    border-bottom: 1px solid var(--electric-text);
     padding-bottom: 5px;
-    color: var(--electric);
+    color: var(--electric-text);
     font: 700 10px "DM Sans";
     text-transform: uppercase;
     letter-spacing: 1px
@@ -362,7 +363,7 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
 
 .principles span {
     font: 700 9px "DM Sans";
-    color: var(--electric);
+    color: var(--electric-text);
     margin-right: 16px
 }
 
@@ -522,7 +523,7 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
 
 .topic-list span {
     font: 600 9px "DM Sans";
-    color: #687796
+    color: #7788ac
 }
 
 .topic-list h3 {
@@ -569,16 +570,22 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
     font: 700 9px "DM Sans";
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--electric)
+    color: var(--electric-text)
 }
 
 .search-box input {
     width: 100%;
     border: 0;
+    border-bottom: 2px solid transparent;
     background: transparent;
     padding: 9px 0 2px;
     outline: 0;
-    font: 500 20px "Newsreader"
+    font: 500 20px "Newsreader";
+    transition: border-color .15s
+}
+
+.search-box input:focus {
+    border-bottom-color: var(--accent,var(--electric))
 }
 
 .filters {
@@ -636,7 +643,7 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
     font: 700 8px "DM Sans";
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--electric)
+    color: var(--electric-text)
 }
 
 .archive-item i {
@@ -689,7 +696,12 @@ h1 em,.section-heading h2 em,.topic-intro h2 em {
 
 .signup-form>div {
     display: flex;
-    border-bottom: 1px solid rgba(255,255,255,.45)
+    border-bottom: 1px solid rgba(255,255,255,.45);
+    transition: border-color .15s
+}
+
+.signup-form>div:focus-within {
+    border-bottom-color: var(--cyan)
 }
 
 .signup-form input {
@@ -1717,4 +1729,39 @@ footer small {
     border: 1px solid var(--line);
     border-radius: 12px;
     text-align: center
+}
+
+/* ===== Accessibility: skip link + consistent keyboard focus ===== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 12px;
+    z-index: 100;
+    background: var(--electric);
+    color: #fff;
+    font: 700 13px "DM Sans";
+    padding: 12px 20px;
+    border-radius: 0 0 8px 8px;
+    transition: top .15s
+}
+
+.skip-link:focus {
+    top: 0
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 3px;
+    border-radius: 2px
+}
+
+/* the underline-style form inputs above already provide their own visible
+   focus treatment via border-color, so the generic ring would be redundant
+   there - suppressed only for those two specific fields */
+.search-box input:focus-visible,
+.signup-form input:focus-visible {
+    outline: none
 }

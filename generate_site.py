@@ -208,7 +208,8 @@ def render_head(title, description, canonical_path, og_image=None, extra_schema=
 
 def render_header():
     clusters = cluster_list()
-    return """<header class="site-header">
+    return """<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
 <a class="brand" href="/" aria-label="K M Manohar Insights home"><span class="brand-orbit">KM</span><span>K M Manohar <b>Insights</b></span></a>
 <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><i>Menu</i></button>
 <nav class="main-nav" id="main-nav" aria-label="Main navigation">
@@ -352,7 +353,7 @@ def render_article_page(article, all_articles, index_by_id):
         og_image=hero_image, extra_schema=schema
     )
     body += f'<body class="subpage">\n{render_header()}\n'
-    body += f'<main class="article-page" style="--accent:#2fbf9b">\n<article>\n'
+    body += f'<main class="article-page" id="main-content" style="--accent:#2fbf9b">\n<article>\n'
     body += f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><a href="/category/{cluster_slug}/">{esc(cluster_name)}</a><i>/</i><span>Article {article["number"]}</span></nav>\n'
     body += f"""<header class="article-hero">
 <p class="kicker"><span></span> {esc(cluster_name)} &middot; Article {article["number"]}</p>
@@ -398,7 +399,7 @@ def render_category_page(cluster_slug, cluster_name, members):
         f"/category/{cluster_slug}/"
     )
     body += f'<body class="subpage">\n{render_header()}\n'
-    body += f'<main class="collection-page" style="--accent:#2fbf9b">\n'
+    body += f'<main class="collection-page" id="main-content" style="--accent:#2fbf9b">\n'
     body += f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><span>{esc(cluster_name)}</span></nav>\n'
     body += f"""<header class="collection-hero">
 <p class="eyebrow">Category</p>
@@ -422,7 +423,7 @@ def render_archive_search_page(kind, articles):
     title = "Search" if is_search else "Archive"
     body = render_head(title, f"{title} the full {SITE_NAME} catalog.", f"/{kind}/")
     body += f'<body class="subpage">\n{render_header()}\n'
-    body += f'<main class="collection-page" style="--accent:#2fbf9b">\n'
+    body += f'<main class="collection-page" id="main-content" style="--accent:#2fbf9b">\n'
     body += f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><span>{title}</span></nav>\n'
     body += f"""<header class="collection-hero">
 <p class="eyebrow">{title}</p>
@@ -541,7 +542,7 @@ STATIC_PAGES = {
 def render_static_page(slug, title, content_html):
     body = render_head(title, f"{title} — {SITE_NAME}.", f"/{slug}/")
     body += f'<body class="subpage">\n{render_header()}\n'
-    body += '<main class="article-page" style="--accent:#2fbf9b">\n<article>\n'
+    body += '<main class="article-page" id="main-content" style="--accent:#2fbf9b">\n<article>\n'
     body += f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><span>{esc(title)}</span></nav>\n'
     body += f'<header class="article-hero"><h1>{esc(title)}</h1></header>\n'
     body += f'<div class="article-body">{content_html}</div>\n'
@@ -553,7 +554,7 @@ def render_static_page(slug, title, content_html):
 def render_404_page():
     body = render_head("Page Not Found", f"This page doesn't exist on {SITE_NAME}.", "/404.html")
     body += f'<body class="subpage">\n{render_header()}\n'
-    body += '<main class="article-page" style="--accent:#2fbf9b">\n<article>\n'
+    body += '<main class="article-page" id="main-content" style="--accent:#2fbf9b">\n<article>\n'
     body += """<header class="article-hero" style="text-align:center">
 <p class="kicker" style="justify-content:center"><span></span> 404</p>
 <h1>This signal was lost.</h1>
@@ -596,6 +597,7 @@ def render_home_page(articles):
     )
     body += '<body>\n'
     body += render_header()
+    body += '<main id="main-content">\n'
     body += f"""<section class="hero">
 <div class="stars"></div>
 <div class="hero-content">
@@ -665,6 +667,7 @@ def render_home_page(articles):
 </form>
 </section>
 """
+    body += "</main>\n"
     body += render_footer()
     return body
 
