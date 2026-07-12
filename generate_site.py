@@ -188,6 +188,7 @@ def render_head(title, description, canonical_path, og_image=None, extra_schema=
 <meta name="description" content="{esc(description)}">
 <link rel="canonical" href="{SITE_URL}{canonical_path}">
 <link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="alternate" type="application/rss+xml" title="{esc(SITE_NAME)}" href="{SITE_URL}/feed.xml">
 <title>{esc(title)} | {SITE_NAME}</title>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{SITE_NAME}">
@@ -220,7 +221,7 @@ def render_header():
 
 
 def render_footer():
-    return f"""<footer><a class="brand" href="/"><span class="brand-orbit">KM</span><span>K M Manohar <b>Insights</b></span></a><p>Where ideas meet impact.</p><div><a href="/#stories">Latest</a><a href="/archive/">Archive</a><a href="/search/">Search</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms-and-conditions/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="{BLOGSPOT_URL}">Blogspot</a></div><small>&copy; <span id="year">2026</span> {SITE_NAME}</small></footer>
+    return f"""<footer><a class="brand" href="/"><span class="brand-orbit">KM</span><span>K M Manohar <b>Insights</b></span></a><p>Where ideas meet impact.</p><div><a href="/#stories">Latest</a><a href="/archive/">Archive</a><a href="/search/">Search</a><a href="/feed.xml">RSS</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms-and-conditions/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="{BLOGSPOT_URL}">Blogspot</a></div><small>&copy; <span id="year">2026</span> {SITE_NAME}</small></footer>
 <script src="/app.js"></script>
 </body>
 </html>"""
@@ -551,6 +552,49 @@ def render_static_page(slug, title, content_html):
     return body
 
 
+def rfc822(iso_string):
+    """Convert an ISO 8601 date to RFC 822 format, required by the RSS spec."""
+    try:
+        dt = datetime.fromisoformat(iso_string)
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.strftime("%a, %d %b %Y %H:%M:%S %z")
+    except (ValueError, TypeError):
+        return ""
+
+
+def render_rss_feed(articles):
+    # Most recent 40 articles - a feed reader doesn't need the full archive,
+    # and a smaller payload keeps this fast to fetch/parse for subscribers.
+    latest = sorted(articles, key=lambda a: a["published"], reverse=True)[:40]
+
+    items = []
+    for a in latest:
+        description = esc(a["summary"])
+        items.append(f"""<item>
+<title>{esc(a['title'])}</title>
+<link>{SITE_URL}/articles/{a['slug']}/</link>
+<guid isPermaLink="true">{SITE_URL}/articles/{a['slug']}/</guid>
+<pubDate>{rfc822(a['published'])}</pubDate>
+<category>{esc(a['cluster_name'])}</category>
+<description>{description}</description>
+</item>""")
+
+    build_date = rfc822(datetime.now(timezone.utc).isoformat())
+    return f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+<title>{SITE_NAME}</title>
+<link>{SITE_URL}/</link>
+<description>Independent analysis across artificial intelligence, quantum technology, advanced materials, aerospace, biotechnology and clean energy.</description>
+<language>en</language>
+<lastBuildDate>{build_date}</lastBuildDate>
+<atom:link href="{SITE_URL}/feed.xml" rel="self" type="application/rss+xml"/>
+{''.join(items)}
+</channel>
+</rss>"""
+
+
 def render_404_page():
     body = render_head("Page Not Found", f"This page doesn't exist on {SITE_NAME}.", "/404.html")
     body += f'<body class="subpage">\n{render_header()}\n'
@@ -730,6 +774,9 @@ def build():
     sitemap += "\n".join(f"<url><loc>{SITE_URL}{u}</loc></url>" for u in urls)
     sitemap += "\n</urlset>"
     write(OUTPUT_DIR / "sitemap.xml", sitemap)
+
+    # RSS feed - real content-discovery mechanism for the Follow button
+    write(OUTPUT_DIR / "feed.xml", render_rss_feed(articles))
 
     # Custom 404 page (Netlify auto-detects /404.html at the publish root)
     write(OUTPUT_DIR / "404.html", render_404_page())
