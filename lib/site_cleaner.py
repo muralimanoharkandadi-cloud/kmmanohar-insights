@@ -87,6 +87,57 @@ def deep_clean(html: str) -> str:
     for tag in soup.find_all(_is_nav_artifact):
         tag.decompose()
 
+    # Remove the Signal Depth Navigator's TOP BOX ("3 Life Signals You
+    # Shouldn't Ignore") and BOTTOM BOX ("Tweak for the Day") content blocks.
+    # These are teal callout boxes in the Blogger template; once this
+    # generator strips inline styles, they'd otherwise survive as bare
+    # unstyled paragraphs sitting awkwardly in the middle of the article
+    # (right after the opening hook, and again after the hero image).
+    LIFE_SIGNAL_MARKERS = ("3 Life Signals You Shouldn't Ignore", "Tweak for the Day")
+
+    def _contains_marker(tag):
+        if tag.name in ("script", "style"):
+            return False
+        text = tag.get_text(" ", strip=True)
+        return any(marker in text for marker in LIFE_SIGNAL_MARKERS)
+
+    for marker in LIFE_SIGNAL_MARKERS:
+        heading = soup.find(string=lambda t: t and marker in t)
+        while heading:
+            # find the smallest block-level ancestor that contains this
+            # marker text and nothing but this box's content
+            container = heading.find_parent(["div", "p", "li"])
+            if container is None:
+                heading.extract()
+                heading = soup.find(string=lambda t: t and marker in t)
+                continue
+
+            if container.name == "div":
+                # the whole teal box is wrapped in a div - remove it whole
+                container.decompose()
+            else:
+                # heading is its own <p>; the 3 numbered lines that follow
+                # are separate sibling <p> tags, each starting with
+                # "Health:", "Finance:", or "Relationships:" - remove only
+                # those, stopping the moment a non-matching paragraph appears
+                siblings_to_remove = []
+                sib = container.find_next_sibling()
+                count = 0
+                while sib is not None and count < 3:
+                    if sib.name not in ("p", "div"):
+                        break
+                    sib_text = sib.get_text(" ", strip=True)
+                    if not any(marker_text in sib_text for marker_text in ("Health:", "Finance:", "Relationships:")):
+                        break
+                    siblings_to_remove.append(sib)
+                    sib = sib.find_next_sibling()
+                    count += 1
+                for s in siblings_to_remove:
+                    s.decompose()
+                container.decompose()
+
+            heading = soup.find(string=lambda t: t and marker in t)
+
     for heading in soup.find_all(["h2", "h3", "h4", "p"]):
         if heading.get_text(" ", strip=True) == "Signal Depth Navigator":
             heading.decompose()
