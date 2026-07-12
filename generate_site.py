@@ -27,18 +27,23 @@ SITE_NAME = "K M Manohar Insights"
 BLOGSPOT_URL = "https://kmmanohar1602.blogspot.com/"
 
 SOCIAL_LINKS = [
-    ("LinkedIn", "https://www.linkedin.com/in/k-m-manohar-50184250/"),
-    ("Facebook", "https://www.facebook.com/kmmanoharyahoo.co.uk"),
-    ("Instagram", "https://www.instagram.com/kmmanoharyahoo.co.uk/"),
-    ("X", "https://x.com/KandadiMurali"),
-    ("Reddit", "https://www.reddit.com/user/upstairs_medicine375/m/k_m_manohar/"),
+    ("LinkedIn", "Connect on LinkedIn", "https://www.linkedin.com/in/k-m-manohar-50184250/",
+     '<path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/>'),
+    ("Facebook", "Follow on Facebook", "https://www.facebook.com/kmmanoharyahoo.co.uk",
+     '<path d="M13.5 21v-7.9h2.65l.4-3.08h-3.05V8.05c0-.89.25-1.5 1.52-1.5h1.63V3.8c-.28-.04-1.25-.12-2.37-.12-2.35 0-3.96 1.43-3.96 4.06v2.27H7.66v3.08h2.66V21h3.18z"/>'),
+    ("Instagram", "Follow on Instagram", "https://www.instagram.com/kmmanoharyahoo.co.uk/",
+     '<path d="M12 8.4a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2zm0 5.94a2.34 2.34 0 1 1 0-4.68 2.34 2.34 0 0 1 0 4.68zm4.59-6.09a.84.84 0 1 1-1.68 0 .84.84 0 0 1 1.68 0zM20 7.35c-.05-1.1-.3-2.07-1.1-2.87-.8-.8-1.77-1.05-2.87-1.1C14.9 3.32 9.1 3.32 8 3.38c-1.1.05-2.06.3-2.87 1.1-.8.8-1.05 1.77-1.1 2.87C3.97 8.5 3.97 15.5 4.03 16.65c.05 1.1.3 2.07 1.1 2.87.81.8 1.77 1.05 2.87 1.1 1.13.06 6.93.06 8.06 0 1.1-.05 2.07-.3 2.87-1.1.8-.8 1.05-1.77 1.1-2.87.06-1.13.06-7.13 0-8.3zm-1.83 9.55a2.63 2.63 0 0 1-1.48 1.48c-1.02.4-3.45.31-4.69.31s-3.67.09-4.69-.31a2.63 2.63 0 0 1-1.48-1.48c-.4-1.02-.31-3.45-.31-4.69s-.09-3.67.31-4.69A2.63 2.63 0 0 1 7.31 5.6c1.02-.4 3.45-.31 4.69-.31s3.67-.09 4.69.31c.7.27 1.22.79 1.48 1.48.4 1.02.31 3.45.31 4.69s.09 3.67-.31 4.69z"/>'),
+    ("X", "Follow on X", "https://x.com/KandadiMurali",
+     '<path d="M13.6 10.6 20.4 3h-1.6l-5.9 6.6L8.2 3H3l7.1 10.1L3 21h1.6l6.2-7 5 7H21l-7.4-10.4zm-2.2 2.5-.7-1L5 4.2h2.5l4.6 6.5.7 1 6 8.4h-2.5l-4.9-6.9z"/>'),
+    ("Reddit", "Follow on Reddit", "https://www.reddit.com/user/upstairs_medicine375/m/k_m_manohar/",
+     '<path d="M22 12.3c0-1.2-1-2.2-2.2-2.2-.6 0-1.1.2-1.5.6-1.5-1-3.5-1.6-5.7-1.7l1-4.5 3.2.7c0 .9.7 1.6 1.6 1.6.9 0 1.6-.7 1.6-1.6s-.7-1.6-1.6-1.6c-.6 0-1.2.4-1.4.9L13.3 3c-.2 0-.3 0-.4.2l-1.1 5-.1.1c-2.2.1-4.3.7-5.8 1.7-.4-.4-.9-.6-1.5-.6C3.1 9.4 2 10.4 2 11.6c0 .8.5 1.6 1.2 2-.1.3-.1.6-.1.9 0 3 3.9 5.5 8.8 5.5s8.8-2.5 8.8-5.5c0-.3 0-.6-.1-.9.9-.3 1.4-1.1 1.4-2zM7.5 13.4c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5S9.8 15 9 15s-1.5-.7-1.5-1.6zm8.2 3.6c-.8.8-2.1 1.2-3.7 1.2s-2.9-.4-3.7-1.2c-.2-.1-.2-.4 0-.5.1-.2.4-.2.5 0 .6.6 1.7 1 3.2 1s2.6-.4 3.2-1c.1-.2.4-.2.5 0 .2.1.2.4 0 .5zm-.2-2.1c-.8 0-1.5-.7-1.5-1.5s.7-1.5 1.5-1.5 1.5.7 1.5 1.5-.7 1.5-1.5 1.5z"/>'),
 ]
 
 # GISCUS_REPO_ID and GISCUS_CATEGORY_ID must be filled in once Giscus is set
 # up on the repo (see README) - until then the comments section renders a
 # friendly placeholder instead of a broken embed.
-GISCUS_REPO_ID = ""
-GISCUS_CATEGORY_ID = ""
+GISCUS_REPO_ID = "R_kgDOTOsTGQ"
+GISCUS_CATEGORY_ID = "DIC_kwDOTOsTGc4DBByv"
 
 # Live Blogger Atom feed (paginates automatically via lib.parser's rel="next"
 # handling). Overridable via FEED_SOURCE env var for local/offline testing
@@ -232,8 +237,10 @@ ICON_SHARE = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke
 
 def render_engagement_bar(article):
     social_html = "".join(
-        f'<a href="{url}" target="_blank" rel="noopener" aria-label="{name}">{name[:2].upper()}</a>'
-        for name, url in SOCIAL_LINKS
+        f'<a href="{url}" target="_blank" rel="noopener" class="social-icon" data-tooltip="{tooltip}" aria-label="{tooltip}">'
+        f'<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">{svg_path}</svg>'
+        f'</a>'
+        for name, tooltip, url, svg_path in SOCIAL_LINKS
     )
     return f"""<section class="engagement-bar">
 <div class="engagement-prompt">
@@ -258,14 +265,14 @@ def render_comments_section():
         embed = f"""<script src="https://giscus.app/client.js"
 data-repo="muralimanoharkandadi-cloud/kmmanohar-insights"
 data-repo-id="{GISCUS_REPO_ID}"
-data-category="Announcements"
+data-category="General"
 data-category-id="{GISCUS_CATEGORY_ID}"
 data-mapping="pathname"
 data-strict="0"
 data-reactions-enabled="1"
 data-emit-metadata="0"
 data-input-position="bottom"
-data-theme="light"
+data-theme="preferred_color_scheme"
 data-lang="en"
 crossorigin="anonymous"
 async>
@@ -567,7 +574,19 @@ def render_404_page():
 
 def render_home_page(articles):
     latest = sorted(articles, key=lambda a: a["published"], reverse=True)
-    lead, *rest_bento = latest[:4]
+    lead = latest[0]
+
+    # Fill the remaining 4 slots with the most recent article from each of
+    # the other clusters, so the homepage always represents the full
+    # breadth of coverage rather than whatever happened to publish most
+    # recently (which could all be the same topic in a busy week).
+    other_cluster_slugs = [slug for slug, _ in cluster_list() if slug != lead["cluster_slug"]]
+    rest_bento = []
+    for slug in other_cluster_slugs:
+        candidate = next((a for a in latest if a["cluster_slug"] == slug), None)
+        if candidate:
+            rest_bento.append(candidate)
+
     clusters = cluster_list()
 
     body = render_head(
@@ -608,13 +627,23 @@ def render_home_page(articles):
 </div>
 </section>
 """
-    lead_card = f"""<a class="bento bento-lead" href="/articles/{lead['slug']}/"><img src="{esc(lead['hero_image'] or '')}" alt="{esc(lead['title'])}"><div class="bento-shade"></div><div><small>{esc(lead['cluster_name'])} &middot; Article {lead['number']}</small><h3>{esc(lead['title'])}</h3><p>{esc(lead['summary'][:110])}</p><b>Read insight &rarr;</b></div></a>"""
-    other_cards = "\n".join(
-        f"""<a class="bento{' bento-quantum' if i == 0 else ''}" href="/articles/{a['slug']}/"><img src="{esc(a['hero_image'] or '')}" alt="{esc(a['title'])}"><div class="bento-shade"></div><div><small>{esc(a['cluster_name'])} &middot; Article {a['number']}</small><h3>{esc(a['title'])}</h3><b>Read insight &rarr;</b></div></a>"""
-        for i, a in enumerate(rest_bento)
-    )
+    FALLBACK_CARD_IMAGE = "/assets/og-default.jpg"
+
+    def _bento_card(a, extra_class=""):
+        img = esc(a["hero_image"] or FALLBACK_CARD_IMAGE)
+        summary = esc(a["summary"][:110])
+        return (f'<a class="bento{extra_class}" href="/articles/{a["slug"]}/">'
+                f'<img src="{img}" alt="{esc(a["title"])}" loading="lazy">'
+                f'<div class="bento-shade"></div>'
+                f'<div><small>{esc(a["cluster_name"])} &middot; Article {a["number"]}</small>'
+                f'<h3>{esc(a["title"])}</h3>'
+                f'<p>{summary}</p>'
+                f'<b>Read insight &rarr;</b></div></a>')
+
+    lead_card = _bento_card(lead, " bento-lead")
+    other_cards = "\n".join(_bento_card(a) for a in rest_bento)
     body += f"""<section class="section stories" id="stories">
-<div class="section-heading"><h2>Latest <em>Signals</em></h2><p>The newest analysis, updated as breakthroughs happen.</p></div>
+<div class="section-heading"><h2>Latest <em>Signals</em></h2><p>The newest analysis from each of our five coverage clusters.</p></div>
 <div class="bento-grid">{lead_card}{other_cards}</div>
 </section>
 """
