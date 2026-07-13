@@ -49,9 +49,20 @@ def load_all_entries(source="feed.atom"):
     # Live feed: paginate explicitly via start-index rather than relying
     # solely on rel="next" links, which can truncate early for some Blogger
     # feed configurations. Dedup by entry id in case of any overlap between
-    # pages, and stop once a page comes back short of a full page (the
-    # standard signal that we've reached the end).
+    # pages.
+    #
+    # Resilience matters here: a single transient empty/failed page
+    # mid-sequence must NOT be mistaken for "reached the end of the feed" -
+    # that was a real bug (two confirmed-published posts were silently
+    # dropped by exactly this). We track Blogger's own reported
+    # <openSearch:totalResults> from the first page and keep going,
+    # retrying failed requests, until either we've collected that many
+    # entries or we've seen several consecutive genuinely-empty pages in
+    # a row (the real end-of-feed signal).
     from urllib.parse import urlsplit, urlunsplit, parse_qsl, urlencode
+    import time
+
+    OPENSEARCH = {"openSearch": "http://a9.com/-/spec/opensearchrss/1.0/"}
 
     parts = urlsplit(source)
     params = dict(parse_qsl(parts.query))
@@ -62,21 +73,53 @@ def load_all_entries(source="feed.atom"):
     entries = []
     seen_ids = set()
     start_index = 1
-    MAX_PAGES = 50  # safety cap: 50 * max_results should comfortably exceed any realistic post count
+    MAX_PAGES = 60  # safety cap: 60 * max_results comfortably exceeds any realistic post count
+    MAX_RETRIES_PER_PAGE = 3
+    CONSECUTIVE_EMPTY_LIMIT = 3  # only treat this many empty pages IN A ROW as real end-of-feed
 
-    for _ in range(MAX_PAGES):
+    expected_total = None
+    consecutive_empty = 0
+
+    for page_num in range(MAX_PAGES):
         params["start-index"] = str(start_index)
         query = urlencode(params)
         page_url = urlunsplit((parts.scheme, parts.netloc, parts.path, query, ""))
-        print(f"Loading {page_url}")
 
-        xml = load_feed(page_url)
-        root = ET.fromstring(xml)
-        page_entries = root.findall("atom:entry", ATOM)
+        page_entries = []
+        for attempt in range(1, MAX_RETRIES_PER_PAGE + 1):
+            try:
+                print(f"Loading {page_url} (attempt {attempt})")
+                xml = load_feed(page_url)
+                root = ET.fromstring(xml)
+                page_entries = root.findall("atom:entry", ATOM)
+
+                if expected_total is None:
+                    total_text = root.findtext("openSearch:totalResults", default=None, namespaces=OPENSEARCH)
+                    if total_text and total_text.isdigit():
+                        expected_total = int(total_text)
+                        print(f"Blogger reports totalResults={expected_total}")
+                break  # success, no need to retry
+            except Exception as e:
+                print(f"  WARNING: attempt {attempt} failed for start-index={start_index}: {e}")
+                if attempt < MAX_RETRIES_PER_PAGE:
+                    time.sleep(1.5 * attempt)
+                else:
+                    print(f"  giving up on start-index={start_index} after {MAX_RETRIES_PER_PAGE} attempts")
 
         if not page_entries:
-            break
+            consecutive_empty += 1
+            print(f"  empty/failed page ({consecutive_empty}/{CONSECUTIVE_EMPTY_LIMIT} consecutive)")
+            if expected_total is not None and len(entries) >= expected_total:
+                print("Reached Blogger's reported total - stopping.")
+                break
+            if consecutive_empty >= CONSECUTIVE_EMPTY_LIMIT:
+                print("Multiple consecutive empty pages - treating as genuine end of feed.")
+                break
+            # don't advance start_index on a failed/empty page - retry the
+            # SAME position next loop iteration in case it was transient
+            continue
 
+        consecutive_empty = 0
         new_on_this_page = 0
         for entry in page_entries:
             entry_id = entry.findtext("atom:id", default=None, namespaces=ATOM)
@@ -92,11 +135,30 @@ def load_all_entries(source="feed.atom"):
         print(f"  -> {len(page_entries)} entries on this page, {new_on_this_page} new, {len(entries)} total so far")
 
         if new_on_this_page == 0:
-            # Either a genuinely empty page (end of feed) or every entry on
-            # this page was already seen (defensive stop against a loop).
+            # Every entry on this page was already seen. Could be genuine
+            # end-of-feed overlap, or a stale/cached response for this
+            # start-index - treat it the same as an empty page rather than
+            # stopping immediately.
+            consecutive_empty += 1
+            if expected_total is not None and len(entries) >= expected_total:
+                print("Reached Blogger's reported total - stopping.")
+                break
+            if consecutive_empty >= CONSECUTIVE_EMPTY_LIMIT:
+                print("Multiple consecutive all-duplicate pages - treating as genuine end of feed.")
+                break
+            start_index += max_results
+            continue
+
+        if expected_total is not None and len(entries) >= expected_total:
+            print("Reached Blogger's reported total - stopping.")
             break
 
         start_index += max_results
+
+    if expected_total is not None and len(entries) < expected_total:
+        print(f"WARNING: collected {len(entries)} entries but Blogger reported "
+              f"{expected_total} total - {expected_total - len(entries)} may be missing. "
+              f"Check the retry/empty-page messages above for where pagination stopped short.")
 
     print(f"Pagination complete: {len(entries)} unique entries loaded")
     return entries

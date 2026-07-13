@@ -135,8 +135,32 @@ def load_and_prepare():
     raw_articles = load_articles(FEED_SOURCE)
     print(f"Loaded {len(raw_articles)} articles")
 
-    # Sort oldest -> newest for stable numbering as new posts are appended
+    # Detect near-duplicate posts (same title, ignoring case/punctuation/
+    # whitespace - e.g. a trailing period being the only difference).
+    # These produce identical URL slugs and silently collide, with the
+    # later one overwriting the earlier one's output page. Keep the
+    # earlier-published post as canonical and drop the later duplicate,
+    # rather than letting them collide invisibly.
+    def _title_key(title):
+        return re.sub(r"[^\w\s]", "", title.lower()).split()
+
     raw_articles.sort(key=lambda a: a["published"])
+    seen_title_keys = {}
+    deduped = []
+    for a in raw_articles:
+        key = tuple(_title_key(a["title"]))
+        if key in seen_title_keys:
+            original = seen_title_keys[key]
+            print(f"WARNING: dropping near-duplicate post (same title as an earlier post):")
+            print(f"  KEEPING:  {original['published']} - {original['title']}")
+            print(f"  DROPPING: {a['published']} - {a['title']}")
+            continue
+        seen_title_keys[key] = a
+        deduped.append(a)
+
+    if len(deduped) < len(raw_articles):
+        print(f"Dropped {len(raw_articles) - len(deduped)} near-duplicate post(s); {len(deduped)} unique articles remain")
+    raw_articles = deduped
 
     articles = []
     for i, a in enumerate(raw_articles, start=1):
