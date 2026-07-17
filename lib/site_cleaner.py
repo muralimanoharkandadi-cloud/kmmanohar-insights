@@ -163,7 +163,8 @@ def deep_clean(html: str) -> str:
                     node.extract()
 
     for heading in soup.find_all(["h2", "h3", "h4", "p"]):
-        if heading.get_text(" ", strip=True) == "Signal Depth Navigator":
+        if heading.get_text(" ", strip=True).rstrip(".…\u2026").strip() == "Signal Depth Navigator" or \
+           heading.get_text(" ", strip=True).startswith("Signal Depth Navigator"):
             heading.decompose()
 
     # Truncate everything from "Explore More" onward — in the Navigator
@@ -269,6 +270,22 @@ def deep_clean(html: str) -> str:
         for div in soup.find_all("div"):
             if not div.get_text(strip=True) and not div.find("img"):
                 div.decompose()
+
+    # The canonical template has two separate hook quotes (an "opening
+    # hook" near the very top and a "second hook" right after the featured
+    # image) - some drafts ended up with the IDENTICAL quote pasted in both
+    # spots, which reads as an obvious duplication once rendered. If any
+    # two h3 elements among the first few headings have the same text,
+    # keep only the first occurrence.
+    seen_h3_text = set()
+    for h3 in soup.find_all("h3")[:6]:
+        text = h3.get_text(" ", strip=True).lower().strip(' "\u201c\u201d')
+        if not text:
+            continue
+        if text in seen_h3_text:
+            h3.decompose()
+        else:
+            seen_h3_text.add(text)
 
     return str(soup)
 
