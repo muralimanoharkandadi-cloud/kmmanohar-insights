@@ -17,6 +17,7 @@ Handles two realities of this specific content set:
    duplicates must be stripped rather than kept.
 """
 from bs4 import BeautifulSoup
+from difflib import SequenceMatcher
 import re
 
 HASHTAG_LINE_RE = re.compile(r"^(#\S+[\s,&middot;\u00b7]*)+$")
@@ -273,19 +274,44 @@ def deep_clean(html: str) -> str:
 
     # The canonical template has two separate hook quotes (an "opening
     # hook" near the very top and a "second hook" right after the featured
-    # image) - some drafts ended up with the IDENTICAL quote pasted in both
-    # spots, which reads as an obvious duplication once rendered. If any
-    # two h3 elements among the first few headings have the same text,
-    # keep only the first occurrence.
-    seen_h3_text = set()
-    for h3 in soup.find_all("h3")[:6]:
-        text = h3.get_text(" ", strip=True).lower().strip(' "\u201c\u201d')
-        if not text:
-            continue
-        if text in seen_h3_text:
-            h3.decompose()
-        else:
-            seen_h3_text.add(text)
+    # image) - some drafts ended up with the IDENTICAL quote pasted in
+    # both spots. The duplicate doesn't always land in the same element
+    # type or structure as the original (e.g. the opening hook might be a
+    # single <h3>, while the repeat is split across two separate <p>
+    # tags) - so compare against a sliding window of CONCATENATED text
+    # across consecutive elements, not single elements of a fixed tag.
+    preamble_tags = ("h2", "h3", "h4", "p")
+    first_h2 = soup.find("h2")
+    candidates = []
+    for tag in soup.find_all(preamble_tags):
+        if first_h2 is not None and tag == first_h2:
+            break
+        text = tag.get_text(" ", strip=True)
+        if text:
+            candidates.append(tag)
+
+    def _norm(s):
+        return re.sub(r"[^\w\s]", "", s.lower()).strip()
+
+    if len(candidates) >= 2:
+        hook_text = _norm(candidates[0].get_text(" ", strip=True))
+        if len(hook_text) >= 20:  # skip trivially short openings
+            for start in range(1, len(candidates)):
+                combined = ""
+                span = []
+                for j in range(start, len(candidates)):
+                    combined = _norm(" ".join(t.get_text(" ", strip=True) for t in candidates[start:j + 1]))
+                    span.append(candidates[j])
+                    if len(combined) > len(hook_text) * 1.3:
+                        break
+                    ratio = SequenceMatcher(None, combined, hook_text).ratio()
+                    if ratio >= 0.9:
+                        for el in span:
+                            el.decompose()
+                        break
+                else:
+                    continue
+                break  # found and removed the duplicate span, stop scanning
 
     return str(soup)
 
