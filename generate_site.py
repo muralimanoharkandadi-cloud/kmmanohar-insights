@@ -15,12 +15,14 @@ import os
 import re
 import json
 import shutil
+import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 
 from lib.parser import load_articles
 from lib.categorize import get_cluster, cluster_list
 from lib.site_cleaner import deep_clean, dedupe_hero_image
+from bs4 import BeautifulSoup
 
 SITE_URL = "https://kmmanoharinsights.netlify.app"
 SITE_NAME = "K M Manohar Insights"
@@ -78,6 +80,68 @@ def fmt_date(iso_string):
 def slugify(text):
     text = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return re.sub(r"-{2,}", "-", text)
+
+
+HEADING_VARIANT_POOLS = {
+    "the pattern interrupt": ["The Overlooked Detail", "What Everyone's Missing", "Where the Story Really Starts", "The Uncomfortable Truth"],
+    "the turning point": ["The Overlooked Detail", "What Everyone's Missing", "Where the Story Really Starts", "The Uncomfortable Truth"],
+    "what just happened": ["What Changed", "Inside the Discovery", "What the Team Actually Did"],
+    "breaking it down simply": ["In Plain Terms", "Cutting Through the Jargon", "The Simple Version"],
+    "the core mechanism": ["How It Actually Works", "Under the Hood", "The Engineering Behind It"],
+    "the real breakthrough": ["What Makes This Different", "The Actual Innovation", "Why This Matters More Than It Sounds"],
+    "before vs now": ["Then and Now", "The Old Way vs. the New Way", "What's Actually Changed"],
+    "why it works": ["The Reasoning Behind It", "Why This Approach Succeeds"],
+    "reality check": ["The Catch", "What's Still Unproven", "Tempering the Hype"],
+    "global impact": ["The Bigger Picture", "Beyond the Lab", "Why the World Should Care"],
+    "india angle": ["What This Means for India", "Closer to Home: India"],
+    "india's opportunity": ["What This Means for India", "Closer to Home: India"],
+    "signals to watch": ["What to Watch Next", "Where This Goes From Here", "Early Warning Signs"],
+    # "manohar insight" deliberately excluded - kept fixed as a columnist
+    # sign-off, per user decision (comparable to a recurring "Editor's Note")
+}
+
+
+def _pick_variant(slug, slot_key, pool):
+    """Deterministic per-article, per-slot selection - the same article
+    always gets the same variant on every rebuild, but different articles
+    land on different phrasings, so the same 9 verbatim section titles
+    don't repeat identically across the whole archive."""
+    h = hashlib.sha256(f"{slug}:{slot_key}".encode()).hexdigest()
+    return pool[int(h, 16) % len(pool)]
+
+
+def _normalize_heading_key(title):
+    """Strip leading emoji/flag glyphs (e.g. '🇮🇳 India Angle') and
+    trailing punctuation (e.g. 'What Just Happened?') before matching
+    against the known template phrases - raw variants in the archive
+    include both, and an exact-dict-key match would silently miss them
+    otherwise."""
+    key = re.sub(r"^[^\w]+", "", title)
+    key = key.rstrip("?!.:;\u2026")
+    return key.lower().strip()
+
+
+def vary_template_headings(html_content, slug):
+    """Retroactive fix for the ~263 already-published articles that used
+    the fixed Signal Depth Navigator section-title template (confirmed via
+    sampling: 9 of 12 section titles appeared verbatim on 60-68% of a
+    25-article random sample - a strong templated-content signal). Only
+    replaces headings that exactly match a known template phrase; any
+    organic/custom heading is left completely untouched. New articles
+    going forward won't use this template at all per user decision, so
+    this function exists purely to normalize the existing archive."""
+    soup = BeautifulSoup(html_content, "html.parser")
+    for h2 in soup.find_all("h2"):
+        text = h2.get_text(" ", strip=True)
+        m = re.match(r"^(\d+)\.\s*(.+)$", text)
+        if not m:
+            continue
+        num, title = m.group(1), m.group(2).strip()
+        key = _normalize_heading_key(title)
+        if key in HEADING_VARIANT_POOLS:
+            variant = _pick_variant(slug, key, HEADING_VARIANT_POOLS[key])
+            h2.string = f"{num}. {variant}"
+    return str(soup)
 
 
 def build_toc_and_ids(html_content):
@@ -216,9 +280,12 @@ def load_and_prepare():
             print(f"  -> manual review recommended: /articles/{a['slug']}/")
 
         content, toc_items = build_toc_and_ids(
-            strip_leading_duplicate_title(
-                dedupe_hero_image(deep_clean(a["content"]), a["hero_image"]),
-                a["title"],
+            vary_template_headings(
+                strip_leading_duplicate_title(
+                    dedupe_hero_image(deep_clean(a["content"]), a["hero_image"]),
+                    a["title"],
+                ),
+                a["slug"],
             )
         )
         content = insert_back_to_toc(content)
