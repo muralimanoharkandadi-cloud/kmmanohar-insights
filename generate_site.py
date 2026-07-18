@@ -130,6 +130,46 @@ def strip_leading_duplicate_title(html_content, title):
 # Load + prepare all articles
 # --------------------------------------------------------------------------
 
+MISMATCH_STOPWORDS = set("""
+the a an of in on at to for with and or but is are was were be been being
+this that these those it its as by from into about over under after before
+how what why who which new could may might will can how does can's world
+first breakthrough scientists researchers just now discovery could would
+major update reveals shows study marking research using
+""".split())
+
+
+def _keywords(text, min_len=4):
+    words = re.findall(r"[a-zA-Z][a-zA-Z\-]+", text.lower())
+    return set(w for w in words if len(w) >= min_len and w not in MISMATCH_STOPWORDS)
+
+
+def check_summary_mismatch(title, raw_content):
+    """Some drafts ended up with a 'Summary' section describing a
+    DIFFERENT article entirely (confirmed real case: a neutrino-detector
+    article contained a summary about an unrelated coronavirus vaccine
+    trial - almost certainly a copy-paste leftover from a different
+    draft). Flags near-zero keyword overlap between the title and an
+    isolated Summary section as a likely mismatch, for manual review -
+    this is advisory only and never blocks the build."""
+    m = re.search(r">Summary</span></h\d>\s*<p>(?:<span[^>]*>)?(.*?)(?:</span>)?</p>", raw_content, re.S)
+    if not m:
+        return None
+    summary_text = re.sub(r"<[^>]+>", " ", m.group(1))
+    summary_text = re.sub(r"\s+", " ", summary_text).strip()
+    if len(summary_text) < 30:
+        return None
+
+    title_kw = _keywords(title)
+    summary_kw = _keywords(summary_text)
+    if not title_kw:
+        return None
+    overlap_ratio = len(title_kw & summary_kw) / len(title_kw)
+    if overlap_ratio <= 0.1:
+        return summary_text[:150]
+    return None
+
+
 def load_and_prepare():
     print(f"Loading feed from: {FEED_SOURCE}")
     raw_articles = load_articles(FEED_SOURCE)
@@ -163,8 +203,17 @@ def load_and_prepare():
     raw_articles = deduped
 
     articles = []
+    mismatch_count = 0
     for i, a in enumerate(raw_articles, start=1):
         cluster_slug, cluster_name = get_cluster(a["labels"], a["title"], a["content_text"])
+
+        mismatch = check_summary_mismatch(a["title"], a["content"])
+        if mismatch:
+            mismatch_count += 1
+            print(f"WARNING: possible mismatched Summary section (near-zero keyword overlap with title):")
+            print(f"  ARTICLE: {a['title']}")
+            print(f"  SUMMARY: {mismatch}...")
+            print(f"  -> manual review recommended: /articles/{a['slug']}/")
 
         content, toc_items = build_toc_and_ids(
             strip_leading_duplicate_title(
@@ -183,6 +232,9 @@ def load_and_prepare():
             "toc_items": toc_items,
             "date_display": fmt_date(a["published"]),
         })
+
+    if mismatch_count:
+        print(f"Found {mismatch_count} article(s) with a possibly mismatched Summary section - see warnings above")
 
     slug_counts = {}
     for a in articles:
