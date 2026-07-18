@@ -296,22 +296,22 @@ def deep_clean(html: str) -> str:
     if len(candidates) >= 2:
         hook_text = _norm(candidates[0].get_text(" ", strip=True))
         if len(hook_text) >= 20:  # skip trivially short openings
+            match_found = False
             for start in range(1, len(candidates)):
-                combined = ""
+                if match_found:
+                    break
                 span = []
                 for j in range(start, len(candidates)):
-                    combined = _norm(" ".join(t.get_text(" ", strip=True) for t in candidates[start:j + 1]))
                     span.append(candidates[j])
+                    combined = _norm(" ".join(t.get_text(" ", strip=True) for t in candidates[start:j + 1]))
                     if len(combined) > len(hook_text) * 1.3:
-                        break
+                        break  # overshot at this start - try the next start position
                     ratio = SequenceMatcher(None, combined, hook_text).ratio()
                     if ratio >= 0.9:
                         for el in span:
                             el.decompose()
+                        match_found = True
                         break
-                else:
-                    continue
-                break  # found and removed the duplicate span, stop scanning
 
     return str(soup)
 
