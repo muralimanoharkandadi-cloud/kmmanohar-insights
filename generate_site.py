@@ -507,7 +507,7 @@ def render_article_page(article, all_articles, index_by_id):
 </header>
 """
     body += f'<figure class="article-media"><img src="{esc(hero_image)}" alt="{esc(article["title"])}" loading="lazy"></figure>\n'
-    body += f'<div class="article-body">\n<p class="lead">{esc(article["summary"])}</p>\n'
+    body += '<div class="article-body">\n'
     body += toc_html + "\n"
     body += article["content_rendered"] + "\n"
     body += tags_html + "\n"
