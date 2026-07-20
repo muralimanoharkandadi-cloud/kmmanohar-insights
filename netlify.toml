@@ -6,11 +6,14 @@
 [build.environment]
   PYTHON_VERSION = "3.12"
 
-# Daily rebuild trigger, runs on Netlify's own infrastructure (Scheduled
+# Rebuild trigger, runs on Netlify's own infrastructure (Scheduled
 # Functions) rather than GitHub Actions cron, which was landing hours late
-# under load. 30 6 * * * = 06:30 UTC = 12:00 PM IST.
+# under load. Checks every 15 minutes across 04:30-05:45 UTC (09:30-11:15
+# AM IST) to reliably catch a publish around the user's typical late-morning
+# posting window, rather than a single once-daily fire that can miss same-day
+# updates entirely.
 [functions."scheduled-rebuild"]
-  schedule = "30 6 * * *"
+  schedule = "*/15 4,5 * * *"
 
 # Redirect the old teaser/Blogger-jump pattern if any external links still
 # point at the previous stub-page paths - safe no-op if none exist.
