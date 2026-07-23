@@ -129,18 +129,28 @@ def vary_template_headings(html_content, slug):
     replaces headings that exactly match a known template phrase; any
     organic/custom heading is left completely untouched. New articles
     going forward won't use this template at all per user decision, so
-    this function exists purely to normalize the existing archive."""
+    this function exists purely to normalize the existing archive.
+
+    Handles both numbered ("1. The Pattern Interrupt") and un-numbered
+    ("The Pattern Interrupt") forms of the same template phrase - some
+    drafts numbered only their later sections while leaving the first
+    few section titles bare, so a numeric-prefix-only match was silently
+    skipping those (confirmed via real page source: the DNA origami
+    article had sections 1-5 unnumbered and unvaried, while 6-9, which
+    did carry numbers, were correctly varied)."""
     soup = BeautifulSoup(html_content, "html.parser")
     for h2 in soup.find_all("h2"):
         text = h2.get_text(" ", strip=True)
         m = re.match(r"^(\d+)\.\s*(.+)$", text)
-        if not m:
-            continue
-        num, title = m.group(1), m.group(2).strip()
+        if m:
+            num, title = m.group(1), m.group(2).strip()
+        else:
+            num, title = None, text
+
         key = _normalize_heading_key(title)
         if key in HEADING_VARIANT_POOLS:
             variant = _pick_variant(slug, key, HEADING_VARIANT_POOLS[key])
-            h2.string = f"{num}. {variant}"
+            h2.string = f"{num}. {variant}" if num else variant
     return str(soup)
 
 
@@ -356,15 +366,7 @@ gtag('consent', 'default', {{
 }});
 </script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8508625480348460" crossorigin="anonymous"></script>
-{extra_schema} 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QXYM2YY1N9"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){{dataLayer.push(arguments);}}
-gtag('js', new Date());
-gtag('config', 'G-QXYM2YY1N9');
-</script>
+{extra_schema}
 </head>
 """
 
