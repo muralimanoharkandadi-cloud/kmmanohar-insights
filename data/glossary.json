@@ -1366,5 +1366,68 @@
     "definition": "The Parker Solar Probe is a NASA spacecraft launched in 2018 that has flown closer to the Sun than any prior human-made object, repeatedly diving through the Sun's outer atmosphere, the corona, to directly sample the environment that generates the solar wind, the stream of charged particles flowing out from the Sun. Protected by a specially engineered heat shield, it endures temperatures of well over a thousand degrees Celsius while its instruments stay at room temperature just behind it. Its measurements have helped solve long-standing mysteries about why the corona is far hotter than the Sun's visible surface, and how the solar wind gets accelerated to such high speeds.",
     "icon": "☀️",
     "cluster": "frontier-technologies"
+  },
+  "gene-therapy": {
+    "term": "Gene Therapy",
+    "match": [
+      "gene therapy",
+      "gene therapies"
+    ],
+    "definition": "Gene therapy is a broad category of treatment that works by introducing, removing, or altering genetic material inside a patient's cells to treat or prevent disease, rather than treating symptoms with a conventional drug. This can mean delivering a healthy copy of a gene to replace a faulty one, using a modified virus to carry therapeutic genetic instructions into cells, or using tools like CRISPR to directly edit existing DNA. It's a broader umbrella than gene editing specifically, and today covers everything from treatments for rare inherited disorders to CAR-T cancer therapies, representing one of the fastest-growing areas of modern medicine.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "oncolytic-virus-therapy": {
+    "term": "Oncolytic Virus Therapy",
+    "match": [
+      "oncolytic virus therapy",
+      "oncolytic virus",
+      "oncolytic viruses"
+    ],
+    "definition": "Oncolytic virus therapy is a cancer treatment that uses viruses, engineered to be safe in healthy tissue, that selectively infect and destroy cancer cells while leaving normal cells largely unharmed. Beyond directly killing infected tumor cells, the virus also triggers a broader immune response, essentially flagging the tumor as a threat the immune system should attack, which can help overcome cancers that have learned to hide from the immune system. It's an active area of cancer research, particularly for tumor types that don't respond well to existing immunotherapies, using a fundamentally different mechanism than chemotherapy or radiation.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "bariatric-surgery": {
+    "term": "Bariatric Surgery",
+    "match": [
+      "bariatric surgery"
+    ],
+    "definition": "Bariatric surgery refers to a group of surgical procedures that alter the stomach or digestive system to help people with severe obesity lose weight, typically by reducing stomach size, changing how food is digested and absorbed, or both. Common versions include gastric bypass and sleeve gastrectomy. It's generally reserved for cases where lifestyle changes and medication haven't worked and significant weight-related health risks are present, since it's an invasive procedure with real recovery time and lifelong dietary adjustments. The recent rise of highly effective weight-loss medications has begun shifting some patients away from surgery toward drug-based treatment instead.",
+    "icon": "🏥",
+    "cluster": "human-future"
+  },
+  "deep-brain-stimulation": {
+    "term": "Deep Brain Stimulation (DBS)",
+    "match": [
+      "deep brain stimulation",
+      "dbs",
+      "brain pacemaker",
+      "brain pacemakers"
+    ],
+    "definition": "Deep brain stimulation is a treatment that involves surgically implanting thin electrodes into specific, precisely targeted regions of the brain, connected to a small pulse generator, sometimes called a \"brain pacemaker,\" implanted under the skin, that delivers continuous, adjustable electrical stimulation. It's most established as a treatment for movement disorders like Parkinson's disease, where it can significantly reduce tremors and rigidity, and is increasingly being studied for treatment-resistant depression and other psychiatric conditions. Because the stimulation settings can be adjusted externally without further surgery, doctors can fine-tune treatment over time as a patient's condition changes.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "hantavirus-pulmonary-syndrome": {
+    "term": "Hantavirus Pulmonary Syndrome (HPS)",
+    "match": [
+      "hantavirus pulmonary syndrome",
+      "hps"
+    ],
+    "definition": "Hantavirus pulmonary syndrome is a rare but severe respiratory illness caused by certain hantaviruses, a family of viruses carried by rodents and typically transmitted to humans through contact with rodent droppings, urine, or saliva, most often by breathing in contaminated dust. It causes rapidly worsening breathing difficulty as fluid builds up in the lungs, and has a notably high fatality rate compared to many other viral illnesses, though it doesn't spread easily between people. First widely recognized in the United States in the early 1990s after a cluster of sudden deaths in otherwise healthy people, it remains a serious concern in regions with significant rodent populations.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "autism-spectrum-disorder": {
+    "term": "Autism Spectrum Disorder (ASD)",
+    "match": [
+      "autism spectrum disorder",
+      "asd",
+      "autism"
+    ],
+    "definition": "Autism spectrum disorder is a developmental condition that affects how a person communicates, interacts socially, and processes sensory information, typically appearing in early childhood and lasting throughout life. It's called a \"spectrum\" because it covers a wide range of presentations and support needs, from individuals who need significant daily assistance to those who live independently. Its exact biological causes aren't fully understood, but research points to a mix of genetic factors and differences in how the brain develops and forms connections before birth, which is why brain organoid models and early-development studies have become important research tools for understanding it.",
+    "icon": "🧩",
+    "cluster": "human-future"
   }
 }
