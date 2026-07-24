@@ -1226,5 +1226,96 @@
     "definition": "A dalton, abbreviated Da, is the standard unit scientists use to measure the mass of atoms, molecules, and proteins, roughly equal to the mass of a single hydrogen atom. Because proteins and other large biomolecules can be made of thousands of atoms, their mass is usually given in kilodaltons (kDa), or thousands of daltons, as a convenient shorthand. A protein's molecular weight in daltons is often one of the first things researchers report about it, since it gives a quick sense of its size and can hint at how it will behave, such as how easily it passes through cell membranes or filtration systems.",
     "icon": "⚖️",
     "cluster": "human-future"
+  },
+  "national-quantum-mission": {
+    "term": "National Quantum Mission (NQM)",
+    "match": [
+      "national quantum mission",
+      "nqm"
+    ],
+    "definition": "The National Quantum Mission is an Indian government program, launched with a budget of over six thousand crore rupees, aimed at building the country's capabilities across quantum computing, quantum communication, and quantum sensing. Rather than funding a single project, it supports a coordinated push across research institutions and startups to develop quantum hardware, secure quantum communication links, and precision quantum sensors, positioning India to compete in a technology area several other major economies are also investing in heavily. It's frequently cited across the country's quantum-technology research as the central government initiative tying individual breakthroughs into a broader national strategy.",
+    "icon": "⚛️",
+    "cluster": "india-society"
+  },
+  "gaganyaan": {
+    "term": "Gaganyaan Mission",
+    "match": [
+      "gaganyaan mission",
+      "gaganyaan"
+    ],
+    "definition": "Gaganyaan is India's human spaceflight program, designed to demonstrate the country's ability to independently launch astronauts into low Earth orbit and return them safely, a capability so far achieved by only a handful of nations. The mission involves developing a human-rated launch vehicle, a crew capsule with life-support systems, and extensive astronaut training and safety testing before any crewed flight is attempted. Beyond the mission itself, Gaganyaan is meant to lay the technological and institutional groundwork for India's longer-term space ambitions, including a planned space station and eventually crewed missions further into the solar system.",
+    "icon": "🚀",
+    "cluster": "india-society"
+  },
+  "spadex": {
+    "term": "SPADEX (Space Docking Experiment)",
+    "match": [
+      "spadex",
+      "space docking experiment"
+    ],
+    "definition": "SPADEX, short for Space Docking Experiment, is an ISRO mission that demonstrated India's ability to autonomously bring two small satellites together in orbit, dock them, and separate them again, without direct real-time human control. Two satellites, playing the roles of \"chaser\" and \"target,\" had to precisely match speed and position hundreds of kilometers above Earth for the docking to succeed. Autonomous docking is a foundational capability for building and resupplying a space station, assembling large structures in orbit, and crewed deep-space missions, making SPADEX an important technical milestone underpinning India's future human spaceflight and space station plans.",
+    "icon": "🛰️",
+    "cluster": "india-society"
+  },
+  "mars-orbiter-mission": {
+    "term": "Mars Orbiter Mission (Mangalyaan)",
+    "match": [
+      "mars orbiter mission",
+      "mangalyaan"
+    ],
+    "definition": "The Mars Orbiter Mission, popularly known as Mangalyaan, was India's first interplanetary mission, launched in 2013 and successfully entering orbit around Mars in 2014. It made India the first country to reach Mars orbit on its very first attempt, and did so at a fraction of the cost of comparable missions by other space agencies, drawing global attention to the efficiency of India's space program. The mission studied the Martian surface, atmosphere, and mineral composition, and its success helped build the technical confidence and public support behind India's subsequent, more ambitious interplanetary and human spaceflight programs.",
+    "icon": "🪐",
+    "cluster": "india-society"
+  },
+  "aditya-l1": {
+    "term": "Aditya-L1",
+    "match": [
+      "aditya-l1",
+      "aditya l1"
+    ],
+    "definition": "Aditya-L1 is India's first dedicated mission to study the Sun, positioned at a gravitationally stable point called L1 about 1.5 million kilometers from Earth, where it can continuously observe the Sun without being blocked by Earth's shadow. It carries a suite of instruments to study the solar corona, solar wind, and the magnetic and radiation environment around the Sun, contributing to global efforts to understand and eventually better predict space weather events that can disrupt satellites and power grids on Earth. It joined a small group of international solar observatories, including NASA and ESA missions, that continuously monitor the Sun.",
+    "icon": "☀️",
+    "cluster": "india-society"
+  },
+  "jwst": {
+    "term": "James Webb Space Telescope (JWST)",
+    "match": [
+      "james webb space telescope",
+      "jwst"
+    ],
+    "definition": "The James Webb Space Telescope, launched in 2021, is the most powerful space telescope ever built, designed to see further back in time and in far greater detail than its predecessor, the Hubble Space Telescope. Its 6.5-meter mirror, made of 18 gold-coated hexagonal segments, collects faint infrared light, letting it observe some of the earliest galaxies that formed after the Big Bang, peer through dust clouds where stars and planets are forming, and study the atmospheres of planets orbiting distant stars. It operates roughly 1.5 million kilometers from Earth, far enough to stay shielded from the Sun's heat and light for its sensitive instruments to work.",
+    "icon": "🔭",
+    "cluster": "frontier-technologies"
+  },
+  "hubble-space-telescope": {
+    "term": "Hubble Space Telescope",
+    "match": [
+      "hubble space telescope",
+      "hubble telescope"
+    ],
+    "definition": "The Hubble Space Telescope, launched in 1990, was one of the first major telescopes placed in orbit above Earth's atmosphere, which normally blurs and blocks much of the light reaching ground-based telescopes. Free of that interference, Hubble produced some of the most iconic and scientifically important images in astronomy's history, from detailed views of distant galaxies to sharp images of planets in our own solar system, and its observations helped precisely measure how fast the universe is expanding. Decades after launch, it's still operating alongside newer instruments like the James Webb Space Telescope, each observing different parts of the light spectrum.",
+    "icon": "🔭",
+    "cluster": "frontier-technologies"
+  },
+  "large-hadron-collider": {
+    "term": "Large Hadron Collider (LHC)",
+    "match": [
+      "large hadron collider",
+      "lhc"
+    ],
+    "definition": "The Large Hadron Collider is the world's largest and most powerful particle accelerator, a 27-kilometer ring of superconducting magnets buried beneath the border of France and Switzerland, where beams of protons are accelerated to nearly the speed of light and smashed together. By recreating conditions similar to those just after the Big Bang, physicists use the resulting particle collisions to study the fundamental building blocks of matter, most famously confirming the existence of the Higgs boson in 2012. It remains the primary tool for testing and extending the Standard Model of particle physics, the theory describing how fundamental particles and forces interact.",
+    "icon": "⚛️",
+    "cluster": "frontier-technologies"
+  },
+  "navic": {
+    "term": "NavIC (IRNSS)",
+    "match": [
+      "navic",
+      "irnss",
+      "indian regional navigation satellite system"
+    ],
+    "definition": "NavIC, formally the Indian Regional Navigation Satellite System (IRNSS), is India's own satellite-based navigation system, built to provide accurate positioning independent of foreign systems like GPS. Its development gained urgency after an incident during the 1999 Kargil conflict, when India was denied access to precise GPS data by the United States, exposing a strategic vulnerability. A constellation of satellites now provides positioning, navigation, and timing services across India and the surrounding region, supporting applications from defense and disaster management to everyday navigation apps, and it's increasingly built into Indian smartphones alongside GPS.",
+    "icon": "🛰️",
+    "cluster": "india-society"
   }
 }
