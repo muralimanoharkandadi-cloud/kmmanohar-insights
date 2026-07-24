@@ -70,6 +70,10 @@ ACRONYM_STOPLIST = {
     # common short English words that occasionally get capitalized
     "IT", "THE", "TO", "IN", "ON", "OF", "IS", "AS", "BY", "SO", "IF",
     "OR", "AT", "AN", "DO", "GO", "NO", "WE", "MY", "UP",
+    # more template-heading / false-positive noise observed on a full
+    # live-feed scan (250+ articles)
+    "KEY", "TABLE", "TWIST", "ANGLE", "SHIFT", "NOT", "ARE", "VS", "DE",
+    "INTRO", "JOIN", "ROAD", "III", "CO", "SO", "OK", "OFF", "ONE", "ON",
 }
 
 
