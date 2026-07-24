@@ -1317,5 +1317,54 @@
     "definition": "NavIC, formally the Indian Regional Navigation Satellite System (IRNSS), is India's own satellite-based navigation system, built to provide accurate positioning independent of foreign systems like GPS. Its development gained urgency after an incident during the 1999 Kargil conflict, when India was denied access to precise GPS data by the United States, exposing a strategic vulnerability. A constellation of satellites now provides positioning, navigation, and timing services across India and the surrounding region, supporting applications from defense and disaster management to everyday navigation apps, and it's increasingly built into Indian smartphones alongside GPS.",
     "icon": "🛰️",
     "cluster": "india-society"
+  },
+  "indiaai-mission": {
+    "term": "IndiaAI Mission",
+    "match": [
+      "indiaai mission",
+      "national ai mission",
+      "india's national ai mission"
+    ],
+    "definition": "The IndiaAI Mission is a government of India program aimed at building the country's artificial intelligence capabilities from the ground up, covering everything from subsidized access to computing infrastructure for startups and researchers, to funding foundational AI research, to building large public datasets in Indian languages. It's designed to support India's ambition of developing sovereign AI capability rather than depending entirely on foreign AI infrastructure and models. Alongside initiatives like Digital India and the National Quantum Mission, it's one of the government's central pillars for positioning India as a serious player in next-generation technology development.",
+    "icon": "🇮🇳",
+    "cluster": "india-society"
+  },
+  "smart-cities-mission": {
+    "term": "Smart Cities Mission",
+    "match": [
+      "smart cities mission"
+    ],
+    "definition": "The Smart Cities Mission is an Indian government initiative that funds selected cities to upgrade their infrastructure with technology-driven improvements, such as intelligent traffic management, real-time water and waste monitoring, digital governance services, and improved public safety systems. Rather than building entirely new cities, it primarily focuses on retrofitting and upgrading existing urban areas across a defined list of participating cities. The program reflects a broader global trend of using sensors, data, and connected infrastructure to manage the pressures of rapid urbanization more efficiently, and is frequently referenced as a natural adopter for new sensing and IoT technologies developed in India.",
+    "icon": "🏙️",
+    "cluster": "india-society"
+  },
+  "ayushman-bharat-digital-mission": {
+    "term": "Ayushman Bharat Digital Mission (ABDM)",
+    "match": [
+      "ayushman bharat digital mission",
+      "abdm"
+    ],
+    "definition": "The Ayushman Bharat Digital Mission is India's national initiative to build a unified digital health ecosystem, giving citizens a portable digital health ID that can link their medical records, prescriptions, and lab results across different hospitals and clinics rather than leaving them scattered on paper at each individual provider. The goal is to make healthcare data easier for patients to access and share with new doctors, while also giving health systems better aggregated data for planning and research. It's part of the broader digital public infrastructure approach India has used in other sectors, most notably UPI for payments.",
+    "icon": "🏥",
+    "cluster": "india-society"
+  },
+  "juno-neutrino": {
+    "term": "JUNO (Jiangmen Underground Neutrino Observatory)",
+    "match": [
+      "jiangmen underground neutrino observatory",
+      "juno"
+    ],
+    "definition": "JUNO, the Jiangmen Underground Neutrino Observatory, is a massive particle physics detector built roughly 700 meters underground in southern China, designed to study neutrinos, ghostly subatomic particles that pass through ordinary matter almost undetected. At its core sits an enormous sphere filled with ultra-pure liquid that produces faint flashes of light when a neutrino occasionally interacts with it, flashes sensitive detectors then capture and analyze. Since beginning operations, JUNO has delivered some of the most precise neutrino measurements ever recorded, helping physicists narrow down open questions about neutrino mass and behavior that have puzzled the field for decades.",
+    "icon": "👻",
+    "cluster": "frontier-technologies"
+  },
+  "parker-solar-probe": {
+    "term": "Parker Solar Probe",
+    "match": [
+      "parker solar probe"
+    ],
+    "definition": "The Parker Solar Probe is a NASA spacecraft launched in 2018 that has flown closer to the Sun than any prior human-made object, repeatedly diving through the Sun's outer atmosphere, the corona, to directly sample the environment that generates the solar wind, the stream of charged particles flowing out from the Sun. Protected by a specially engineered heat shield, it endures temperatures of well over a thousand degrees Celsius while its instruments stay at room temperature just behind it. Its measurements have helped solve long-standing mysteries about why the corona is far hotter than the Sun's visible surface, and how the solar wind gets accelerated to such high speeds.",
+    "icon": "☀️",
+    "cluster": "frontier-technologies"
   }
 }
