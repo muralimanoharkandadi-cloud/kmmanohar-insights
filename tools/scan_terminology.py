@@ -105,24 +105,30 @@ def load_articles_from_local_feed():
     return articles
 
 
-def load_articles_from_live_feed(max_results=25, sleep_between=0.5):
+def load_articles_from_live_feed(max_results=25, sleep_between=0.5, max_pages=60):
     """Paginate through the live Blogger Atom feed. Needs outbound network
     access to blogspot.com, which the sandboxed environment this was
     written in does NOT have - run this flag from a machine with normal
-    internet access."""
+    internet access.
+
+    Prints progress after every page, since a full-history scan can take
+    a minute or two and would otherwise look like it's hung. max_pages is
+    a safety cap (60 pages * 25 = 1500 articles, far more than the current
+    archive) so a misbehaving feed response can never loop forever."""
     articles = []
     start_index = 1
-    while True:
+    for page_num in range(1, max_pages + 1):
         url = f"{LIVE_FEED_BASE}&max-results={max_results}&start-index={start_index}"
         try:
             with urlopen(url, timeout=20) as resp:
                 data = resp.read()
         except URLError as e:
-            print(f"ERROR fetching live feed: {e}", file=sys.stderr)
+            print(f"ERROR fetching live feed (page {page_num}): {e}", file=sys.stderr)
             break
         tree = ET.fromstring(data)
         entries = tree.findall("atom:entry", ATOM_NS)
         if not entries:
+            print(f"  page {page_num}: 0 entries - reached the end of the feed")
             break
         for entry in entries:
             title_el = entry.find("atom:title", ATOM_NS)
@@ -133,8 +139,11 @@ def load_articles_from_live_feed(max_results=25, sleep_between=0.5):
                 "title": (title_el.text or "").strip() if title_el is not None else "(untitled)",
                 "html": content_el.text,
             })
+        print(f"  page {page_num}: {len(entries)} entries fetched ({len(articles)} total so far)")
         start_index += max_results
         time.sleep(sleep_between)
+    else:
+        print(f"WARNING: stopped at the {max_pages}-page safety cap - there may be more articles in the feed than this scan covered", file=sys.stderr)
     return articles
 
 
