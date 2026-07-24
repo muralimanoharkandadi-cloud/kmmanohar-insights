@@ -25,6 +25,13 @@ OUTPUT
        exactly how a writer introduces a technical term in prose
     2. Standalone acronyms (2-6 capital letters) appearing 2+ times
     3. Chemical-formula-like tokens (e.g. PtSe2, MoS2, SiO2)
+    4. Diseases / syndromes / disorders (e.g. "X Syndrome", "X Disease")
+    5. Named procedures / therapies / techniques (e.g. "X Therapy")
+    6. Named missions / experiments / equipment / instruments (e.g.
+       "X Mission", "X Telescope", "X Spectrometer")
+    7. Scientific (binomial) nomenclature - italicized two-word Latin-style
+       names like "Homo sapiens", found by looking at <i>/<em> tags in the
+       raw article HTML rather than guessing from plain text
   Each candidate lists which article(s) it was found in and one example
   sentence of context, so a human (or a future Claude session) can decide
   which ones are actually worth writing a 50-100 word definition for.
@@ -172,6 +179,52 @@ STANDALONE_ACRONYM_RE = re.compile(r"\b([A-Z]{2,6})\b")
 # by digits, e.g. PtSe2, MoS2, SiO2, Al2O3, GaN.
 CHEM_FORMULA_RE = re.compile(r"\b([A-Z][a-z]?(?:\d[A-Za-z]?)?[A-Z][a-z]?\d*)\b")
 
+# Named disease / syndrome / disorder: a capitalized phrase (up to 5 words,
+# allowing possessives like "Parkinson's") immediately followed by one of
+# these classifying nouns - this is how a disease name gets introduced in
+# prose, whether or not it's ever given an acronym.
+DISEASE_RE = re.compile(
+    r"\b([A-Z][A-Za-z\u2019'\-]*(?:\s+[A-Za-z][A-Za-z\u2019'\-]*){0,4}"
+    r"\s+(?:Syndrome|Disease|Disorder))\b"
+)
+
+# Named procedure / therapy / technique / protocol - same idea, applied to
+# medical and lab procedure names.
+PROCEDURE_RE = re.compile(
+    r"\b([A-Z][A-Za-z\u2019'\-]*(?:\s+[A-Za-z][A-Za-z\u2019'\-]*){0,4}"
+    r"\s+(?:Therapy|Procedure|Technique|Protocol|Surgery))\b"
+)
+
+# Named mission / experiment / instrument / equipment - covers space
+# missions, lab equipment, and named experiments in one pass, since they
+# follow the same "Proper Noun + classifying noun" pattern.
+EQUIPMENT_MISSION_RE = re.compile(
+    r"\b([A-Z][A-Za-z0-9\u2019'\-]*(?:\s+[A-Za-z0-9][A-Za-z0-9\u2019'\-]*){0,4}"
+    r"\s+(?:Mission|Probe|Experiment|Telescope|Observatory|Spacecraft|Rover|"
+    r"Microscope|Spectrometer|Reactor|Detector|Collider|Satellite))\b"
+)
+
+# Binomial (Latin) scientific nomenclature, e.g. "Homo sapiens", "Danio
+# rerio". Writers conventionally italicize these, so rather than guess
+# from plain text (where "Capital word + lowercase word" is far too common
+# a false-positive pattern - e.g. any sentence-initial phrase), this looks
+# specifically inside <i>/<em> tags in the RAW html, which is a much
+# stronger signal that it's actually a species name and not just two
+# ordinary capitalized words.
+BINOMIAL_RE = re.compile(r"^[A-Z][a-z]+ [a-z]+(?:\s[a-z]+)?$")
+
+
+def extract_italicized_terms(html):
+    """Pull binomial-looking species names out of <i>/<em> tags in the
+    RAW article HTML (must run before/without stripping tags)."""
+    soup = BeautifulSoup(html, "html.parser")
+    found = []
+    for tag in soup.find_all(["i", "em"]):
+        text = tag.get_text(" ", strip=True)
+        if BINOMIAL_RE.match(text):
+            found.append(text)
+    return found
+
 
 def find_context_sentence(text, start, end, window=140):
     lo = max(0, start - window)
@@ -184,48 +237,66 @@ def scan(articles, covered):
     term_acronym_hits = defaultdict(lambda: {"articles": set(), "context": None})
     standalone_acronym_hits = defaultdict(lambda: {"articles": set(), "context": None})
     chem_hits = defaultdict(lambda: {"articles": set(), "context": None})
+    disease_hits = defaultdict(lambda: {"articles": set(), "context": None})
+    procedure_hits = defaultdict(lambda: {"articles": set(), "context": None})
+    equipment_hits = defaultdict(lambda: {"articles": set(), "context": None})
+    binomial_hits = defaultdict(lambda: {"articles": set(), "context": None})
+
+    def record(bucket, key, art_title, text=None, start=None, end=None, note=None):
+        if key.lower() in covered:
+            return
+        entry = bucket[key]
+        entry["articles"].add(art_title)
+        if entry["context"] is None:
+            entry["context"] = note if note is not None else find_context_sentence(text, start, end)
 
     for art in articles:
         text = article_plain_text(art["html"])
 
         for m in TERM_ACRONYM_RE.finditer(text):
             phrase, acronym = m.group(1).strip(), m.group(2)
-            key = f"{phrase} ({acronym})"
-            if phrase.lower() in covered or acronym.lower() in covered:
-                continue
             if acronym in ACRONYM_STOPLIST:
                 continue
-            entry = term_acronym_hits[key]
-            entry["articles"].add(art["title"])
-            if entry["context"] is None:
-                entry["context"] = find_context_sentence(text, m.start(), m.end())
+            if phrase.lower() in covered or acronym.lower() in covered:
+                continue
+            record(term_acronym_hits, f"{phrase} ({acronym})", art["title"], text, m.start(), m.end())
 
         for m in STANDALONE_ACRONYM_RE.finditer(text):
             acronym = m.group(1)
-            if acronym in ACRONYM_STOPLIST or acronym.lower() in covered:
+            if acronym in ACRONYM_STOPLIST:
                 continue
-            entry = standalone_acronym_hits[acronym]
-            entry["articles"].add(art["title"])
-            if entry["context"] is None:
-                entry["context"] = find_context_sentence(text, m.start(), m.end())
+            record(standalone_acronym_hits, acronym, art["title"], text, m.start(), m.end())
 
         for m in CHEM_FORMULA_RE.finditer(text):
             token = m.group(1)
-            # needs at least one digit to look like a real formula, and
-            # not be a plain capitalized English word
             if not any(c.isdigit() for c in token):
                 continue
-            if token.lower() in covered:
-                continue
-            entry = chem_hits[token]
-            entry["articles"].add(art["title"])
-            if entry["context"] is None:
-                entry["context"] = find_context_sentence(text, m.start(), m.end())
+            record(chem_hits, token, art["title"], text, m.start(), m.end())
 
-    return term_acronym_hits, standalone_acronym_hits, chem_hits
+        for m in DISEASE_RE.finditer(text):
+            record(disease_hits, m.group(1).strip(), art["title"], text, m.start(), m.end())
+
+        for m in PROCEDURE_RE.finditer(text):
+            record(procedure_hits, m.group(1).strip(), art["title"], text, m.start(), m.end())
+
+        for m in EQUIPMENT_MISSION_RE.finditer(text):
+            record(equipment_hits, m.group(1).strip(), art["title"], text, m.start(), m.end())
+
+        for name in extract_italicized_terms(art["html"]):
+            record(binomial_hits, name, art["title"], note=f"(italicized in source) {name}")
+
+    return {
+        "term_acronym": term_acronym_hits,
+        "standalone_acronym": standalone_acronym_hits,
+        "chem": chem_hits,
+        "disease": disease_hits,
+        "procedure": procedure_hits,
+        "equipment": equipment_hits,
+        "binomial": binomial_hits,
+    }
 
 
-def render_report(term_acronym_hits, standalone_acronym_hits, chem_hits, min_articles):
+def render_report(buckets, min_articles):
     lines = ["# Glossary terminology candidates", ""]
     lines.append(
         "Auto-generated by `tools/scan_terminology.py`. These are NOT "
@@ -253,18 +324,38 @@ def render_report(term_acronym_hits, standalone_acronym_hits, chem_hits, min_art
 
     section(
         "1. \"Term (ACRONYM)\" pairs — highest confidence",
-        term_acronym_hits,
+        buckets["term_acronym"],
         "The article itself introduces the term next to its acronym, exactly the pattern a glossary should cover.",
     )
     section(
         "2. Standalone acronyms",
-        standalone_acronym_hits,
+        buckets["standalone_acronym"],
         "No inline expansion found nearby — worth a quick check on what they stand for before writing a definition.",
     )
     section(
         "3. Chemical-formula-like tokens",
-        chem_hits,
+        buckets["chem"],
         "Likely materials/compounds (e.g. PtSe2, MoS2). Verify each is a real formula, not a false positive.",
+    )
+    section(
+        "4. Diseases / syndromes / disorders",
+        buckets["disease"],
+        "Matched \"... Syndrome/Disease/Disorder\" patterns.",
+    )
+    section(
+        "5. Named procedures / therapies / techniques",
+        buckets["procedure"],
+        "Matched \"... Therapy/Procedure/Technique/Protocol/Surgery\" patterns.",
+    )
+    section(
+        "6. Named missions / experiments / equipment / instruments",
+        buckets["equipment"],
+        "Matched \"... Mission/Probe/Telescope/Spectrometer/etc.\" patterns - covers space missions and lab equipment together.",
+    )
+    section(
+        "7. Scientific (binomial) nomenclature",
+        buckets["binomial"],
+        "Italicized two-word Latin-style names found in the source HTML (e.g. species names).",
     )
     return "\n".join(lines)
 
@@ -286,8 +377,8 @@ def main():
         articles = load_articles_from_local_feed()
     print(f"Scanning {len(articles)} article(s)...")
 
-    term_acronym_hits, standalone_acronym_hits, chem_hits = scan(articles, covered)
-    report = render_report(term_acronym_hits, standalone_acronym_hits, chem_hits, args.min_articles)
+    buckets = scan(articles, covered)
+    report = render_report(buckets, args.min_articles)
 
     out_path = REPO_ROOT / "tools" / "terminology_candidates.md"
     out_path.parent.mkdir(parents=True, exist_ok=True)
