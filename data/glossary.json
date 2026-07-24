@@ -1119,5 +1119,112 @@
     "definition": "CAR-T cell therapy is a cancer treatment that genetically re-engineers a patient's own immune T cells to recognize and attack their specific cancer, by giving them an artificial receptor, called a Chimeric Antigen Receptor (CAR), that targets a molecule on the tumor cells' surface. The modified cells are grown in large numbers in a lab and infused back into the patient, where they multiply further and hunt down cancer cells that would otherwise evade the immune system. It has shown dramatic results against certain blood cancers that had stopped responding to other treatments, though making it affordable and effective against solid tumors remains an active area of research.",
     "icon": "🧬",
     "cluster": "human-future"
+  },
+  "cryo-et": {
+    "term": "Cryo-Electron Tomography",
+    "match": [
+      "cryo-electron tomography",
+      "cryo-et",
+      "cryo electron tomography"
+    ],
+    "definition": "Cryo-electron tomography is a close relative of cryo-EM that goes a step further: instead of imaging many separate flash-frozen copies of a single molecule from different angles, it tilts one frozen sample itself and captures images from a whole range of angles to reconstruct a detailed 3D picture of the molecule or structure in its native, unpurified environment. This lets scientists see proteins and cellular machinery in the actual crowded context of a cell, rather than isolated in a test tube, making it a powerful tool for understanding how biological structures really look and interact where they naturally function.",
+    "icon": "🧊",
+    "cluster": "human-future"
+  },
+  "signal-to-noise-ratio": {
+    "term": "Signal-to-Noise Ratio",
+    "match": [
+      "signal-to-noise ratio",
+      "signal to noise ratio",
+      "snr"
+    ],
+    "definition": "Signal-to-noise ratio, often abbreviated SNR, is a measure of how much a meaningful signal stands out against random background interference, or \"noise,\" in any measurement or image. A high signal-to-noise ratio means the real data is easy to distinguish clearly; a low one means it's buried in static and hard to interpret reliably. The concept applies far beyond audio, where it originated, showing up in medical imaging, astronomy, wireless communication, and any scientific instrument, where improving it, whether through better hardware or smarter data processing, is usually the key to seeing something previously too faint to detect.",
+    "icon": "📡",
+    "cluster": "frontier-technologies"
+  },
+  "alzheimers-disease": {
+    "term": "Alzheimer's Disease",
+    "match": [
+      "alzheimer's disease",
+      "alzheimers disease",
+      "alzheimer's"
+    ],
+    "definition": "Alzheimer's disease is the most common cause of dementia, a progressive brain disorder that gradually destroys memory, thinking ability, and eventually the capacity to carry out daily tasks. It's associated with a buildup of abnormal protein clumps, called amyloid plaques and tau tangles, that damage and eventually kill brain cells, though exactly how this process begins and unfolds is still an active area of research. There's currently no cure, and treatments mainly aim to slow progression or manage symptoms, which is why the disease remains one of the largest ongoing focuses in both neuroscience research and drug development.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "parkinsons-disease": {
+    "term": "Parkinson's Disease",
+    "match": [
+      "parkinson's disease",
+      "parkinsons disease",
+      "parkinson's"
+    ],
+    "definition": "Parkinson's disease is a progressive neurological disorder caused by the gradual loss of brain cells that produce dopamine, a chemical messenger essential for smooth, controlled movement. This loss produces the disease's hallmark symptoms: tremors, stiffness, slowed movement, and balance problems, which typically worsen over years. There's no cure, but medications that boost dopamine levels, along with newer approaches like deep brain stimulation, can meaningfully manage symptoms for a long time. Because Parkinson's involves a specific, identifiable loss of one type of brain cell, it's also become a major focus for regenerative and cell-based therapies aiming at repair rather than just symptom control.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "autoimmune-disorder": {
+    "term": "Autoimmune Disorder",
+    "match": [
+      "autoimmune disorder",
+      "autoimmune disorders",
+      "autoimmune disease",
+      "autoimmune diseases"
+    ],
+    "definition": "An autoimmune disorder occurs when the immune system, which normally defends the body against outside threats like viruses and bacteria, mistakenly identifies the body's own healthy cells or tissue as a threat and attacks them. Depending on which tissue gets targeted, this can produce very different conditions, from rheumatoid arthritis attacking joints to type 1 diabetes attacking insulin-producing cells. There are more than 80 recognized autoimmune disorders, and their exact triggers are often unclear, involving some mix of genetic predisposition and environmental factors, which is why treatments generally focus on calming or redirecting immune activity rather than curing the underlying cause.",
+    "icon": "🛡️",
+    "cluster": "human-future"
+  },
+  "alphafold": {
+    "term": "AlphaFold",
+    "match": [
+      "alphafold"
+    ],
+    "definition": "AlphaFold is an AI system, developed by Google DeepMind, that predicts the detailed 3D shape a protein folds into based only on its amino acid sequence, a problem biologists had struggled with for decades. Because a protein's shape largely determines what it does in the body, accurately predicting structure without the slow, expensive process of laboratory imaging has dramatically accelerated research into diseases, drug targets, and enzyme design. AlphaFold's public database now includes predicted structures for hundreds of millions of proteins, and the breakthrough earned its creators the 2024 Nobel Prize in Chemistry.",
+    "icon": "🧬",
+    "cluster": "digital-intelligence"
+  },
+  "protein-engineering": {
+    "term": "Protein Engineering",
+    "match": [
+      "protein engineering"
+    ],
+    "definition": "Protein engineering is the deliberate design or modification of proteins to give them new or improved properties, such as binding more precisely to a disease target, working at higher temperatures, or breaking down a specific pollutant. Researchers achieve this either by tweaking a natural protein's existing structure or by designing an entirely new one from scratch, increasingly aided by AI tools like AlphaFold that can predict how a proposed design will actually fold. It underlies the development of many modern antibody drugs, industrial enzymes, and biosensors, and AI-assisted protein design is now one of the fastest-moving areas in biotechnology.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "biologics": {
+    "term": "Biologics",
+    "match": [
+      "biologics",
+      "biologic drug",
+      "biologic drugs"
+    ],
+    "definition": "Biologics are medicines manufactured from or derived using living cells, such as antibodies, vaccines, and gene and cell therapies, rather than being chemically synthesized from simple raw ingredients the way traditional small-molecule pills are. Because they're large, complex molecules produced through biological processes, biologics are typically much harder and more expensive to manufacture, and usually have to be injected or infused rather than taken as a pill. They now represent a major and fast-growing share of new medicines, particularly for cancer, autoimmune disorders, and rare genetic diseases, where their precision often makes them more effective than older drug types.",
+    "icon": "💉",
+    "cluster": "human-future"
+  },
+  "computational-drug-discovery": {
+    "term": "Computational Drug Discovery",
+    "match": [
+      "computational drug discovery",
+      "in silico drug discovery"
+    ],
+    "definition": "Computational drug discovery uses computer modeling and simulation, increasingly powered by AI, to identify and refine promising drug candidates before committing to the expensive and time-consuming step of testing them in a lab. Techniques range from simulating how a candidate molecule would physically bind to its target, to using AI models trained on existing chemical and biological data to predict which of millions of possible compounds are most worth actually synthesizing and testing. By narrowing an enormous field of possibilities down to a much smaller, higher-probability shortlist, it can significantly cut the time and cost of early-stage drug development.",
+    "icon": "🧪",
+    "cluster": "digital-intelligence"
+  },
+  "dalton": {
+    "term": "Dalton (Da)",
+    "match": [
+      "dalton",
+      "daltons",
+      "kilodalton",
+      "kilodaltons"
+    ],
+    "definition": "A dalton, abbreviated Da, is the standard unit scientists use to measure the mass of atoms, molecules, and proteins, roughly equal to the mass of a single hydrogen atom. Because proteins and other large biomolecules can be made of thousands of atoms, their mass is usually given in kilodaltons (kDa), or thousands of daltons, as a convenient shorthand. A protein's molecular weight in daltons is often one of the first things researchers report about it, since it gives a quick sense of its size and can hint at how it will behave, such as how easily it passes through cell membranes or filtration systems.",
+    "icon": "⚖️",
+    "cluster": "human-future"
   }
 }
