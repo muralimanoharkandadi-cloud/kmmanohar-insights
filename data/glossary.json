@@ -684,5 +684,154 @@
     "definition": "The India Semiconductor Mission is a government-backed initiative offering financial incentives to attract chip design, fabrication, and packaging investment into India, aiming to build domestic capability in an industry currently dominated by a small handful of countries. It reflects a broader global trend of nations treating semiconductor self-sufficiency as a matter of economic and national security, particularly after pandemic-era chip shortages exposed how concentrated and vulnerable global supply chains for critical electronics components had become.",
     "icon": "🇮🇳",
     "cluster": "india-society"
+  },
+  "moores-law": {
+    "term": "Moore's Law",
+    "match": [
+      "moore's law",
+      "moores law"
+    ],
+    "definition": "Moore's Law is the observation, made by Intel co-founder Gordon Moore in 1965, that the number of transistors on a computer chip roughly doubles every one to two years, driving a steady, predictable rise in computing power and fall in cost per transistor. It isn't a law of physics but a decades-long industry trend that became a self-fulfilling roadmap for chipmakers. As transistors approach the size of individual atoms, sustaining that pace has gotten dramatically harder, pushing the industry toward new materials, 3D chip stacking, and alternative computing architectures to keep performance climbing.",
+    "icon": "📉",
+    "cluster": "frontier-technologies"
+  },
+  "afm": {
+    "term": "Atomic Force Microscopy (AFM)",
+    "match": [
+      "atomic force microscopy",
+      "atomic force microscope",
+      "afm"
+    ],
+    "definition": "Atomic force microscopy is an imaging technique that maps a surface at near-atomic resolution by dragging an extremely sharp probe, mounted on a flexible cantilever, across it and measuring the tiny deflections caused by atomic-scale forces between the tip and the surface. Unlike an optical or electron microscope, it doesn't use light or electron beams, so it can image in air, liquid, or vacuum and work on non-conductive materials. AFM is a go-to tool for characterizing 2D materials, biological samples, and nanoscale devices where precise surface topography and roughness matter.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "semimetal": {
+    "term": "Semimetal",
+    "match": [
+      "semimetal",
+      "semimetals",
+      "semimetallic",
+      "dirac semimetal"
+    ],
+    "definition": "A semimetal is a material whose electrical behavior sits right at the boundary between a metal and a semiconductor: it has a very small or effectively zero energy gap between the states electrons occupy and the states they can move into, so it conducts some electricity but far less freely than a true metal. This intermediate, highly tunable behavior makes semimetals scientifically interesting testbeds for exotic physics and practically useful for optoelectronics, since materials like platinum diselenide can be pushed between semimetal and semiconductor behavior just by changing how many atomic layers thick they are.",
+    "icon": "⚡",
+    "cluster": "frontier-technologies"
+  },
+  "monolithic-integration": {
+    "term": "Monolithic Integration",
+    "match": [
+      "monolithic integration",
+      "monolithic interface",
+      "monolithically integrated"
+    ],
+    "definition": "Monolithic integration means building multiple components, such as different functional layers of a chip, onto or into a single continuous piece of material, grown or fabricated together, rather than manufacturing them separately and physically bonding or wiring them afterward. Because there's no external interface or adhesive layer between the parts, monolithic devices tend to have cleaner electrical contact, less signal loss, and are easier to miniaturize. It's an increasingly important strategy for stacking new 2D materials directly onto silicon chips as transistor scaling runs into physical limits.",
+    "icon": "🧱",
+    "cluster": "frontier-technologies"
+  },
+  "ptse2": {
+    "term": "Platinum Diselenide (PtSe₂)",
+    "match": [
+      "platinum diselenide",
+      "ptse2",
+      "ptse₂"
+    ],
+    "definition": "Platinum diselenide is a two-dimensional material, made of platinum and selenium atoms arranged in ultrathin layers, that belongs to a family called transition metal dichalcogenides. Its standout property is that its electronic behavior changes with thickness: a single atomic layer behaves like a semiconductor, while the bulk, many-layer form behaves like a semimetal. That built-in tunability, combined with the fact that it can be grown at relatively low temperatures compatible with existing chip manufacturing, makes it a strong candidate for next-generation transistors, photodetectors, and other nanoscale electronic devices.",
+    "icon": "🔷",
+    "cluster": "frontier-technologies"
+  },
+  "transition-metal-dichalcogenide": {
+    "term": "Transition Metal Dichalcogenide (TMD)",
+    "match": [
+      "transition metal dichalcogenide",
+      "transition metal dichalcogenides",
+      "tmd",
+      "tmds"
+    ],
+    "definition": "Transition metal dichalcogenides are a family of layered materials, each made of one transition-metal atom (like molybdenum, tungsten, or platinum) bonded to two atoms of a chalcogen element (like sulfur, selenium, or tellurium). Like graphene, they can be peeled or grown down to a single atomic layer, but unlike graphene, most TMDs have a usable electronic bandgap, making them naturally suited to transistors, LEDs, and photodetectors. Their properties can vary dramatically across the family and even with layer thickness, making TMDs one of the most actively studied material classes in next-generation electronics research.",
+    "icon": "🧪",
+    "cluster": "frontier-technologies"
+  },
+  "2d-material": {
+    "term": "2D Material",
+    "match": [
+      "2d material",
+      "2d materials",
+      "two-dimensional material"
+    ],
+    "definition": "A 2D material is a substance that exists as sheets just one or a few atoms thick, with strong bonds holding atoms together within each layer but only weak forces holding separate layers to each other, allowing them to be peeled apart or grown in atomically precise films. Graphene, the first and most famous example, kicked off intense research into the wider family, which now includes transition metal dichalcogenides and other layered compounds. Because electrons are effectively confined to a flat plane, 2D materials often display electronic, optical, and mechanical properties that their bulk, 3D counterparts don't have.",
+    "icon": "📐",
+    "cluster": "frontier-technologies"
+  },
+  "van-der-waals-heterostructure": {
+    "term": "Van der Waals Heterostructure",
+    "match": [
+      "van der waals heterostructure",
+      "van der waals heterostructures"
+    ],
+    "definition": "A van der Waals heterostructure is a custom-engineered stack of different 2D materials, layered on top of each other like sheets of paper and held together by weak van der Waals forces rather than strong chemical bonds between the layers. Because each layer keeps its own individual properties, researchers can mix and match materials, a semiconductor here, an insulator there, to design electronic and optical behavior that no single material could achieve alone, similar to combining ingredients in a recipe. It's a major research direction for building smaller, more capable next-generation electronic and photonic devices.",
+    "icon": "🥞",
+    "cluster": "frontier-technologies"
+  },
+  "bandgap": {
+    "term": "Bandgap",
+    "match": [
+      "bandgap",
+      "band gap",
+      "electronic bandgap"
+    ],
+    "definition": "A material's bandgap is the amount of energy an electron needs to jump from its normal, bound state into a state where it's free to move and conduct electricity. Insulators have a large bandgap that's very hard to cross, metals have effectively none, and semiconductors sit in between, with a bandgap small enough to cross under the right conditions, like light or an applied voltage, which is exactly what makes them so useful for switches, transistors, and solar cells. Engineering a material's bandgap, including by changing its thickness in 2D materials, is central to designing new electronic and optoelectronic devices.",
+    "icon": "📊",
+    "cluster": "frontier-technologies"
+  },
+  "cmos": {
+    "term": "CMOS (Complementary Metal-Oxide-Semiconductor)",
+    "match": [
+      "cmos"
+    ],
+    "definition": "CMOS is the dominant chip-manufacturing technology used to build the transistors inside virtually all modern processors and memory chips. It works by pairing two complementary types of transistors that switch on and off in opposite states, a design that draws very little power when the circuit is idle. This power efficiency is a big part of why CMOS became the industry standard starting in the 1980s, and \"CMOS-compatible\" is now a key phrase researchers use to describe whether a promising new material or device could realistically be manufactured using the chip industry's existing factories and processes.",
+    "icon": "🖥️",
+    "cluster": "frontier-technologies"
+  },
+  "field-effect-transistor": {
+    "term": "Field-Effect Transistor (FET)",
+    "match": [
+      "field-effect transistor",
+      "field effect transistor",
+      "fet"
+    ],
+    "definition": "A field-effect transistor is the basic switch that modern electronics are built from, controlling the flow of current through a channel of semiconductor material by applying voltage to a nearby \"gate\" electrode, without the gate itself needing to carry current. That voltage creates an electric field that can open or close the channel, letting the transistor act as an on/off switch or an amplifier. Billions of FETs, each a few nanometers across, are packed onto a modern computer chip, and much of chip research, including work on 2D materials, is aimed at building smaller, faster, or more energy-efficient versions of this same basic device.",
+    "icon": "🔀",
+    "cluster": "frontier-technologies"
+  },
+  "raman-spectroscopy": {
+    "term": "Raman Spectroscopy",
+    "match": [
+      "raman spectroscopy",
+      "raman spectrum"
+    ],
+    "definition": "Raman spectroscopy is a technique for identifying a material and probing its structure by shining a laser on it and analyzing the tiny shifts in color that scattered light undergoes as it interacts with vibrations in the material's atomic bonds. Each material produces its own characteristic pattern of these shifts, acting like a fingerprint. It's a fast, non-destructive way to confirm what a sample is made of, how many atomic layers a 2D material has, or whether it has defects or strain, which is why it's a standard characterization tool in materials science and nanotechnology labs.",
+    "icon": "📈",
+    "cluster": "frontier-technologies"
+  },
+  "xps": {
+    "term": "X-ray Photoelectron Spectroscopy (XPS)",
+    "match": [
+      "x-ray photoelectron spectroscopy",
+      "xps"
+    ],
+    "definition": "X-ray photoelectron spectroscopy is a technique for identifying which chemical elements are present at a material's surface, and what chemical state they're in, by hitting the sample with X-rays and measuring the energy of the electrons that get knocked loose as a result. The energy of each ejected electron is characteristic of the specific atom and bonding environment it came from, so the resulting spectrum reveals a detailed surface chemical fingerprint. It's widely used to confirm the composition and purity of newly grown or fabricated materials, including 2D materials and thin-film coatings.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "heterojunction": {
+    "term": "Heterojunction",
+    "match": [
+      "heterojunction",
+      "heterojunctions"
+    ],
+    "definition": "A heterojunction is the boundary formed where two different semiconductor materials meet and are joined together, each with its own distinct bandgap and electronic properties. Unlike a junction formed within a single material, this mismatch between the two sides can be deliberately engineered to control how electrons and light interact at the interface, which is useful for building efficient LEDs, laser diodes, solar cells, and high-speed transistors. Stacking different 2D materials to form heterojunctions is one of the main ways researchers customize the electronic behavior of next-generation devices.",
+    "icon": "🔗",
+    "cluster": "frontier-technologies"
   }
 }
