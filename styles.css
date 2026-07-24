@@ -1765,3 +1765,244 @@ input:focus-visible,
 .signup-form input:focus-visible {
     outline: none
 }
+
+/* ==========================================================================
+   Interactive Knowledge Cards (Glossary)
+   Inline term triggers (.gterm) rendered by lib/glossary.py at build time.
+   Desktop: hover/focus shows a lightweight CSS-positioned preview card.
+   Any device: click/tap/Enter opens the full accessible modal via app.js.
+   Colors reuse the site's existing token set; a prefers-color-scheme dark
+   variant is included so the widget stays correct if/when the rest of the
+   site adopts a dark theme.
+   ========================================================================== */
+
+.gterm {
+    font: inherit;
+    color: var(--electric-text);
+    background: linear-gradient(to bottom, transparent calc(100% - 2px), currentColor 2px);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    border: none;
+    padding: 0 1px;
+    margin: 0 -1px;
+    cursor: help;
+    display: inline;
+    text-decoration: none;
+    border-radius: 3px;
+    position: relative;
+    transition: background-color .15s ease, color .15s ease
+}
+
+.gterm:hover,
+.gterm:focus-visible {
+    background-color: rgba(23,107,255,.1);
+    color: var(--electric)
+}
+
+.gterm:focus-visible {
+    outline: 2px solid var(--electric);
+    outline-offset: 2px
+}
+
+.gterm:active {
+    background-color: rgba(23,107,255,.18)
+}
+
+/* Desktop hover preview - pure CSS, shown only on pointer:fine devices so
+   touch users go straight to the tap-to-open modal without a ghost hover
+   state getting in the way. Populated by app.js from the compiled
+   glossary JSON the first time each term is hovered/focused. */
+.gterm-preview {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%) translateY(4px);
+    width: max-content;
+    max-width: 300px;
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 14px;
+    border-radius: 10px;
+    font: 500 13.5px/1.55 "Manrope",sans-serif;
+    box-shadow: 0 12px 30px rgba(2,8,23,.28);
+    z-index: 60;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s ease, transform .15s ease
+}
+
+.gterm-preview b {
+    display: block;
+    color: var(--cyan);
+    font: 700 11px/1 "DM Sans",sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px
+}
+
+.gterm-preview::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--navy)
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .gterm:hover .gterm-preview,
+    .gterm:focus-visible .gterm-preview,
+    .gterm.gterm-preview-visible .gterm-preview {
+        display: block;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0)
+    }
+}
+
+/* Full modal - opened on click/tap/Enter on any device, and the only
+   interaction path on touch screens where hover doesn't exist. */
+.gterm-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2,8,23,.55);
+    backdrop-filter: blur(2px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    animation: gterm-fade-in .18s ease forwards
+}
+
+@keyframes gterm-fade-in {
+    to { opacity: 1 }
+}
+
+.gterm-modal {
+    background: var(--white);
+    color: var(--ink);
+    width: 100%;
+    max-width: 440px;
+    max-height: min(80vh, 520px);
+    overflow-y: auto;
+    border-radius: 18px;
+    padding: 28px 26px 24px;
+    box-shadow: 0 30px 70px rgba(2,8,23,.35);
+    transform: translateY(10px) scale(.98);
+    animation: gterm-pop-in .2s ease forwards
+}
+
+@keyframes gterm-pop-in {
+    to { transform: translateY(0) scale(1) }
+}
+
+.gterm-modal-icon {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 10px;
+    display: block
+}
+
+.gterm-modal h2 {
+    font: 700 22px/1.3 "DM Sans",sans-serif;
+    margin: 0 0 12px;
+    color: var(--ink);
+    padding-right: 30px
+}
+
+.gterm-modal p {
+    font: 400 15.5px/1.7 "Manrope",sans-serif;
+    color: var(--muted);
+    margin: 0 0 20px
+}
+
+.gterm-modal-guide {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font: 600 14px "DM Sans",sans-serif;
+    color: var(--electric-text);
+    padding: 10px 16px;
+    border: 1.5px solid var(--electric);
+    border-radius: 999px;
+    transition: background-color .15s ease, color .15s ease
+}
+
+.gterm-modal-guide:hover,
+.gterm-modal-guide:focus-visible {
+    background: var(--electric);
+    color: #fff
+}
+
+.gterm-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background: var(--paper);
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background-color .15s ease, color .15s ease
+}
+
+.gterm-modal-close:hover,
+.gterm-modal-close:focus-visible {
+    background: var(--line);
+    color: var(--ink)
+}
+
+.gterm-modal-inner {
+    position: relative
+}
+
+@media (max-width: 560px) {
+    .gterm-modal {
+        padding: 24px 20px 20px;
+        border-radius: 16px
+    }
+    .gterm-modal h2 {
+        font-size: 19px
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .gterm-modal {
+        background: #0d1526;
+        color: #eef2fb
+    }
+    .gterm-modal h2 {
+        color: #fff
+    }
+    .gterm-modal p {
+        color: #a9b3cc
+    }
+    .gterm-modal-close {
+        background: rgba(255,255,255,.08);
+        color: #cfd6e8
+    }
+    .gterm-modal-close:hover,
+    .gterm-modal-close:focus-visible {
+        background: rgba(255,255,255,.16);
+        color: #fff
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gterm-backdrop,
+    .gterm-modal {
+        animation: none;
+        opacity: 1;
+        transform: none
+    }
+}
