@@ -22,6 +22,7 @@ from pathlib import Path
 from lib.parser import load_articles
 from lib.categorize import get_cluster, cluster_list
 from lib.site_cleaner import deep_clean, dedupe_hero_image
+from lib import glossary as glossary_lib
 from bs4 import BeautifulSoup
 
 SITE_URL = "https://kmmanoharinsights.netlify.app"
@@ -276,6 +277,16 @@ def load_and_prepare():
         print(f"Dropped {len(raw_articles) - len(deduped)} near-duplicate post(s); {len(deduped)} unique articles remain")
     raw_articles = deduped
 
+    # Interactive Knowledge Cards (Glossary) - load the centralized term
+    # database and resolve each term's optional "Read Full Guide" link
+    # against the live article list before processing any article content,
+    # so every article's inline term-links point at guide articles that
+    # reflect what's actually published on THIS build (self-updating as
+    # new articles land, no manual term->article mapping to maintain).
+    glossary = glossary_lib.resolve_guide_links(glossary_lib.load_glossary(), raw_articles)
+    if glossary:
+        print(f"Glossary: {len(glossary)} terms loaded")
+
     articles = []
     mismatch_count = 0
     for i, a in enumerate(raw_articles, start=1):
@@ -299,6 +310,7 @@ def load_and_prepare():
             )
         )
         content = insert_back_to_toc(content)
+        content = glossary_lib.inject_glossary_links(content, glossary)
 
         articles.append({
             **a,
@@ -324,7 +336,7 @@ def load_and_prepare():
             titles = [a["title"] for a in articles if a["slug"] == slug]
             print(f"  /{slug}/ ({count}x): {titles}")
 
-    return articles
+    return articles, glossary
 
 
 # --------------------------------------------------------------------------
@@ -904,8 +916,17 @@ def build():
     if Path(".well-known").exists():
         shutil.copytree(".well-known", OUTPUT_DIR / ".well-known", dirs_exist_ok=True)
 
-    articles = load_and_prepare()
+    articles, glossary = load_and_prepare()
     index_by_id = {a["id"]: i for i, a in enumerate(articles)}
+
+    # Interactive Knowledge Cards (Glossary) - single compiled JSON payload
+    # the client-side widget fetches once per page load. Written after the
+    # assets/ copytree above so it's never clobbered by a stale committed
+    # copy, and cached long-term by the browser (see netlify.toml) since a
+    # new filename-stable rebuild happens on every content change anyway.
+    term_count = glossary_lib.write_glossary_payload(glossary, OUTPUT_DIR / "assets" / "glossary.json")
+    if term_count:
+        print(f"Glossary: wrote {term_count} term definitions to assets/glossary.json")
 
     # Article pages
     for a in articles:

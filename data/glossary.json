@@ -1,0 +1,688 @@
+{
+  "llm": {
+    "term": "Large Language Model (LLM)",
+    "match": [
+      "large language models",
+      "large language model",
+      "llms",
+      "llm"
+    ],
+    "definition": "A large language model is an AI system trained on enormous amounts of text to predict and generate human-like language. Instead of following fixed rules, it learns statistical patterns — grammar, facts, reasoning styles — from billions of examples, then uses that learned pattern to answer questions, write text, or hold conversations. Modern assistants like Claude and ChatGPT are built on LLMs. They're powerful but imperfect: they can be confidently wrong, so their outputs are best treated as a well-read collaborator's draft, not gospel.",
+    "icon": "🧠",
+    "cluster": "digital-intelligence"
+  },
+  "machine-learning": {
+    "term": "Machine Learning",
+    "match": [
+      "machine learning"
+    ],
+    "definition": "Machine learning is a way of building software that improves at a task by learning from data, rather than being explicitly programmed with step-by-step rules. Feed it thousands of labeled examples — photos of cats, past loan defaults, chess games — and it gradually adjusts internal parameters until its predictions match reality closely enough to be useful. It underlies everything from spam filters to medical-image analysis to the recommendation feed on your phone, and is the foundation that deep learning and modern AI are built on top of.",
+    "icon": "📈",
+    "cluster": "digital-intelligence"
+  },
+  "deep-learning": {
+    "term": "Deep Learning",
+    "match": [
+      "deep learning"
+    ],
+    "definition": "Deep learning is a branch of machine learning that uses artificial neural networks with many stacked layers — the \"deep\" in the name — to find patterns in raw data like images, audio, or text. Each layer learns to recognize increasingly abstract features: early layers might detect edges in a photo, later ones detect whole objects. This layered approach is what made breakthroughs like image recognition, speech transcription, and large language models possible, and it needs large datasets and significant computing power to train well.",
+    "icon": "🕸️",
+    "cluster": "digital-intelligence"
+  },
+  "neural-network": {
+    "term": "Neural Network",
+    "match": [
+      "neural network",
+      "neural networks"
+    ],
+    "definition": "A neural network is a computing system loosely inspired by the brain's web of neurons. It's built from layers of simple mathematical units, each one weighing its inputs and passing a signal forward. During training, the network repeatedly adjusts those weights based on how wrong its predictions were, gradually getting better at the task — recognizing a face, translating a sentence, predicting a protein's shape. It doesn't \"think\" the way a brain does, but the architecture is flexible enough to approximate remarkably complex patterns.",
+    "icon": "🕸️",
+    "cluster": "digital-intelligence"
+  },
+  "generative-ai": {
+    "term": "Generative AI",
+    "match": [
+      "generative ai"
+    ],
+    "definition": "Generative AI refers to models that create new content — text, images, music, code, even video — rather than just analyzing or classifying existing data. Trained on huge datasets, these systems learn the underlying patterns of their medium well enough to produce original, often convincing output when prompted. Chatbots, AI image generators, and coding assistants all fall under this umbrella. The technology raises real questions around originality, misinformation, and copyright even as it accelerates creative and technical work across nearly every industry.",
+    "icon": "✨",
+    "cluster": "digital-intelligence"
+  },
+  "agentic-ai": {
+    "term": "Agentic AI",
+    "match": [
+      "agentic ai",
+      "ai agents",
+      "ai agent"
+    ],
+    "definition": "Agentic AI describes systems that don't just respond to a single prompt but can plan, take actions, and pursue a goal across multiple steps with limited human oversight — browsing the web, calling other software tools, writing and running code, or coordinating with other AI agents. Instead of one question and one answer, an agent might break a task into sub-tasks, check its own progress, and adjust course. This shift from passive assistant to semi-autonomous actor is one of the most closely watched frontiers in AI development right now.",
+    "icon": "🤖",
+    "cluster": "digital-intelligence"
+  },
+  "nlp": {
+    "term": "Natural Language Processing (NLP)",
+    "match": [
+      "natural language processing",
+      "nlp"
+    ],
+    "definition": "Natural language processing is the field of AI focused on enabling computers to understand, interpret, and generate human language. It covers everything from simple tasks like spell-checking and translation to complex ones like summarizing a document or answering open-ended questions. Before deep learning, NLP relied heavily on hand-crafted grammar rules; today it's dominated by neural networks trained on massive text corpora. NLP is the technology layer that makes chatbots, voice assistants, and search engines able to work with everyday human language instead of rigid commands.",
+    "icon": "💬",
+    "cluster": "digital-intelligence"
+  },
+  "computer-vision": {
+    "term": "Computer Vision",
+    "match": [
+      "computer vision"
+    ],
+    "definition": "Computer vision is the field of AI that teaches machines to interpret and make decisions based on visual data — photos, video, or live camera feeds. It powers face unlock on phones, medical scan analysis, self-driving car perception, and quality-control cameras on factory lines. Modern computer-vision systems are usually deep neural networks trained on millions of labeled images, learning to recognize edges, textures, shapes, and eventually whole objects or scenes, often achieving accuracy that rivals or exceeds human performance on narrow, well-defined tasks.",
+    "icon": "👁️",
+    "cluster": "digital-intelligence"
+  },
+  "federated-learning": {
+    "term": "Federated Learning",
+    "match": [
+      "federated learning"
+    ],
+    "definition": "Federated learning is a way of training AI models across many devices or organizations without pooling their raw data in one place. Instead, each participant — a hospital, a phone, a robot — trains a local copy of the model on its own private data, then shares only the resulting updates, which get combined into an improved shared model. This preserves privacy and data ownership while still letting everyone benefit from a model trained on a much larger, more diverse dataset than any single participant could gather alone.",
+    "icon": "🔗",
+    "cluster": "digital-intelligence"
+  },
+  "cybersecurity": {
+    "term": "Cybersecurity",
+    "match": [
+      "cybersecurity",
+      "cyber security"
+    ],
+    "definition": "Cybersecurity is the practice of protecting computer systems, networks, and data from unauthorized access, damage, or theft. It spans everything from encrypting sensitive files and patching software vulnerabilities to detecting intrusions and training employees to spot phishing emails. As more of daily life — banking, healthcare, infrastructure — moves online, cybersecurity has become essential rather than optional, and it's a constant arms race: attackers develop new techniques, defenders develop new countermeasures, and both increasingly use AI to gain an edge over the other side.",
+    "icon": "🛡️",
+    "cluster": "digital-intelligence"
+  },
+  "encryption": {
+    "term": "Encryption",
+    "match": [
+      "encryption"
+    ],
+    "definition": "Encryption is the process of scrambling information so that only someone with the correct key can read it, protecting data as it's stored or sent across a network. Modern encryption relies on mathematical problems that are easy to compute in one direction but extremely hard to reverse without the key — the basis for everything from secure messaging apps to online banking. It's also central to an ongoing technology race: quantum computers could eventually break some of today's encryption methods, which is why researchers are already building quantum-resistant alternatives.",
+    "icon": "🔐",
+    "cluster": "digital-intelligence"
+  },
+  "blockchain": {
+    "term": "Blockchain",
+    "match": [
+      "blockchain"
+    ],
+    "definition": "A blockchain is a digital ledger that records transactions across a network of computers in a way that's very difficult to alter after the fact. Each new batch of records, or \"block,\" is cryptographically linked to the one before it, and copies of the ledger are distributed across many participants rather than stored in one central location. Best known as the technology behind cryptocurrencies, blockchains are also being explored for supply-chain tracking, digital identity, and coordinating decentralized AI systems without needing a single trusted authority in the middle.",
+    "icon": "⛓️",
+    "cluster": "digital-intelligence"
+  },
+  "quantum-entanglement": {
+    "term": "Quantum Entanglement",
+    "match": [
+      "quantum entanglement",
+      "entangled qubits",
+      "entangled particles"
+    ],
+    "definition": "Quantum entanglement is a phenomenon where two or more particles become linked so that measuring one instantly tells you something about the other, no matter how far apart they are. Einstein famously called it \"spooky action at a distance,\" though it doesn't actually let information travel faster than light. Entanglement isn't just a curiosity — it's a working resource that quantum computers, quantum cryptography, and quantum sensors rely on to do things ordinary classical devices fundamentally cannot, making it one of the most useful strange effects in physics.",
+    "icon": "🔗",
+    "cluster": "frontier-technologies"
+  },
+  "qubit": {
+    "term": "Qubit",
+    "match": [
+      "qubit",
+      "qubits"
+    ],
+    "definition": "A qubit, short for quantum bit, is the basic unit of information in a quantum computer, playing the same role a regular bit plays in a normal computer. But unlike a bit, which is strictly 0 or 1, a qubit can exist in a mix of both states at once through a property called superposition, and multiple qubits can become entangled with each other. This lets quantum computers explore many possible solutions simultaneously for certain problems, though qubits are also notoriously fragile and easily disturbed by their environment.",
+    "icon": "⚛️",
+    "cluster": "frontier-technologies"
+  },
+  "quantum-computing": {
+    "term": "Quantum Computing",
+    "match": [
+      "quantum computing",
+      "quantum computer",
+      "quantum computers"
+    ],
+    "definition": "Quantum computing is a fundamentally different approach to computation that uses qubits instead of ordinary bits, exploiting quantum effects like superposition and entanglement to process certain kinds of problems far more efficiently than classical computers. It isn't a faster version of a normal computer for everyday tasks — email and spreadsheets won't get quicker — but for specific problems like simulating molecules, optimizing complex systems, or breaking certain encryption schemes, it could offer a genuine and dramatic advantage once the hardware matures beyond today's error-prone, experimental machines.",
+    "icon": "🖥️",
+    "cluster": "frontier-technologies"
+  },
+  "majorana-fermion": {
+    "term": "Majorana Fermion / Majorana Qubit",
+    "match": [
+      "majorana fermion",
+      "majorana qubit",
+      "majorana particle",
+      "majorana quantum"
+    ],
+    "definition": "A Majorana fermion is an unusual particle, first predicted in 1937, that is its own antiparticle. In condensed-matter physics, researchers can engineer Majorana-like quasiparticles at the edges of certain exotic materials, and pairs of them can be used to build a topological qubit — a type of qubit whose quantum information is stored in a way that's inherently more resistant to the noise and errors that plague conventional qubits. Building a stable, useful Majorana qubit remains one of the most closely watched goals in quantum hardware research.",
+    "icon": "🌀",
+    "cluster": "frontier-technologies"
+  },
+  "superconductor": {
+    "term": "Superconductor",
+    "match": [
+      "superconductor",
+      "superconducting",
+      "superconductivity"
+    ],
+    "definition": "A superconductor is a material that, when cooled below a certain critical temperature, conducts electricity with zero resistance and expels magnetic fields. That means current can flow through it forever without losing energy as heat, which is why superconductors are used in MRI machines, maglev trains, particle accelerators, and many quantum computer designs. The catch is that most known superconductors need extreme cryogenic cooling to work, so a major research goal is finding materials that superconduct at higher — ideally room — temperatures, which would make the technology far more practical.",
+    "icon": "❄️",
+    "cluster": "frontier-technologies"
+  },
+  "semiconductor": {
+    "term": "Semiconductor",
+    "match": [
+      "semiconductor",
+      "semiconductors"
+    ],
+    "definition": "A semiconductor is a material — most commonly silicon — whose ability to conduct electricity sits between that of a conductor and an insulator, and can be precisely controlled by adding tiny amounts of other elements. This controllability is what makes it possible to build the transistors that form the logic gates inside every computer chip. Semiconductors are the physical foundation of virtually all modern electronics, and the industry that designs and manufactures them — spanning chip design, fabrication plants, and materials science — is one of the most strategically important in the world.",
+    "icon": "🔌",
+    "cluster": "frontier-technologies"
+  },
+  "photonic-chip": {
+    "term": "Photonic Chip / Silicon Photonics",
+    "match": [
+      "photonic chip",
+      "photonic chips",
+      "silicon photonics",
+      "light-powered chip"
+    ],
+    "definition": "A photonic chip processes and moves information using particles of light, photons, instead of the electrons that conventional chips rely on. Because light doesn't generate as much resistive heat and can carry enormous amounts of data at very high speed, photonic chips are being developed for faster data-center networking, more energy-efficient AI processing, and even entirely light-based computing. Silicon photonics, which builds these light-based components using the same manufacturing techniques as ordinary silicon chips, is the leading approach for making the technology affordable and scalable.",
+    "icon": "💡",
+    "cluster": "frontier-technologies"
+  },
+  "spintronics": {
+    "term": "Spintronics",
+    "match": [
+      "spintronics",
+      "spintronic"
+    ],
+    "definition": "Spintronics is a technology that uses the intrinsic \"spin\" of electrons — a quantum property that behaves a bit like a tiny magnet — to store and process information, in addition to or instead of the electron's electric charge, which conventional electronics relies on exclusively. Because spin can be flipped and read without necessarily moving electrons around, spintronic devices promise lower power consumption and non-volatile memory that keeps its data without power. It already underlies the read heads in modern hard drives and is a leading candidate for next-generation computer memory.",
+    "icon": "🧲",
+    "cluster": "frontier-technologies"
+  },
+  "nanotechnology": {
+    "term": "Nanotechnology",
+    "match": [
+      "nanotechnology",
+      "nanotech",
+      "nanomaterial",
+      "nanomaterials"
+    ],
+    "definition": "Nanotechnology is the science and engineering of materials and devices at the scale of roughly 1 to 100 nanometers — thousands of times thinner than a human hair. At this scale, materials often behave differently than they do in bulk: they can become stronger, more reactive, or take on new electrical and optical properties. Nanotechnology already shows up in sunscreen, stain-resistant fabrics, and drug-delivery capsules, and it's a key enabling tool behind advances in medicine, energy storage, water purification, and next-generation electronics.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "graphene": {
+    "term": "Graphene",
+    "match": [
+      "graphene"
+    ],
+    "definition": "Graphene is a single layer of carbon atoms arranged in a honeycomb lattice, just one atom thick, first isolated in 2004. Despite its thinness, it's about 200 times stronger than steel by weight, conducts electricity and heat exceptionally well, and is nearly transparent. Researchers have explored it for flexible electronics, ultra-fast transistors, water filtration membranes, and next-generation batteries. It's often called a \"wonder material,\" though turning its impressive lab properties into cheap, mass-manufacturable products has proven harder than early hype suggested.",
+    "icon": "⬡",
+    "cluster": "frontier-technologies"
+  },
+  "metamaterial": {
+    "term": "Metamaterial",
+    "match": [
+      "metamaterial",
+      "metamaterials",
+      "metadevice",
+      "metadevices"
+    ],
+    "definition": "A metamaterial is an engineered material structured with tiny repeating patterns — much smaller than the wavelengths of light or radio waves it interacts with — that give it properties not found in nature, like bending light in unusual ways or absorbing specific frequencies almost completely. Rather than depending on what atoms a material is made of, its behavior comes from the geometry of its structure. Metamaterials are being explored for invisibility-style cloaking, ultra-compact antennas, and precision sensors that work at frequencies ordinary materials handle poorly.",
+    "icon": "🔷",
+    "cluster": "frontier-technologies"
+  },
+  "terahertz": {
+    "term": "Terahertz Radiation",
+    "match": [
+      "terahertz",
+      "terahertz radiation",
+      "terahertz waves"
+    ],
+    "definition": "Terahertz radiation sits in the electromagnetic spectrum between microwaves and infrared light, a range that's historically been hard to generate and detect efficiently, sometimes called the \"terahertz gap.\" It can pass through many non-metallic materials like clothing and packaging without the ionizing risk of X-rays, making it useful for security scanning, quality inspection, and medical imaging. It's also being explored for ultra-fast next-generation wireless communication, since its higher frequency could carry far more data than today's radio and microwave-based networks.",
+    "icon": "📡",
+    "cluster": "frontier-technologies"
+  },
+  "3d-printing": {
+    "term": "3D Printing (Additive Manufacturing)",
+    "match": [
+      "3d printing",
+      "additive manufacturing",
+      "3d-printed",
+      "3d printed"
+    ],
+    "definition": "3D printing, formally called additive manufacturing, builds physical objects layer by layer from a digital design, rather than cutting or molding material away from a solid block. It allows complex shapes that traditional manufacturing can't easily produce, rapid prototyping without expensive tooling, and on-demand production of spare parts or custom medical implants. The technology now spans materials from plastics and metals to living cells, and is used across aerospace, healthcare, construction, and consumer product design.",
+    "icon": "🖨️",
+    "cluster": "frontier-technologies"
+  },
+  "cryo-em": {
+    "term": "Cryo-EM (Cryo-Electron Microscopy)",
+    "match": [
+      "cryo-em",
+      "cryo electron microscopy",
+      "cryo-electron microscopy"
+    ],
+    "definition": "Cryo-electron microscopy, or cryo-EM, is a technique for determining the detailed 3D structure of proteins and other biological molecules. Samples are flash-frozen so fast that ice crystals don't have time to form and distort them, then imaged with a powerful electron microscope. Thousands of individual 2D images are combined computationally into a high-resolution 3D model. Cryo-EM revolutionized structural biology because it works on molecules too large, flexible, or difficult to crystallize for older techniques like X-ray crystallography, and it played a major role in rapidly solving the structure of proteins used in COVID-19 vaccine design.",
+    "icon": "🧊",
+    "cluster": "frontier-technologies"
+  },
+  "memristor": {
+    "term": "Memristor",
+    "match": [
+      "memristor",
+      "memristors",
+      "printed artificial neurons"
+    ],
+    "definition": "A memristor is an electronic component whose resistance changes based on the history of current that has flowed through it, and which \"remembers\" that resistance even after power is switched off. Long predicted theoretically before being physically demonstrated, memristors are of particular interest for neuromorphic computing, because their behavior — retaining a state that's shaped by past signals — mirrors how a biological synapse strengthens or weakens with use, making them a promising building block for brain-inspired chips.",
+    "icon": "🧩",
+    "cluster": "frontier-technologies"
+  },
+  "neuromorphic-computing": {
+    "term": "Neuromorphic Computing",
+    "match": [
+      "neuromorphic computing",
+      "neuromorphic chip",
+      "neuromorphic electronics"
+    ],
+    "definition": "Neuromorphic computing designs computer chips that mimic the structure and behavior of the brain's neurons and synapses, rather than the traditional separate-memory-and-processor layout of conventional computers. These chips process information as spikes of activity, much like real neurons, and can be dramatically more energy-efficient for pattern-recognition and sensory-processing tasks. Because computation and memory happen together throughout the chip instead of shuttling data back and forth, neuromorphic systems are a promising path toward AI hardware that uses a small fraction of the power today's chips need.",
+    "icon": "🧠",
+    "cluster": "frontier-technologies"
+  },
+  "topological-insulator": {
+    "term": "Topological Insulator",
+    "match": [
+      "topological insulator",
+      "topological insulators"
+    ],
+    "definition": "A topological insulator is an unusual material that behaves as an electrical insulator throughout its interior but conducts electricity almost perfectly along its surface or edges. This surface conduction is protected by the material's underlying quantum \"topology,\" making it remarkably resistant to defects and impurities that would normally scatter and slow down electrons. Researchers are exploring topological insulators for low-power electronics, spintronic devices, and as a platform for building more stable, error-resistant qubits for quantum computers.",
+    "icon": "🌐",
+    "cluster": "frontier-technologies"
+  },
+  "crispr": {
+    "term": "CRISPR",
+    "match": [
+      "crispr",
+      "crispr-cas9",
+      "crispr cas9"
+    ],
+    "definition": "CRISPR is a gene-editing technology, adapted from a natural bacterial immune system, that lets scientists cut DNA at a precise location and then delete, repair, or insert genetic material there. It's cheaper, faster, and far more precise than earlier gene-editing methods, which is why it has exploded across research since the early 2010s. CRISPR is being used to develop treatments for genetic diseases, engineer crops, study gene function, and, more controversially, has raised ethical debates around editing human embryos — its discoverers won the 2020 Nobel Prize in Chemistry.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "gene-editing": {
+    "term": "Gene Editing",
+    "match": [
+      "gene editing",
+      "genome editing"
+    ],
+    "definition": "Gene editing is the direct, targeted alteration of an organism's DNA — adding, removing, or changing specific genetic sequences — rather than waiting for natural mutation and selection. Modern tools like CRISPR have made gene editing dramatically more precise and accessible than older techniques. It's used in research to understand what individual genes do, in medicine to correct disease-causing mutations, and in agriculture to develop crops with traits like drought resistance or improved nutrition, though editing genes that can be inherited by future generations remains tightly restricted and ethically contentious.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "dna-origami": {
+    "term": "DNA Origami",
+    "match": [
+      "dna origami"
+    ],
+    "definition": "DNA origami is a technique for folding long strands of DNA into precise, custom-designed nanoscale shapes, using dozens of shorter \"staple\" strands that bind to specific points and pull the long strand into place — much like folding a sheet of paper into a sculpture, but at a molecular scale. Because DNA's base-pairing rules make it programmable with high precision, researchers use DNA origami to build nanoscale scaffolds for drug delivery, biosensors, and even to encode and physically store digital data in synthetic DNA strands.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "mrna": {
+    "term": "mRNA",
+    "match": [
+      "mrna",
+      "messenger rna"
+    ],
+    "definition": "Messenger RNA, or mRNA, is a molecule that carries genetic instructions from DNA to a cell's protein-making machinery, telling it which protein to build. mRNA vaccines, most famously used against COVID-19, work by delivering a synthetic mRNA snippet that instructs cells to briefly produce a harmless piece of a virus, training the immune system to recognize it. Because mRNA vaccines can be designed and updated quickly once a pathogen's genetic sequence is known, the platform is now being explored for a much wider range of diseases, including cancer.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "genomics": {
+    "term": "Genome / Genomics",
+    "match": [
+      "genomics",
+      "genome sequencing",
+      "whole genome"
+    ],
+    "definition": "A genome is the complete set of genetic instructions — all the DNA — contained in an organism's cells, and genomics is the study of that full genetic blueprint, rather than just individual genes in isolation. Sequencing technology has become dramatically faster and cheaper since the Human Genome Project finished in 2003, making it possible to read a person's entire genome for a few hundred dollars. Genomics underpins precision medicine, ancestry testing, agricultural breeding, and efforts to understand which genetic variants contribute to disease risk.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "organ-on-chip": {
+    "term": "Organ-on-Chip",
+    "match": [
+      "organ-on-chip",
+      "organ on chip",
+      "liver-on-chip",
+      "liver on chip"
+    ],
+    "definition": "An organ-on-chip is a small device, often about the size of a USB stick, lined with living human cells arranged and exposed to fluid flow in a way that mimics how a real organ behaves — a liver-on-chip, for instance, replicates key functions of a working liver. Researchers use these chips to test how drugs affect human tissue without relying solely on animal testing or simplified cell cultures, offering a faster, cheaper, and often more human-relevant way to study disease and screen new medicines before they reach clinical trials.",
+    "icon": "🫀",
+    "cluster": "human-future"
+  },
+  "digital-twin": {
+    "term": "Digital Twin",
+    "match": [
+      "digital twin",
+      "digital brain twin"
+    ],
+    "definition": "A digital twin is a virtual, continuously updated model of a real-world object, process, or even a biological system, built from real data collected about it. Engineers have long used digital twins to simulate machines like jet engines or factories, predicting failures before they happen. In healthcare, researchers are now building digital twins of organs — including the brain — that mirror an individual patient's own physiology, allowing doctors to test how a treatment might behave in that specific person before actually administering it.",
+    "icon": "🪞",
+    "cluster": "human-future"
+  },
+  "stem-cell": {
+    "term": "Stem Cell",
+    "match": [
+      "stem cell",
+      "stem cells"
+    ],
+    "definition": "A stem cell is an unspecialized cell capable of developing into many different cell types in the body and of renewing itself through division. Embryonic stem cells can become almost any cell type, while adult stem cells are more limited but still valuable, and scientists can also now reprogram ordinary adult cells back into a stem-cell-like state in the lab. Stem cells are central to regenerative medicine — repairing damaged tissue, growing lab-grown organs, and, in reproductive biology research, even generating lab-grown sperm and egg cells.",
+    "icon": "🌱",
+    "cluster": "human-future"
+  },
+  "synthetic-biology": {
+    "term": "Synthetic Biology",
+    "match": [
+      "synthetic biology"
+    ],
+    "definition": "Synthetic biology applies engineering principles — designing standardized parts, building them into circuits, testing and iterating — to living systems, treating genes and cells a bit like programmable components. Scientists use it to engineer microbes that produce medicines, biofuels, or industrial chemicals, to design biosensors that detect specific molecules, and to build entirely new genetic circuits that don't exist in nature. It sits at the intersection of biology, computer science, and chemical engineering, and is reshaping how medicines, materials, and even food ingredients get made.",
+    "icon": "🧫",
+    "cluster": "human-future"
+  },
+  "optogenetics": {
+    "term": "Optogenetics",
+    "match": [
+      "optogenetics"
+    ],
+    "definition": "Optogenetics is a technique that uses light to control the activity of specific cells, typically neurons, that have been genetically engineered to contain light-sensitive proteins. By shining precisely timed pulses of light onto these cells, researchers can switch them on or off with millisecond precision, letting them map how specific neural circuits control behavior, movement, or mood in ways older, blunter methods couldn't achieve. It has become a foundational tool in neuroscience research and is being explored as a basis for future brain-related therapies.",
+    "icon": "💡",
+    "cluster": "human-future"
+  },
+  "biosensor": {
+    "term": "Biosensor",
+    "match": [
+      "biosensor",
+      "biosensors"
+    ],
+    "definition": "A biosensor is a device that combines a biological detection component — like an enzyme, antibody, or strand of DNA — with an electronic system that converts a biological reaction into a measurable signal. When the target substance, whether it's glucose, a virus, or a stress hormone, binds to the biological component, the sensor produces a readable output, often electrical or optical. Biosensors are the technology behind continuous glucose monitors, rapid diagnostic test strips, and emerging wearable patches that track health markers in real time.",
+    "icon": "📟",
+    "cluster": "human-future"
+  },
+  "brain-computer-interface": {
+    "term": "Brain-Computer Interface / Neuroprosthetics",
+    "match": [
+      "brain-computer interface",
+      "brain computer interface",
+      "wireless brain implant",
+      "neuroprosthetics",
+      "brain implant"
+    ],
+    "definition": "A brain-computer interface is a system that reads electrical signals directly from the brain and translates them into commands for an external device, such as a computer cursor, robotic arm, or communication tool — bypassing damaged nerves or muscles entirely. Some interfaces are implanted directly into brain tissue for higher precision, while others sit non-invasively on the scalp. The technology is already restoring communication and movement to people with severe paralysis, and researchers are working to make implants wireless, longer-lasting, and less invasive.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "connectome": {
+    "term": "Connectome",
+    "match": [
+      "connectome",
+      "connectome-seq"
+    ],
+    "definition": "A connectome is a comprehensive map of all the neural connections in a brain or nervous system — essentially a wiring diagram showing which neurons connect to which, and how. Mapping a connectome, even for a small organism, requires imaging and reconstructing enormous numbers of individual synapses, which is why complete connectomes exist for only a handful of simple organisms so far. Understanding connectomes helps researchers link brain structure to function and behavior, and is a foundational step toward eventually decoding how more complex brains, including the human one, actually work.",
+    "icon": "🕸️",
+    "cluster": "human-future"
+  },
+  "epigenetics": {
+    "term": "Epigenetics",
+    "match": [
+      "epigenetics",
+      "epigenetic"
+    ],
+    "definition": "Epigenetics is the study of changes in how genes are switched on or off without altering the underlying DNA sequence itself. Chemical tags attached to DNA or the proteins it's wrapped around can silence or activate specific genes in response to factors like diet, stress, or environment, and some of these changes can even be passed to offspring. Epigenetics helps explain why genetically identical cells can develop into very different types, like skin versus liver cells, and is an active area of research in aging, cancer, and disease risk.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "microbiome": {
+    "term": "Microbiome",
+    "match": [
+      "microbiome",
+      "gut microbiome"
+    ],
+    "definition": "The microbiome is the vast community of bacteria, fungi, and other microorganisms that live in and on the human body, most densely in the gut. Rather than being passive passengers, these microbes actively influence digestion, immune function, and even mood through the chemicals they produce. Research over the past two decades has linked microbiome imbalances to conditions ranging from inflammatory bowel disease to obesity and mental health, and it's now a major focus for developing new probiotic therapies and personalized nutrition approaches.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "precision-medicine": {
+    "term": "Precision Medicine",
+    "match": [
+      "precision medicine",
+      "personalized medicine"
+    ],
+    "definition": "Precision medicine tailors medical treatment to an individual patient's genetic makeup, lifestyle, and environment, rather than applying a one-size-fits-all approach to everyone with the same diagnosis. By analyzing a patient's genome, biomarkers, or tumor's specific mutations, doctors can choose treatments more likely to work and avoid ones likely to cause side effects for that particular person. It's already reshaping cancer treatment, where drugs are increasingly matched to a tumor's genetic profile, and is expanding into chronic disease management and drug dosing more broadly.",
+    "icon": "🎯",
+    "cluster": "human-future"
+  },
+  "biomarker": {
+    "term": "Biomarker",
+    "match": [
+      "biomarker",
+      "biomarkers"
+    ],
+    "definition": "A biomarker is a measurable biological indicator — a molecule, gene, or physical characteristic — that signals something about a person's health, such as the presence of disease, how it's progressing, or how well a treatment is working. Blood cholesterol, blood glucose, and specific proteins associated with cancer are all common biomarkers. As diagnostic technology improves, researchers are identifying increasingly subtle biomarkers detectable from blood, saliva, or even breath, enabling earlier disease detection and more precisely targeted treatment decisions.",
+    "icon": "🩸",
+    "cluster": "human-future"
+  },
+  "wearable-technology": {
+    "term": "Wearable Technology",
+    "match": [
+      "wearable technology",
+      "wearable electronics",
+      "wearable device",
+      "wearable devices",
+      "ai skin patch"
+    ],
+    "definition": "Wearable technology refers to electronic devices worn on the body that monitor and often transmit health or activity data in real time — smartwatches tracking heart rate and sleep, patches monitoring glucose, or flexible skin sensors detecting hydration and stress markers. Advances in flexible electronics, low-power chips, and miniaturized sensors have made wearables increasingly comfortable, accurate, and capable, shifting healthcare from occasional clinic visits toward continuous, everyday monitoring that can catch problems earlier.",
+    "icon": "⌚",
+    "cluster": "human-future"
+  },
+  "hydrogel": {
+    "term": "Hydrogel",
+    "match": [
+      "hydrogel",
+      "hydrogels"
+    ],
+    "definition": "A hydrogel is a soft, water-absorbing material made of a network of polymer chains that can hold large amounts of water while still keeping its shape, giving it a texture similar to biological tissue. This tissue-like softness makes hydrogels useful for wound dressings that keep injuries moist while healing, soft contact lenses, drug-delivery implants, and flexible wearable sensors that sit comfortably against skin. Some advanced hydrogels can even generate a small electrical charge from moisture or movement, opening possibilities for self-powered health-monitoring devices.",
+    "icon": "💧",
+    "cluster": "human-future"
+  },
+  "electrolyzer": {
+    "term": "Electrolyzer",
+    "match": [
+      "electrolyzer",
+      "electrolyzers",
+      "electrolysis"
+    ],
+    "definition": "An electrolyzer is a device that uses electricity to split water into hydrogen and oxygen gas, a process called electrolysis. When the electricity powering it comes from renewable sources like solar or wind, the hydrogen produced is called \"green hydrogen\" because the process generates no direct carbon emissions. Electrolyzers are a key piece of hardware in the push to decarbonize industries like steelmaking, shipping, and heavy trucking, which are hard to electrify directly and instead need a clean fuel or feedstock like hydrogen.",
+    "icon": "⚡",
+    "cluster": "sustainable-future"
+  },
+  "green-hydrogen": {
+    "term": "Green Hydrogen",
+    "match": [
+      "green hydrogen",
+      "hydrogen energy",
+      "hydrogen fuel"
+    ],
+    "definition": "Green hydrogen is hydrogen gas produced by splitting water using electricity generated from renewable sources, making the process itself essentially carbon-free — unlike the majority of hydrogen produced today, which comes from natural gas and releases significant CO2. Because hydrogen can be burned, used in fuel cells, or serve as a chemical feedstock, green hydrogen is seen as a promising way to decarbonize sectors like steel, shipping, and aviation that are difficult to run on batteries alone, though high production costs remain a major hurdle to widespread adoption.",
+    "icon": "🌿",
+    "cluster": "sustainable-future"
+  },
+  "hydrogen-fuel-cell": {
+    "term": "Hydrogen Fuel Cell",
+    "match": [
+      "hydrogen fuel cell",
+      "fuel cell",
+      "fuel cells"
+    ],
+    "definition": "A hydrogen fuel cell generates electricity by combining hydrogen and oxygen through an electrochemical reaction, producing only water and heat as byproducts rather than burning fuel. Unlike a battery, which stores a fixed amount of energy, a fuel cell keeps generating power as long as hydrogen fuel is supplied, and can be refueled quickly rather than recharged slowly. Fuel cells are used in some vehicles, backup power systems, and are being explored for heavy transport and industrial applications where fast refueling matters more than it does for everyday electric cars.",
+    "icon": "🔋",
+    "cluster": "sustainable-future"
+  },
+  "tritium": {
+    "term": "Tritium",
+    "match": [
+      "tritium"
+    ],
+    "definition": "Tritium is a rare, radioactive form of hydrogen with two extra neutrons in its nucleus, making it heavier than ordinary hydrogen. It's a key fuel ingredient for nuclear fusion reactors, which typically combine tritium with deuterium to release energy, but tritium is extremely scarce in nature and difficult to produce and handle safely. Solving the \"tritium supply problem\" — generating and recycling enough of it efficiently — is considered one of the major practical hurdles standing between today's experimental fusion reactors and commercially viable fusion power plants.",
+    "icon": "☢️",
+    "cluster": "sustainable-future"
+  },
+  "fusion-energy": {
+    "term": "Fusion Energy",
+    "match": [
+      "fusion energy",
+      "nuclear fusion",
+      "fusion reactor"
+    ],
+    "definition": "Fusion energy is generated by forcing light atomic nuclei, typically isotopes of hydrogen, to fuse together into a heavier nucleus, releasing enormous amounts of energy in the process — the same reaction that powers the sun. Unlike nuclear fission, which splits heavy atoms and produces long-lived radioactive waste, fusion produces comparatively little waste and carries no risk of a runaway meltdown. Achieving fusion is scientifically proven but engineering a reactor that produces more energy than it consumes, reliably and affordably, remains one of the biggest unsolved challenges in energy technology.",
+    "icon": "☀️",
+    "cluster": "sustainable-future"
+  },
+  "solid-state-battery": {
+    "term": "Solid-State Battery",
+    "match": [
+      "solid-state battery",
+      "solid state battery",
+      "quantum battery"
+    ],
+    "definition": "A solid-state battery replaces the liquid or gel electrolyte found in conventional lithium-ion batteries with a solid material, which can make the battery safer, more energy-dense, and faster to charge. Because solid electrolytes are less prone to leaking, catching fire, or forming battery-degrading dendrites, solid-state designs are seen as a leading candidate for next-generation electric vehicle batteries and are also driving early research into more experimental battery concepts, including ones that draw on quantum effects to charge or discharge more efficiently.",
+    "icon": "🔋",
+    "cluster": "sustainable-future"
+  },
+  "perovskite": {
+    "term": "Perovskite Solar Cell",
+    "match": [
+      "perovskite",
+      "perovskite solar cell",
+      "perovskite solar"
+    ],
+    "definition": "A perovskite solar cell uses a class of crystal-structured materials called perovskites to convert sunlight into electricity, offering an alternative to the silicon used in most solar panels today. Perovskite cells can be manufactured using cheaper, lower-temperature processes and have rapidly improved in efficiency in the lab, sometimes even outperforming silicon. Their main challenges are long-term durability and stability when exposed to heat, moisture, and sunlight over years, which researchers are actively working to solve before the technology can be deployed at large commercial scale.",
+    "icon": "☀️",
+    "cluster": "sustainable-future"
+  },
+  "carbon-capture": {
+    "term": "Carbon Capture",
+    "match": [
+      "carbon capture",
+      "carbon capture and storage",
+      "ccs"
+    ],
+    "definition": "Carbon capture is a set of technologies that trap carbon dioxide before it's released into the atmosphere — either directly from a power plant or factory's exhaust, or pulled straight out of ambient air — and then store it underground or convert it into useful products. It's seen as a way to reduce emissions from industries that are hard to fully decarbonize, like cement and steel production, though critics note it's expensive and shouldn't substitute for reducing emissions at the source in the first place.",
+    "icon": "🏭",
+    "cluster": "sustainable-future"
+  },
+  "photovoltaic": {
+    "term": "Photovoltaic",
+    "match": [
+      "photovoltaic",
+      "photovoltaics",
+      "solar panel",
+      "solar panels"
+    ],
+    "definition": "Photovoltaic technology converts sunlight directly into electricity using materials, most commonly silicon, that release electrons when struck by light — the basic mechanism behind every solar panel. Photovoltaic cells are wired together into panels, and panels into larger arrays, scaling from a single rooftop installation to utility-scale solar farms spanning thousands of acres. Falling manufacturing costs over the past two decades have made photovoltaic solar one of the cheapest sources of new electricity generation in much of the world.",
+    "icon": "🔆",
+    "cluster": "sustainable-future"
+  },
+  "smart-grid": {
+    "term": "Smart Grid",
+    "match": [
+      "smart grid",
+      "smart grids"
+    ],
+    "definition": "A smart grid is an electricity network upgraded with digital sensors, communication technology, and automated controls that let it monitor and respond to supply and demand in real time, rather than operating as a one-way system from power plant to consumer. This allows it to better integrate variable renewable sources like solar and wind, detect and respond to outages faster, and let consumers and utilities coordinate usage more efficiently, such as shifting demand to off-peak hours or dynamically pricing electricity based on real-time grid conditions.",
+    "icon": "⚡",
+    "cluster": "sustainable-future"
+  },
+  "circular-economy": {
+    "term": "Circular Economy",
+    "match": [
+      "circular economy"
+    ],
+    "definition": "A circular economy is an economic model designed to eliminate waste by keeping materials and products in use for as long as possible — through reuse, repair, refurbishment, and recycling — rather than following the traditional \"take, make, dispose\" linear pattern. It contrasts with the standard approach of extracting raw materials, manufacturing a product, and discarding it after use. Circular-economy principles are increasingly shaping product design, electronics manufacturing, and battery recycling as industries look to reduce resource extraction and environmental impact.",
+    "icon": "♻️",
+    "cluster": "sustainable-future"
+  },
+  "rotary-engine": {
+    "term": "Rotary Engine",
+    "match": [
+      "rotary engine",
+      "rotary hybrid",
+      "wankel engine"
+    ],
+    "definition": "A rotary engine, most famously the Wankel design, generates power using a triangular rotor spinning within an oval housing, instead of the up-and-down pistons found in a conventional engine. This gives it a compact size, smooth operation, and a high power-to-weight ratio, though it historically suffered from lower fuel efficiency and higher emissions than piston engines. Automakers like Mazda have revisited rotary engines not as a primary power source but as a compact, efficient onboard generator to extend the range of hybrid and electric vehicles.",
+    "icon": "⚙️",
+    "cluster": "sustainable-future"
+  },
+  "supercapacitor": {
+    "term": "Supercapacitor",
+    "match": [
+      "supercapacitor",
+      "supercapacitors"
+    ],
+    "definition": "A supercapacitor is an energy-storage device that, unlike a battery, stores energy through the physical arrangement of charge on its electrode surfaces rather than through a chemical reaction. This lets it charge and discharge extremely quickly and endure far more charge cycles than a typical battery, though it generally stores less total energy for a given size. Supercapacitors are used where rapid bursts of power matter most, like regenerative braking in vehicles or smoothing out fluctuations in renewable energy systems, often working alongside batteries rather than replacing them.",
+    "icon": "⚡",
+    "cluster": "sustainable-future"
+  },
+  "digital-public-infrastructure": {
+    "term": "Digital Public Infrastructure",
+    "match": [
+      "digital public infrastructure",
+      "dpi"
+    ],
+    "definition": "Digital public infrastructure refers to foundational, often government-backed digital systems — for identity verification, payments, and data exchange — that are built as shared, open platforms other services and businesses can build on top of, similar to how physical roads or the postal system support countless private activities. India's Aadhaar digital identity system and UPI payments network are widely cited global examples. The approach is being studied and adapted by other countries as a way to expand access to banking, welfare, and services at national scale.",
+    "icon": "🏛️",
+    "cluster": "india-society"
+  },
+  "upi": {
+    "term": "UPI (Unified Payments Interface)",
+    "match": [
+      "unified payments interface",
+      "upi"
+    ],
+    "definition": "UPI, or Unified Payments Interface, is a real-time payment system in India that lets people instantly transfer money between bank accounts using a mobile phone, without needing to share bank details or use a card. Built as public digital infrastructure and free for individuals to use, UPI has become one of the most heavily used digital payment systems in the world, processing billions of transactions monthly, and is frequently cited internationally as a model for fast, low-cost, interoperable digital payments at national scale.",
+    "icon": "📱",
+    "cluster": "india-society"
+  },
+  "isro": {
+    "term": "ISRO",
+    "match": [
+      "isro",
+      "indian space research organisation"
+    ],
+    "definition": "ISRO, the Indian Space Research Organisation, is India's national space agency, responsible for the country's satellite launches, space exploration missions, and satellite-based services like communication, navigation, and earth observation. It has built a reputation for running missions at a fraction of the cost of comparable programs elsewhere, notable achievements including the Chandrayaan lunar missions, the Mangalyaan Mars orbiter, and a growing commercial launch business through its dedicated commercial arm, positioning India as a significant and increasingly cost-competitive player in the global space industry.",
+    "icon": "🚀",
+    "cluster": "india-society"
+  },
+  "ai-governance": {
+    "term": "AI Governance",
+    "match": [
+      "ai governance"
+    ],
+    "definition": "AI governance refers to the frameworks, regulations, and institutional oversight developed to guide how artificial intelligence is built, deployed, and used, aiming to capture its benefits while managing risks like bias, misinformation, job displacement, and misuse. It spans government regulation, industry self-imposed standards, and international coordination, and remains a rapidly evolving area as lawmakers worldwide try to keep pace with AI capabilities that are advancing faster than most existing legal and regulatory frameworks were designed to handle.",
+    "icon": "⚖️",
+    "cluster": "india-society"
+  },
+  "semiconductor-mission": {
+    "term": "India Semiconductor Mission",
+    "match": [
+      "semiconductor mission",
+      "india semiconductor mission"
+    ],
+    "definition": "The India Semiconductor Mission is a government-backed initiative offering financial incentives to attract chip design, fabrication, and packaging investment into India, aiming to build domestic capability in an industry currently dominated by a small handful of countries. It reflects a broader global trend of nations treating semiconductor self-sufficiency as a matter of economic and national security, particularly after pandemic-era chip shortages exposed how concentrated and vulnerable global supply chains for critical electronics components had become.",
+    "icon": "🇮🇳",
+    "cluster": "india-society"
+  }
+}
