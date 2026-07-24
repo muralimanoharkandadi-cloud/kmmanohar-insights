@@ -419,7 +419,8 @@
       "brain computer interface",
       "wireless brain implant",
       "neuroprosthetics",
-      "brain implant"
+      "brain implant",
+      "bci"
     ],
     "definition": "A brain-computer interface is a system that reads electrical signals directly from the brain and translates them into commands for an external device, such as a computer cursor, robotic arm, or communication tool — bypassing damaged nerves or muscles entirely. Some interfaces are implanted directly into brain tissue for higher precision, while others sit non-invasively on the scalp. The technology is already restoring communication and movement to people with severe paralysis, and researchers are working to make implants wireless, longer-lasting, and less invasive.",
     "icon": "🧠",
@@ -832,6 +833,83 @@
     ],
     "definition": "A heterojunction is the boundary formed where two different semiconductor materials meet and are joined together, each with its own distinct bandgap and electronic properties. Unlike a junction formed within a single material, this mismatch between the two sides can be deliberately engineered to control how electrons and light interact at the interface, which is useful for building efficient LEDs, laser diodes, solar cells, and high-speed transistors. Stacking different 2D materials to form heterojunctions is one of the main ways researchers customize the electronic behavior of next-generation devices.",
     "icon": "🔗",
+    "cluster": "frontier-technologies"
+  },
+  "finfet": {
+    "term": "FinFET Transistor",
+    "match": [
+      "finfet",
+      "finfets",
+      "finfet transistor",
+      "finfet transistors"
+    ],
+    "definition": "A FinFET is a transistor design where the channel that current flows through sticks up from the chip surface like a thin vertical fin, with the gate wrapped around three sides of it instead of sitting flat on top as in older designs. That extra wraparound control lets the gate switch the current on and off more sharply and with far less leakage when the transistor is supposed to be off, which became essential once transistors shrank to the point where flat designs could no longer be controlled precisely enough. FinFETs have been the industry-standard transistor architecture across most leading-edge chips since the early 2010s.",
+    "icon": "🔺",
+    "cluster": "frontier-technologies"
+  },
+  "nanometre-fabrication": {
+    "term": "Nanometre-Scale Fabrication",
+    "match": [
+      "nanometre-scale fabrication",
+      "nanometer-scale fabrication",
+      "nanoscale fabrication",
+      "nm process node",
+      "nm node"
+    ],
+    "definition": "Nanometre-scale fabrication refers to manufacturing processes precise enough to build features, like the components of a transistor, that measure just a few nanometres across, thousands of times thinner than a human hair. Chipmakers describe their manufacturing generations using a \"process node\" name in nanometres (such as \"3nm\" or \"2nm\"), though the number today is more of a marketing label than a literal measurement of any single feature. Achieving reliable, high-yield fabrication at this scale requires extreme ultraviolet lithography and atomic-level precision, and is one of the most technically demanding manufacturing feats in modern industry.",
+    "icon": "⚙️",
+    "cluster": "frontier-technologies"
+  },
+  "als": {
+    "term": "ALS (Amyotrophic Lateral Sclerosis)",
+    "match": [
+      "als",
+      "amyotrophic lateral sclerosis",
+      "motor neuron disease"
+    ],
+    "definition": "ALS, or amyotrophic lateral sclerosis, is a progressive disease that attacks the nerve cells controlling voluntary muscle movement, gradually causing weakness and paralysis while typically leaving a person’s mind and senses intact. As the disease advances, it can take away the ability to walk, speak, and eventually breathe unaided. There’s currently no cure, though some treatments slow progression. Because ALS often leaves cognition unaffected even as physical control is lost, it’s a major focus for brain-computer interfaces and other assistive technologies aimed at restoring communication and independence.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "peg": {
+    "term": "Polyethylene Glycol (PEG)",
+    "match": [
+      "polyethylene glycol",
+      "peg"
+    ],
+    "definition": "Polyethylene glycol, or PEG, is a synthetic, water-soluble polymer used across an unusually wide range of applications, from laxatives and laboratory buffers to coatings on drug nanoparticles and mRNA vaccine lipid capsules. Its key properties are that it’s biologically inert, easily attaches to other molecules, and helps materials resist unwanted immune reactions or degradation in the body. In biomaterials and bioprinting research, PEG is a common building block used to fine-tune a material’s flexibility, water content, and how quickly the body breaks it down.",
+    "icon": "🧪",
+    "cluster": "human-future"
+  },
+  "ecm": {
+    "term": "Extracellular Matrix (ECM)",
+    "match": [
+      "extracellular matrix",
+      "ecm mimicry"
+    ],
+    "definition": "The extracellular matrix is the mesh of proteins and other molecules that surrounds and supports cells within body tissue, giving tissue its structure while also sending biochemical signals that influence how cells behave, grow, and heal. Every organ has its own distinctively structured matrix suited to its function. In tissue engineering and bioprinting, replicating a target tissue’s extracellular matrix, sometimes called “ECM mimicry”, is considered essential for lab-grown tissue or implants to integrate properly and behave like the real thing rather than just looking like it.",
+    "icon": "🕸️",
+    "cluster": "human-future"
+  },
+  "cad": {
+    "term": "Computer-Aided Design (CAD)",
+    "match": [
+      "computer-aided design",
+      "cad"
+    ],
+    "definition": "Computer-aided design, or CAD, is the use of specialized software to create, modify, and analyze precise digital models of physical objects before they’re built, replacing hand-drafted technical drawings. Engineers and designers use CAD across virtually every manufacturing field, from consumer electronics to aircraft, to test how a design will perform, catch problems early, and generate the exact specifications a factory or 3D printer needs. CAD’s real impact wasn’t just digitizing drafting: it reorganized entire design workflows by connecting drafting, simulation, and manufacturing into one continuous digital process.",
+    "icon": "📐",
+    "cluster": "frontier-technologies"
+  },
+  "mot": {
+    "term": "Magneto-Optical Trap (MOT)",
+    "match": [
+      "magneto-optical trap",
+      "magneto optical trap",
+      "mot"
+    ],
+    "definition": "A magneto-optical trap is a device that uses a precise combination of laser light and a carefully shaped magnetic field to slow down, cool, and hold a small cloud of atoms or molecules in place, often chilling them to within a fraction of a degree above absolute zero. The lasers repeatedly nudge fast-moving particles to slow them down, while the magnetic field keeps the cooled particles corralled at the center. MOTs are a foundational tool in ultracold physics, used to prepare the precisely controlled atomic samples that quantum computing, atomic clocks, and precision sensing research all depend on.",
+    "icon": "🧲",
     "cluster": "frontier-technologies"
   }
 }
