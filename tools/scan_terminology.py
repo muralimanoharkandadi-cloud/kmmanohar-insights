@@ -197,12 +197,30 @@ PROCEDURE_RE = re.compile(
 
 # Named mission / experiment / instrument / equipment - covers space
 # missions, lab equipment, and named experiments in one pass, since they
-# follow the same "Proper Noun + classifying noun" pattern.
+# follow the same "Proper Noun + classifying noun" pattern. Requires at
+# least 2 preceding words (not just 1) to cut down on the single-filler-
+# word noise this pattern is prone to in policy-heavy writing where
+# "Mission" alone is a very common generic word (e.g. "The Mission",
+# "Future Mission", "Greater Mission" are not real named missions).
 EQUIPMENT_MISSION_RE = re.compile(
-    r"\b([A-Z][A-Za-z0-9\u2019'\-]*(?:\s+[A-Za-z0-9][A-Za-z0-9\u2019'\-]*){0,4}"
+    r"\b([A-Z][A-Za-z0-9\u2019'\-]*(?:\s+[A-Za-z0-9][A-Za-z0-9\u2019'\-]*){1,4}"
     r"\s+(?:Mission|Probe|Experiment|Telescope|Observatory|Spacecraft|Rover|"
     r"Microscope|Spectrometer|Reactor|Detector|Collider|Satellite))\b"
 )
+
+# First word of a matched mission/equipment phrase that signals it's just
+# a sentence fragment, not a real proper name (e.g. "The Mission",
+# "What is the Mission", "Why Small Satellite").
+GENERIC_PHRASE_STARTERS = {
+    "the", "a", "an", "this", "that", "these", "those", "its", "our",
+    "what", "who", "when", "where", "why", "how", "which",
+    "more", "future", "greater", "better", "core", "key", "new",
+}
+
+
+def is_generic_phrase(phrase):
+    first_word = phrase.split()[0].lower()
+    return first_word in GENERIC_PHRASE_STARTERS
 
 # Binomial (Latin) scientific nomenclature, e.g. "Homo sapiens", "Danio
 # rerio". Writers conventionally italicize these, so rather than guess
@@ -280,7 +298,10 @@ def scan(articles, covered):
             record(procedure_hits, m.group(1).strip(), art["title"], text, m.start(), m.end())
 
         for m in EQUIPMENT_MISSION_RE.finditer(text):
-            record(equipment_hits, m.group(1).strip(), art["title"], text, m.start(), m.end())
+            phrase = m.group(1).strip()
+            if is_generic_phrase(phrase):
+                continue
+            record(equipment_hits, phrase, art["title"], text, m.start(), m.end())
 
         for name in extract_italicized_terms(art["html"]):
             record(binomial_hits, name, art["title"], note=f"(italicized in source) {name}")
