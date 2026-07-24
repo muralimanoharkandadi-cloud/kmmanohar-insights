@@ -680,7 +680,8 @@
     "term": "India Semiconductor Mission",
     "match": [
       "semiconductor mission",
-      "india semiconductor mission"
+      "india semiconductor mission",
+      "ism"
     ],
     "definition": "The India Semiconductor Mission is a government-backed initiative offering financial incentives to attract chip design, fabrication, and packaging investment into India, aiming to build domestic capability in an industry currently dominated by a small handful of countries. It reflects a broader global trend of nations treating semiconductor self-sufficiency as a matter of economic and national security, particularly after pandemic-era chip shortages exposed how concentrated and vulnerable global supply chains for critical electronics components had become.",
     "icon": "🇮🇳",
@@ -911,5 +912,212 @@
     "definition": "A magneto-optical trap is a device that uses a precise combination of laser light and a carefully shaped magnetic field to slow down, cool, and hold a small cloud of atoms or molecules in place, often chilling them to within a fraction of a degree above absolute zero. The lasers repeatedly nudge fast-moving particles to slow them down, while the magnetic field keeps the cooled particles corralled at the center. MOTs are a foundational tool in ultracold physics, used to prepare the precisely controlled atomic samples that quantum computing, atomic clocks, and precision sensing research all depend on.",
     "icon": "🧲",
     "cluster": "frontier-technologies"
+  },
+  "ocr": {
+    "term": "OCR (Optical Character Recognition)",
+    "match": [
+      "optical character recognition",
+      "ocr"
+    ],
+    "definition": "Optical character recognition is technology that converts images of text, such as a scanned document or a photo of a street sign, into machine-readable, editable text a computer can search and process. Early OCR relied on matching letter shapes against a fixed template and struggled with handwriting or unusual scripts; modern OCR uses deep learning to recognize characters far more flexibly, including across many different languages and alphabets. It underlies everything from document digitization and license-plate readers to translation apps that read text through a phone camera in real time.",
+    "icon": "🔤",
+    "cluster": "digital-intelligence"
+  },
+  "leo": {
+    "term": "LEO (Low Earth Orbit)",
+    "match": [
+      "low earth orbit",
+      "leo satellite",
+      "leo satellites"
+    ],
+    "definition": "Low Earth orbit, or LEO, refers to the region of space roughly 160 to 2,000 kilometers above Earth, close enough that objects there circle the planet in about 90 minutes. It's the orbit used by the International Space Station and by most modern communication satellite constellations, since its low altitude means shorter signal delay and cheaper launches than higher orbits. The recent boom in LEO satellite internet networks, which need thousands of satellites working together to cover the globe, has made LEO one of the most commercially active regions of space.",
+    "icon": "🛰️",
+    "cluster": "frontier-technologies"
+  },
+  "pli-scheme": {
+    "term": "Production Linked Incentive (PLI) Scheme",
+    "match": [
+      "production linked incentive",
+      "pli scheme",
+      "pli schemes",
+      "pli"
+    ],
+    "definition": "A Production Linked Incentive, or PLI, scheme is a government program, widely used in India, that pays manufacturers a financial incentive tied directly to how much additional output or investment they actually deliver, rather than offering incentives upfront regardless of results. The aim is to make a country a more attractive place to build factories for strategically important goods, such as semiconductors, electronics, or batteries, by rewarding real production growth. India has rolled out PLI schemes across more than a dozen sectors as a central tool in its push to build domestic manufacturing capacity.",
+    "icon": "💰",
+    "cluster": "india-society"
+  },
+  "bess": {
+    "term": "Battery Energy Storage System (BESS)",
+    "match": [
+      "battery energy storage system",
+      "bess"
+    ],
+    "definition": "A Battery Energy Storage System, or BESS, is a large installation of rechargeable batteries connected to the electricity grid, used to store surplus power, often from solar or wind, and release it later when demand is high or generation dips. Because renewable sources don't produce electricity on a steady, predictable schedule, BESS installations act as a buffer that smooths out supply, helping grids stay stable without relying as heavily on fossil-fuel backup plants. Utility-scale BESS projects, often built alongside large solar or wind farms, are becoming a standard piece of renewable energy infrastructure worldwide.",
+    "icon": "🔋",
+    "cluster": "sustainable-future"
+  },
+  "osat": {
+    "term": "OSAT (Outsourced Semiconductor Assembly and Test)",
+    "match": [
+      "outsourced semiconductor assembly and test",
+      "osat",
+      "assembly, testing, marking, and packaging",
+      "atmp"
+    ],
+    "definition": "OSAT, short for Outsourced Semiconductor Assembly and Test, refers to companies that specialize in the later stages of chipmaking: taking finished silicon wafers and cutting, packaging, wiring, and testing them into the finished chips that get soldered onto circuit boards. This work, sometimes described by the closely related term ATMP (assembly, testing, marking, and packaging), is typically done by dedicated third-party firms rather than the same company that fabricated the raw wafer. Because it requires less capital investment than building a wafer fab, OSAT is often seen as a more achievable near-term entry point for countries trying to build a domestic semiconductor industry.",
+    "icon": "📦",
+    "cluster": "frontier-technologies"
+  },
+  "pem": {
+    "term": "PEM (Proton Exchange Membrane)",
+    "match": [
+      "proton exchange membrane",
+      "pem electrolysis",
+      "pem electrolyzer"
+    ],
+    "definition": "A proton exchange membrane, or PEM, is a specialized plastic membrane that allows hydrogen ions (protons) to pass through it while blocking electrons and gases, forcing the electrons to travel through an external circuit instead. This property makes PEM technology central to two related devices: PEM electrolyzers, which use it to split water into hydrogen and oxygen efficiently, and PEM fuel cells, which run the same principle in reverse to generate electricity from hydrogen. PEM systems respond quickly to changes in power supply, which makes them especially well suited to pairing with variable renewable sources like solar and wind.",
+    "icon": "⚛️",
+    "cluster": "sustainable-future"
+  },
+  "mems": {
+    "term": "MEMS (Micro-Electro-Mechanical Systems)",
+    "match": [
+      "micro-electro-mechanical systems",
+      "mems",
+      "mems sensors"
+    ],
+    "definition": "MEMS, short for micro-electro-mechanical systems, are tiny mechanical devices, sometimes with moving parts just micrometers across, built directly onto a chip using the same fabrication techniques used for electronics. Combining physical structures like springs, mirrors, or membranes with electronic circuitry on one small package lets MEMS devices sense motion, pressure, sound, or vibration and convert it into an electrical signal. They're the technology behind the accelerometers that detect a phone's orientation, the gyroscopes in stabilization systems, and the microphones in nearly every modern smartphone.",
+    "icon": "⚙️",
+    "cluster": "frontier-technologies"
+  },
+  "esg": {
+    "term": "ESG (Environmental, Social, and Governance)",
+    "match": [
+      "environmental, social, and governance",
+      "esg framework",
+      "esg frameworks",
+      "esg"
+    ],
+    "definition": "ESG stands for Environmental, Social, and Governance, a framework used by investors and regulators to evaluate a company or project on factors beyond pure financial performance, such as its carbon footprint, labor practices, community impact, and the transparency of its leadership and decision-making. Rather than being a single fixed standard, ESG covers a broad and still-evolving set of criteria that different investors, rating agencies, and governments apply somewhat differently. It's increasingly used to guide investment decisions, corporate reporting requirements, and compliance rules for large infrastructure and industrial projects.",
+    "icon": "⚖️",
+    "cluster": "india-society"
+  },
+  "fdi": {
+    "term": "FDI (Foreign Direct Investment)",
+    "match": [
+      "foreign direct investment",
+      "fdi"
+    ],
+    "definition": "Foreign direct investment, or FDI, is money invested by a company or individual from one country into a lasting business interest in another country, such as building a factory, acquiring a controlling stake in a local company, or setting up a subsidiary, rather than simply buying stocks or bonds from abroad. Because FDI usually brings not just capital but also technology, jobs, and expertise, governments actively compete to attract it through tax breaks, eased regulations, and infrastructure investment. Tracking where FDI flows is a common way to gauge which industries and countries investors see as strategically promising.",
+    "icon": "🌍",
+    "cluster": "india-society"
+  },
+  "kyc": {
+    "term": "KYC (Know Your Customer)",
+    "match": [
+      "know your customer",
+      "kyc"
+    ],
+    "definition": "Know Your Customer, or KYC, refers to the identity-verification checks banks, telecom providers, and other regulated services are required to perform before opening an account or providing a service, confirming who a customer actually is using documents like government-issued ID. The process exists mainly to prevent fraud, money laundering, and the use of fake identities for illegal activity. As digital identity systems and AI-generated fake documents have both advanced, KYC processes have had to evolve alongside them, increasingly combining document checks with biometric verification like facial recognition to confirm authenticity.",
+    "icon": "🪪",
+    "cluster": "india-society"
+  },
+  "dram": {
+    "term": "DRAM (Dynamic Random-Access Memory)",
+    "match": [
+      "dynamic random-access memory",
+      "dram"
+    ],
+    "definition": "DRAM, or dynamic random-access memory, is the type of fast, short-term memory chip that computers use to hold data actively being worked on, distinct from the slower, permanent storage of a hard drive or SSD. Each bit of data in DRAM is stored as a tiny electric charge that leaks away over time, so the chip has to continuously \"refresh\" every cell thousands of times a second to keep the data from disappearing, which is where the \"dynamic\" in its name comes from. DRAM's speed and relatively low cost per bit have made it the standard main-memory technology in computers and smartphones for decades.",
+    "icon": "💾",
+    "cluster": "frontier-technologies"
+  },
+  "nand": {
+    "term": "NAND (Flash Memory)",
+    "match": [
+      "nand memory",
+      "nand flash",
+      "nand"
+    ],
+    "definition": "NAND flash is a type of memory chip that stores data permanently even without power, unlike DRAM, by trapping electric charge inside tiny transistor cells that hold their state until deliberately rewritten. It's named after the NAND logic gate its internal circuit structure resembles. NAND flash is the technology behind solid-state drives (SSDs), USB drives, and the storage in smartphones, prized for being compact, fast to read, and having no moving parts, though each memory cell can only be rewritten a limited number of times before it wears out.",
+    "icon": "💾",
+    "cluster": "frontier-technologies"
+  },
+  "adas": {
+    "term": "ADAS (Advanced Driver Assistance Systems)",
+    "match": [
+      "advanced driver assistance systems",
+      "adas"
+    ],
+    "definition": "ADAS, short for Advanced Driver Assistance Systems, refers to the suite of sensor-and-software features in modern vehicles that help a driver avoid accidents or reduce driving effort, such as automatic emergency braking, lane-keeping assistance, adaptive cruise control, and blind-spot warnings. ADAS features use cameras, radar, and sometimes lidar to continuously monitor the road and either alert the driver or briefly intervene in steering or braking. They're generally considered a step below full self-driving, since a human is still expected to stay in control, but they're also the building blocks that more autonomous driving systems are developed on top of.",
+    "icon": "🚗",
+    "cluster": "frontier-technologies"
+  },
+  "aesa": {
+    "term": "AESA (Active Electronically Scanned Array)",
+    "match": [
+      "active electronically scanned array",
+      "aesa radar",
+      "aesa"
+    ],
+    "definition": "An Active Electronically Scanned Array, or AESA, is a type of radar made up of thousands of small transmitter-receiver modules spread across a flat panel, each one independently steerable, instead of one large dish that has to physically rotate to scan the sky. Because the radar beam can be redirected electronically in microseconds rather than mechanically, AESA radars can track multiple targets simultaneously, switch tasks instantly, and are far more resistant to jamming than older designs. This makes AESA the standard radar technology on modern fighter jets, warships, and advanced air-defense systems.",
+    "icon": "📡",
+    "cluster": "frontier-technologies"
+  },
+  "nir": {
+    "term": "NIR (Near-Infrared)",
+    "match": [
+      "near-infrared",
+      "near infrared",
+      "nir light",
+      "nir"
+    ],
+    "definition": "Near-infrared, or NIR, light sits just beyond the red end of the visible spectrum, invisible to the human eye but close enough in wavelength to interact usefully with many of the same materials visible light does. Because it penetrates biological tissue more deeply than visible light while still being relatively safe, NIR is widely used in medical imaging, night-vision equipment, and remote controls, and researchers are exploring it for restoring vision, non-invasive health monitoring, and secure optical communication. Standard cameras can be adapted to detect it, since NIR light behaves in many ways like an invisible extension of ordinary light.",
+    "icon": "📷",
+    "cluster": "human-future"
+  },
+  "eeg": {
+    "term": "EEG (Electroencephalography)",
+    "match": [
+      "electroencephalography",
+      "eeg"
+    ],
+    "definition": "Electroencephalography, or EEG, is a technique for recording the brain's electrical activity using small sensors placed on the scalp, picking up the faint electrical signals produced when large groups of neurons fire together. It's non-invasive, relatively inexpensive, and captures activity with excellent timing precision, which is why it's widely used to study sleep stages, diagnose conditions like epilepsy, and, increasingly, to power brain-computer interfaces that translate brain activity into commands. Its main limitation compared to other brain-imaging methods is that it can't pinpoint exactly where in the brain a signal originated nearly as precisely as it can tell when it happened.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "nmr": {
+    "term": "NMR (Nuclear Magnetic Resonance)",
+    "match": [
+      "nuclear magnetic resonance",
+      "nmr spectroscopy",
+      "nmr"
+    ],
+    "definition": "Nuclear magnetic resonance, or NMR, is a technique for studying the structure of molecules and materials by placing a sample in a strong magnetic field and measuring how the nuclei of certain atoms, like hydrogen, respond to radio-frequency pulses. The pattern of that response reveals detailed information about how atoms are bonded and arranged, making NMR spectroscopy a core tool in chemistry for identifying unknown compounds. The same underlying physics, applied to water molecules in the body, is what MRI machines use to produce detailed medical images.",
+    "icon": "🧲",
+    "cluster": "frontier-technologies"
+  },
+  "engineered-living-therapeutics": {
+    "term": "Engineered Living Therapeutics (ELT)",
+    "match": [
+      "engineered living therapeutics",
+      "elt platform",
+      "elt platforms"
+    ],
+    "definition": "Engineered living therapeutics are treatments built from living cells, most often bacteria, that have been genetically modified to sense a specific problem in the body, such as inflammation or a metabolic imbalance, and respond by producing a therapeutic molecule right at the site where it's needed. Rather than delivering a single dose of a drug that acts once and clears out, an ELT can potentially keep monitoring and treating a condition continuously as long as it persists in the body. It's an emerging approach in synthetic biology aimed at chronic conditions like inflammatory bowel disease, where continuous, localized treatment could work better than periodic dosing.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "car-t-cell-therapy": {
+    "term": "CAR-T Cell Therapy",
+    "match": [
+      "car-t cell therapy",
+      "car-t cells",
+      "car-t",
+      "car-inkt cells"
+    ],
+    "definition": "CAR-T cell therapy is a cancer treatment that genetically re-engineers a patient's own immune T cells to recognize and attack their specific cancer, by giving them an artificial receptor, called a Chimeric Antigen Receptor (CAR), that targets a molecule on the tumor cells' surface. The modified cells are grown in large numbers in a lab and infused back into the patient, where they multiply further and hunt down cancer cells that would otherwise evade the immune system. It has shown dramatic results against certain blood cancers that had stopped responding to other treatments, though making it affordable and effective against solid tumors remains an active area of research.",
+    "icon": "🧬",
+    "cluster": "human-future"
   }
 }
