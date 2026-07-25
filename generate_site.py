@@ -48,6 +48,9 @@ SOCIAL_LINKS = [
 GISCUS_REPO_ID = "R_kgDOTOsTGQ"
 GISCUS_CATEGORY_ID = "DIC_kwDOTOsTGc4DBByv"
 
+# GA4 Measurement ID - the site's Google Analytics live stream tracking tag.
+GA_MEASUREMENT_ID = "G-QXYM2YY1N9"
+
 # Live Blogger Atom feed (paginates automatically via lib.parser's rel="next"
 # handling). Overridable via FEED_SOURCE env var for local/offline testing
 # against the committed feed.atom snapshot.
@@ -376,7 +379,10 @@ gtag('consent', 'default', {{
   'analytics_storage': 'denied',
   'wait_for_update': 500
 }});
+gtag('js', new Date());
+gtag('config', '{GA_MEASUREMENT_ID}');
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8508625480348460" crossorigin="anonymous"></script>
 {extra_schema}
 </head>
