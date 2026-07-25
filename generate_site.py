@@ -379,6 +379,16 @@ gtag('consent', 'default', {{
   'analytics_storage': 'denied',
   'wait_for_update': 500
 }});
+try {{
+  if (localStorage.getItem('kmm_consent') === 'granted') {{
+    gtag('consent', 'update', {{
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted',
+      'analytics_storage': 'granted'
+    }});
+  }}
+}} catch (e) {{}}
 gtag('js', new Date());
 gtag('config', '{GA_MEASUREMENT_ID}');
 </script>
@@ -402,8 +412,55 @@ def render_header():
 """
 
 
+def render_consent_banner():
+    """Lightweight, self-contained cookie consent banner (inline-styled so
+    it needs no changes to styles.css). Accept grants ad_storage +
+    analytics_storage via Consent Mode and stores the choice in
+    localStorage so gtag('consent','update',...) fires immediately on
+    every later pageview (see the stored-consent check in render_head).
+    Decline stores the choice too, so the banner doesn't reappear, and
+    consent stays denied. Shown only if no prior choice is stored."""
+    return """<div id="kmm-consent-banner" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0d1b2a;color:#fff;padding:16px 20px;font-family:'DM Sans',Arial,sans-serif;font-size:14px;line-height:1.5;box-shadow:0 -2px 12px rgba(0,0,0,.25);">
+<div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;">
+<p style="margin:0;flex:1;min-width:220px;">We use cookies for analytics and to show relevant ads. See our <a href="/privacy-policy/" style="color:#7dd3c0;text-decoration:underline;">Privacy Policy</a> for details.</p>
+<div style="display:flex;gap:10px;flex-shrink:0;">
+<button id="kmm-consent-decline" style="background:transparent;color:#fff;border:1px solid #fff;border-radius:20px;padding:8px 18px;font-size:13px;cursor:pointer;">Decline</button>
+<button id="kmm-consent-accept" style="background:#009999;color:#fff;border:none;border-radius:20px;padding:8px 18px;font-size:13px;cursor:pointer;font-weight:600;">Accept</button>
+</div>
+</div>
+</div>
+<script>
+(function() {
+  try {
+    var choice = localStorage.getItem('kmm_consent');
+    var banner = document.getElementById('kmm-consent-banner');
+    if (!choice && banner) {
+      banner.style.display = 'block';
+    }
+    function setConsent(state) {
+      try { localStorage.setItem('kmm_consent', state); } catch (e) {}
+      if (state === 'granted' && typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
+      }
+      if (banner) banner.style.display = 'none';
+    }
+    var acceptBtn = document.getElementById('kmm-consent-accept');
+    var declineBtn = document.getElementById('kmm-consent-decline');
+    if (acceptBtn) acceptBtn.addEventListener('click', function() { setConsent('granted'); });
+    if (declineBtn) declineBtn.addEventListener('click', function() { setConsent('denied'); });
+  } catch (e) {}
+})();
+</script>"""
+
+
 def render_footer():
     return f"""<footer><a class="brand" href="/"><span class="brand-orbit">KM</span><span>K M Manohar <b>Insights</b></span></a><p>Where ideas meet impact.</p><div><a href="/#stories">Latest</a><a href="/archive/">Archive</a><a href="/search/">Search</a><a href="/feed.xml">RSS</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms-and-conditions/">Terms</a><a href="/disclaimer/">Disclaimer</a><a href="{BLOGSPOT_URL}">Blogspot</a></div><small>&copy; <span id="year">2026</span> {SITE_NAME}</small></footer>
+{render_consent_banner()}
 <script src="/app.js"></script>
 </body>
 </html>"""
