@@ -419,7 +419,8 @@
       "brain computer interface",
       "wireless brain implant",
       "neuroprosthetics",
-      "brain implant"
+      "brain implant",
+      "bci"
     ],
     "definition": "A brain-computer interface is a system that reads electrical signals directly from the brain and translates them into commands for an external device, such as a computer cursor, robotic arm, or communication tool — bypassing damaged nerves or muscles entirely. Some interfaces are implanted directly into brain tissue for higher precision, while others sit non-invasively on the scalp. The technology is already restoring communication and movement to people with severe paralysis, and researchers are working to make implants wireless, longer-lasting, and less invasive.",
     "icon": "🧠",
@@ -679,10 +680,1412 @@
     "term": "India Semiconductor Mission",
     "match": [
       "semiconductor mission",
-      "india semiconductor mission"
+      "india semiconductor mission",
+      "ism"
     ],
     "definition": "The India Semiconductor Mission is a government-backed initiative offering financial incentives to attract chip design, fabrication, and packaging investment into India, aiming to build domestic capability in an industry currently dominated by a small handful of countries. It reflects a broader global trend of nations treating semiconductor self-sufficiency as a matter of economic and national security, particularly after pandemic-era chip shortages exposed how concentrated and vulnerable global supply chains for critical electronics components had become.",
     "icon": "🇮🇳",
     "cluster": "india-society"
+  },
+  "moores-law": {
+    "term": "Moore's Law",
+    "match": [
+      "moore's law",
+      "moores law"
+    ],
+    "definition": "Moore's Law is the observation, made by Intel co-founder Gordon Moore in 1965, that the number of transistors on a computer chip roughly doubles every one to two years, driving a steady, predictable rise in computing power and fall in cost per transistor. It isn't a law of physics but a decades-long industry trend that became a self-fulfilling roadmap for chipmakers. As transistors approach the size of individual atoms, sustaining that pace has gotten dramatically harder, pushing the industry toward new materials, 3D chip stacking, and alternative computing architectures to keep performance climbing.",
+    "icon": "📉",
+    "cluster": "frontier-technologies"
+  },
+  "afm": {
+    "term": "Atomic Force Microscopy (AFM)",
+    "match": [
+      "atomic force microscopy",
+      "atomic force microscope",
+      "afm"
+    ],
+    "definition": "Atomic force microscopy is an imaging technique that maps a surface at near-atomic resolution by dragging an extremely sharp probe, mounted on a flexible cantilever, across it and measuring the tiny deflections caused by atomic-scale forces between the tip and the surface. Unlike an optical or electron microscope, it doesn't use light or electron beams, so it can image in air, liquid, or vacuum and work on non-conductive materials. AFM is a go-to tool for characterizing 2D materials, biological samples, and nanoscale devices where precise surface topography and roughness matter.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "semimetal": {
+    "term": "Semimetal",
+    "match": [
+      "semimetal",
+      "semimetals",
+      "semimetallic",
+      "dirac semimetal"
+    ],
+    "definition": "A semimetal is a material whose electrical behavior sits right at the boundary between a metal and a semiconductor: it has a very small or effectively zero energy gap between the states electrons occupy and the states they can move into, so it conducts some electricity but far less freely than a true metal. This intermediate, highly tunable behavior makes semimetals scientifically interesting testbeds for exotic physics and practically useful for optoelectronics, since materials like platinum diselenide can be pushed between semimetal and semiconductor behavior just by changing how many atomic layers thick they are.",
+    "icon": "⚡",
+    "cluster": "frontier-technologies"
+  },
+  "monolithic-integration": {
+    "term": "Monolithic Integration",
+    "match": [
+      "monolithic integration",
+      "monolithic interface",
+      "monolithically integrated"
+    ],
+    "definition": "Monolithic integration means building multiple components, such as different functional layers of a chip, onto or into a single continuous piece of material, grown or fabricated together, rather than manufacturing them separately and physically bonding or wiring them afterward. Because there's no external interface or adhesive layer between the parts, monolithic devices tend to have cleaner electrical contact, less signal loss, and are easier to miniaturize. It's an increasingly important strategy for stacking new 2D materials directly onto silicon chips as transistor scaling runs into physical limits.",
+    "icon": "🧱",
+    "cluster": "frontier-technologies"
+  },
+  "ptse2": {
+    "term": "Platinum Diselenide (PtSe₂)",
+    "match": [
+      "platinum diselenide",
+      "ptse2",
+      "ptse₂"
+    ],
+    "definition": "Platinum diselenide is a two-dimensional material, made of platinum and selenium atoms arranged in ultrathin layers, that belongs to a family called transition metal dichalcogenides. Its standout property is that its electronic behavior changes with thickness: a single atomic layer behaves like a semiconductor, while the bulk, many-layer form behaves like a semimetal. That built-in tunability, combined with the fact that it can be grown at relatively low temperatures compatible with existing chip manufacturing, makes it a strong candidate for next-generation transistors, photodetectors, and other nanoscale electronic devices.",
+    "icon": "🔷",
+    "cluster": "frontier-technologies"
+  },
+  "transition-metal-dichalcogenide": {
+    "term": "Transition Metal Dichalcogenide (TMD)",
+    "match": [
+      "transition metal dichalcogenide",
+      "transition metal dichalcogenides",
+      "tmd",
+      "tmds"
+    ],
+    "definition": "Transition metal dichalcogenides are a family of layered materials, each made of one transition-metal atom (like molybdenum, tungsten, or platinum) bonded to two atoms of a chalcogen element (like sulfur, selenium, or tellurium). Like graphene, they can be peeled or grown down to a single atomic layer, but unlike graphene, most TMDs have a usable electronic bandgap, making them naturally suited to transistors, LEDs, and photodetectors. Their properties can vary dramatically across the family and even with layer thickness, making TMDs one of the most actively studied material classes in next-generation electronics research.",
+    "icon": "🧪",
+    "cluster": "frontier-technologies"
+  },
+  "2d-material": {
+    "term": "2D Material",
+    "match": [
+      "2d material",
+      "2d materials",
+      "two-dimensional material"
+    ],
+    "definition": "A 2D material is a substance that exists as sheets just one or a few atoms thick, with strong bonds holding atoms together within each layer but only weak forces holding separate layers to each other, allowing them to be peeled apart or grown in atomically precise films. Graphene, the first and most famous example, kicked off intense research into the wider family, which now includes transition metal dichalcogenides and other layered compounds. Because electrons are effectively confined to a flat plane, 2D materials often display electronic, optical, and mechanical properties that their bulk, 3D counterparts don't have.",
+    "icon": "📐",
+    "cluster": "frontier-technologies"
+  },
+  "van-der-waals-heterostructure": {
+    "term": "Van der Waals Heterostructure",
+    "match": [
+      "van der waals heterostructure",
+      "van der waals heterostructures"
+    ],
+    "definition": "A van der Waals heterostructure is a custom-engineered stack of different 2D materials, layered on top of each other like sheets of paper and held together by weak van der Waals forces rather than strong chemical bonds between the layers. Because each layer keeps its own individual properties, researchers can mix and match materials, a semiconductor here, an insulator there, to design electronic and optical behavior that no single material could achieve alone, similar to combining ingredients in a recipe. It's a major research direction for building smaller, more capable next-generation electronic and photonic devices.",
+    "icon": "🥞",
+    "cluster": "frontier-technologies"
+  },
+  "bandgap": {
+    "term": "Bandgap",
+    "match": [
+      "bandgap",
+      "band gap",
+      "electronic bandgap"
+    ],
+    "definition": "A material's bandgap is the amount of energy an electron needs to jump from its normal, bound state into a state where it's free to move and conduct electricity. Insulators have a large bandgap that's very hard to cross, metals have effectively none, and semiconductors sit in between, with a bandgap small enough to cross under the right conditions, like light or an applied voltage, which is exactly what makes them so useful for switches, transistors, and solar cells. Engineering a material's bandgap, including by changing its thickness in 2D materials, is central to designing new electronic and optoelectronic devices.",
+    "icon": "📊",
+    "cluster": "frontier-technologies"
+  },
+  "cmos": {
+    "term": "CMOS (Complementary Metal-Oxide-Semiconductor)",
+    "match": [
+      "cmos"
+    ],
+    "definition": "CMOS is the dominant chip-manufacturing technology used to build the transistors inside virtually all modern processors and memory chips. It works by pairing two complementary types of transistors that switch on and off in opposite states, a design that draws very little power when the circuit is idle. This power efficiency is a big part of why CMOS became the industry standard starting in the 1980s, and \"CMOS-compatible\" is now a key phrase researchers use to describe whether a promising new material or device could realistically be manufactured using the chip industry's existing factories and processes.",
+    "icon": "🖥️",
+    "cluster": "frontier-technologies"
+  },
+  "field-effect-transistor": {
+    "term": "Field-Effect Transistor (FET)",
+    "match": [
+      "field-effect transistor",
+      "field effect transistor",
+      "fet"
+    ],
+    "definition": "A field-effect transistor is the basic switch that modern electronics are built from, controlling the flow of current through a channel of semiconductor material by applying voltage to a nearby \"gate\" electrode, without the gate itself needing to carry current. That voltage creates an electric field that can open or close the channel, letting the transistor act as an on/off switch or an amplifier. Billions of FETs, each a few nanometers across, are packed onto a modern computer chip, and much of chip research, including work on 2D materials, is aimed at building smaller, faster, or more energy-efficient versions of this same basic device.",
+    "icon": "🔀",
+    "cluster": "frontier-technologies"
+  },
+  "raman-spectroscopy": {
+    "term": "Raman Spectroscopy",
+    "match": [
+      "raman spectroscopy",
+      "raman spectrum"
+    ],
+    "definition": "Raman spectroscopy is a technique for identifying a material and probing its structure by shining a laser on it and analyzing the tiny shifts in color that scattered light undergoes as it interacts with vibrations in the material's atomic bonds. Each material produces its own characteristic pattern of these shifts, acting like a fingerprint. It's a fast, non-destructive way to confirm what a sample is made of, how many atomic layers a 2D material has, or whether it has defects or strain, which is why it's a standard characterization tool in materials science and nanotechnology labs.",
+    "icon": "📈",
+    "cluster": "frontier-technologies"
+  },
+  "xps": {
+    "term": "X-ray Photoelectron Spectroscopy (XPS)",
+    "match": [
+      "x-ray photoelectron spectroscopy",
+      "xps"
+    ],
+    "definition": "X-ray photoelectron spectroscopy is a technique for identifying which chemical elements are present at a material's surface, and what chemical state they're in, by hitting the sample with X-rays and measuring the energy of the electrons that get knocked loose as a result. The energy of each ejected electron is characteristic of the specific atom and bonding environment it came from, so the resulting spectrum reveals a detailed surface chemical fingerprint. It's widely used to confirm the composition and purity of newly grown or fabricated materials, including 2D materials and thin-film coatings.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "heterojunction": {
+    "term": "Heterojunction",
+    "match": [
+      "heterojunction",
+      "heterojunctions"
+    ],
+    "definition": "A heterojunction is the boundary formed where two different semiconductor materials meet and are joined together, each with its own distinct bandgap and electronic properties. Unlike a junction formed within a single material, this mismatch between the two sides can be deliberately engineered to control how electrons and light interact at the interface, which is useful for building efficient LEDs, laser diodes, solar cells, and high-speed transistors. Stacking different 2D materials to form heterojunctions is one of the main ways researchers customize the electronic behavior of next-generation devices.",
+    "icon": "🔗",
+    "cluster": "frontier-technologies"
+  },
+  "finfet": {
+    "term": "FinFET Transistor",
+    "match": [
+      "finfet",
+      "finfets",
+      "finfet transistor",
+      "finfet transistors"
+    ],
+    "definition": "A FinFET is a transistor design where the channel that current flows through sticks up from the chip surface like a thin vertical fin, with the gate wrapped around three sides of it instead of sitting flat on top as in older designs. That extra wraparound control lets the gate switch the current on and off more sharply and with far less leakage when the transistor is supposed to be off, which became essential once transistors shrank to the point where flat designs could no longer be controlled precisely enough. FinFETs have been the industry-standard transistor architecture across most leading-edge chips since the early 2010s.",
+    "icon": "🔺",
+    "cluster": "frontier-technologies"
+  },
+  "nanometre-fabrication": {
+    "term": "Nanometre-Scale Fabrication",
+    "match": [
+      "nanometre-scale fabrication",
+      "nanometer-scale fabrication",
+      "nanoscale fabrication",
+      "nm process node",
+      "nm node"
+    ],
+    "definition": "Nanometre-scale fabrication refers to manufacturing processes precise enough to build features, like the components of a transistor, that measure just a few nanometres across, thousands of times thinner than a human hair. Chipmakers describe their manufacturing generations using a \"process node\" name in nanometres (such as \"3nm\" or \"2nm\"), though the number today is more of a marketing label than a literal measurement of any single feature. Achieving reliable, high-yield fabrication at this scale requires extreme ultraviolet lithography and atomic-level precision, and is one of the most technically demanding manufacturing feats in modern industry.",
+    "icon": "⚙️",
+    "cluster": "frontier-technologies"
+  },
+  "als": {
+    "term": "ALS (Amyotrophic Lateral Sclerosis)",
+    "match": [
+      "als",
+      "amyotrophic lateral sclerosis",
+      "motor neuron disease"
+    ],
+    "definition": "ALS, or amyotrophic lateral sclerosis, is a progressive disease that attacks the nerve cells controlling voluntary muscle movement, gradually causing weakness and paralysis while typically leaving a person’s mind and senses intact. As the disease advances, it can take away the ability to walk, speak, and eventually breathe unaided. There’s currently no cure, though some treatments slow progression. Because ALS often leaves cognition unaffected even as physical control is lost, it’s a major focus for brain-computer interfaces and other assistive technologies aimed at restoring communication and independence.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "peg": {
+    "term": "Polyethylene Glycol (PEG)",
+    "match": [
+      "polyethylene glycol",
+      "peg"
+    ],
+    "definition": "Polyethylene glycol, or PEG, is a synthetic, water-soluble polymer used across an unusually wide range of applications, from laxatives and laboratory buffers to coatings on drug nanoparticles and mRNA vaccine lipid capsules. Its key properties are that it’s biologically inert, easily attaches to other molecules, and helps materials resist unwanted immune reactions or degradation in the body. In biomaterials and bioprinting research, PEG is a common building block used to fine-tune a material’s flexibility, water content, and how quickly the body breaks it down.",
+    "icon": "🧪",
+    "cluster": "human-future"
+  },
+  "ecm": {
+    "term": "Extracellular Matrix (ECM)",
+    "match": [
+      "extracellular matrix",
+      "ecm mimicry"
+    ],
+    "definition": "The extracellular matrix is the mesh of proteins and other molecules that surrounds and supports cells within body tissue, giving tissue its structure while also sending biochemical signals that influence how cells behave, grow, and heal. Every organ has its own distinctively structured matrix suited to its function. In tissue engineering and bioprinting, replicating a target tissue’s extracellular matrix, sometimes called “ECM mimicry”, is considered essential for lab-grown tissue or implants to integrate properly and behave like the real thing rather than just looking like it.",
+    "icon": "🕸️",
+    "cluster": "human-future"
+  },
+  "cad": {
+    "term": "Computer-Aided Design (CAD)",
+    "match": [
+      "computer-aided design",
+      "cad"
+    ],
+    "definition": "Computer-aided design, or CAD, is the use of specialized software to create, modify, and analyze precise digital models of physical objects before they’re built, replacing hand-drafted technical drawings. Engineers and designers use CAD across virtually every manufacturing field, from consumer electronics to aircraft, to test how a design will perform, catch problems early, and generate the exact specifications a factory or 3D printer needs. CAD’s real impact wasn’t just digitizing drafting: it reorganized entire design workflows by connecting drafting, simulation, and manufacturing into one continuous digital process.",
+    "icon": "📐",
+    "cluster": "frontier-technologies"
+  },
+  "mot": {
+    "term": "Magneto-Optical Trap (MOT)",
+    "match": [
+      "magneto-optical trap",
+      "magneto optical trap",
+      "mot"
+    ],
+    "definition": "A magneto-optical trap is a device that uses a precise combination of laser light and a carefully shaped magnetic field to slow down, cool, and hold a small cloud of atoms or molecules in place, often chilling them to within a fraction of a degree above absolute zero. The lasers repeatedly nudge fast-moving particles to slow them down, while the magnetic field keeps the cooled particles corralled at the center. MOTs are a foundational tool in ultracold physics, used to prepare the precisely controlled atomic samples that quantum computing, atomic clocks, and precision sensing research all depend on.",
+    "icon": "🧲",
+    "cluster": "frontier-technologies"
+  },
+  "ocr": {
+    "term": "OCR (Optical Character Recognition)",
+    "match": [
+      "optical character recognition",
+      "ocr"
+    ],
+    "definition": "Optical character recognition is technology that converts images of text, such as a scanned document or a photo of a street sign, into machine-readable, editable text a computer can search and process. Early OCR relied on matching letter shapes against a fixed template and struggled with handwriting or unusual scripts; modern OCR uses deep learning to recognize characters far more flexibly, including across many different languages and alphabets. It underlies everything from document digitization and license-plate readers to translation apps that read text through a phone camera in real time.",
+    "icon": "🔤",
+    "cluster": "digital-intelligence"
+  },
+  "leo": {
+    "term": "LEO (Low Earth Orbit)",
+    "match": [
+      "low earth orbit",
+      "leo satellite",
+      "leo satellites"
+    ],
+    "definition": "Low Earth orbit, or LEO, refers to the region of space roughly 160 to 2,000 kilometers above Earth, close enough that objects there circle the planet in about 90 minutes. It's the orbit used by the International Space Station and by most modern communication satellite constellations, since its low altitude means shorter signal delay and cheaper launches than higher orbits. The recent boom in LEO satellite internet networks, which need thousands of satellites working together to cover the globe, has made LEO one of the most commercially active regions of space.",
+    "icon": "🛰️",
+    "cluster": "frontier-technologies"
+  },
+  "pli-scheme": {
+    "term": "Production Linked Incentive (PLI) Scheme",
+    "match": [
+      "production linked incentive",
+      "pli scheme",
+      "pli schemes",
+      "pli"
+    ],
+    "definition": "A Production Linked Incentive, or PLI, scheme is a government program, widely used in India, that pays manufacturers a financial incentive tied directly to how much additional output or investment they actually deliver, rather than offering incentives upfront regardless of results. The aim is to make a country a more attractive place to build factories for strategically important goods, such as semiconductors, electronics, or batteries, by rewarding real production growth. India has rolled out PLI schemes across more than a dozen sectors as a central tool in its push to build domestic manufacturing capacity.",
+    "icon": "💰",
+    "cluster": "india-society"
+  },
+  "bess": {
+    "term": "Battery Energy Storage System (BESS)",
+    "match": [
+      "battery energy storage system",
+      "bess"
+    ],
+    "definition": "A Battery Energy Storage System, or BESS, is a large installation of rechargeable batteries connected to the electricity grid, used to store surplus power, often from solar or wind, and release it later when demand is high or generation dips. Because renewable sources don't produce electricity on a steady, predictable schedule, BESS installations act as a buffer that smooths out supply, helping grids stay stable without relying as heavily on fossil-fuel backup plants. Utility-scale BESS projects, often built alongside large solar or wind farms, are becoming a standard piece of renewable energy infrastructure worldwide.",
+    "icon": "🔋",
+    "cluster": "sustainable-future"
+  },
+  "osat": {
+    "term": "OSAT (Outsourced Semiconductor Assembly and Test)",
+    "match": [
+      "outsourced semiconductor assembly and test",
+      "osat",
+      "assembly, testing, marking, and packaging",
+      "atmp"
+    ],
+    "definition": "OSAT, short for Outsourced Semiconductor Assembly and Test, refers to companies that specialize in the later stages of chipmaking: taking finished silicon wafers and cutting, packaging, wiring, and testing them into the finished chips that get soldered onto circuit boards. This work, sometimes described by the closely related term ATMP (assembly, testing, marking, and packaging), is typically done by dedicated third-party firms rather than the same company that fabricated the raw wafer. Because it requires less capital investment than building a wafer fab, OSAT is often seen as a more achievable near-term entry point for countries trying to build a domestic semiconductor industry.",
+    "icon": "📦",
+    "cluster": "frontier-technologies"
+  },
+  "pem": {
+    "term": "PEM (Proton Exchange Membrane)",
+    "match": [
+      "proton exchange membrane",
+      "pem electrolysis",
+      "pem electrolyzer"
+    ],
+    "definition": "A proton exchange membrane, or PEM, is a specialized plastic membrane that allows hydrogen ions (protons) to pass through it while blocking electrons and gases, forcing the electrons to travel through an external circuit instead. This property makes PEM technology central to two related devices: PEM electrolyzers, which use it to split water into hydrogen and oxygen efficiently, and PEM fuel cells, which run the same principle in reverse to generate electricity from hydrogen. PEM systems respond quickly to changes in power supply, which makes them especially well suited to pairing with variable renewable sources like solar and wind.",
+    "icon": "⚛️",
+    "cluster": "sustainable-future"
+  },
+  "mems": {
+    "term": "MEMS (Micro-Electro-Mechanical Systems)",
+    "match": [
+      "micro-electro-mechanical systems",
+      "mems",
+      "mems sensors"
+    ],
+    "definition": "MEMS, short for micro-electro-mechanical systems, are tiny mechanical devices, sometimes with moving parts just micrometers across, built directly onto a chip using the same fabrication techniques used for electronics. Combining physical structures like springs, mirrors, or membranes with electronic circuitry on one small package lets MEMS devices sense motion, pressure, sound, or vibration and convert it into an electrical signal. They're the technology behind the accelerometers that detect a phone's orientation, the gyroscopes in stabilization systems, and the microphones in nearly every modern smartphone.",
+    "icon": "⚙️",
+    "cluster": "frontier-technologies"
+  },
+  "esg": {
+    "term": "ESG (Environmental, Social, and Governance)",
+    "match": [
+      "environmental, social, and governance",
+      "esg framework",
+      "esg frameworks",
+      "esg"
+    ],
+    "definition": "ESG stands for Environmental, Social, and Governance, a framework used by investors and regulators to evaluate a company or project on factors beyond pure financial performance, such as its carbon footprint, labor practices, community impact, and the transparency of its leadership and decision-making. Rather than being a single fixed standard, ESG covers a broad and still-evolving set of criteria that different investors, rating agencies, and governments apply somewhat differently. It's increasingly used to guide investment decisions, corporate reporting requirements, and compliance rules for large infrastructure and industrial projects.",
+    "icon": "⚖️",
+    "cluster": "india-society"
+  },
+  "fdi": {
+    "term": "FDI (Foreign Direct Investment)",
+    "match": [
+      "foreign direct investment",
+      "fdi"
+    ],
+    "definition": "Foreign direct investment, or FDI, is money invested by a company or individual from one country into a lasting business interest in another country, such as building a factory, acquiring a controlling stake in a local company, or setting up a subsidiary, rather than simply buying stocks or bonds from abroad. Because FDI usually brings not just capital but also technology, jobs, and expertise, governments actively compete to attract it through tax breaks, eased regulations, and infrastructure investment. Tracking where FDI flows is a common way to gauge which industries and countries investors see as strategically promising.",
+    "icon": "🌍",
+    "cluster": "india-society"
+  },
+  "kyc": {
+    "term": "KYC (Know Your Customer)",
+    "match": [
+      "know your customer",
+      "kyc"
+    ],
+    "definition": "Know Your Customer, or KYC, refers to the identity-verification checks banks, telecom providers, and other regulated services are required to perform before opening an account or providing a service, confirming who a customer actually is using documents like government-issued ID. The process exists mainly to prevent fraud, money laundering, and the use of fake identities for illegal activity. As digital identity systems and AI-generated fake documents have both advanced, KYC processes have had to evolve alongside them, increasingly combining document checks with biometric verification like facial recognition to confirm authenticity.",
+    "icon": "🪪",
+    "cluster": "india-society"
+  },
+  "dram": {
+    "term": "DRAM (Dynamic Random-Access Memory)",
+    "match": [
+      "dynamic random-access memory",
+      "dram"
+    ],
+    "definition": "DRAM, or dynamic random-access memory, is the type of fast, short-term memory chip that computers use to hold data actively being worked on, distinct from the slower, permanent storage of a hard drive or SSD. Each bit of data in DRAM is stored as a tiny electric charge that leaks away over time, so the chip has to continuously \"refresh\" every cell thousands of times a second to keep the data from disappearing, which is where the \"dynamic\" in its name comes from. DRAM's speed and relatively low cost per bit have made it the standard main-memory technology in computers and smartphones for decades.",
+    "icon": "💾",
+    "cluster": "frontier-technologies"
+  },
+  "nand": {
+    "term": "NAND (Flash Memory)",
+    "match": [
+      "nand memory",
+      "nand flash",
+      "nand"
+    ],
+    "definition": "NAND flash is a type of memory chip that stores data permanently even without power, unlike DRAM, by trapping electric charge inside tiny transistor cells that hold their state until deliberately rewritten. It's named after the NAND logic gate its internal circuit structure resembles. NAND flash is the technology behind solid-state drives (SSDs), USB drives, and the storage in smartphones, prized for being compact, fast to read, and having no moving parts, though each memory cell can only be rewritten a limited number of times before it wears out.",
+    "icon": "💾",
+    "cluster": "frontier-technologies"
+  },
+  "adas": {
+    "term": "ADAS (Advanced Driver Assistance Systems)",
+    "match": [
+      "advanced driver assistance systems",
+      "adas"
+    ],
+    "definition": "ADAS, short for Advanced Driver Assistance Systems, refers to the suite of sensor-and-software features in modern vehicles that help a driver avoid accidents or reduce driving effort, such as automatic emergency braking, lane-keeping assistance, adaptive cruise control, and blind-spot warnings. ADAS features use cameras, radar, and sometimes lidar to continuously monitor the road and either alert the driver or briefly intervene in steering or braking. They're generally considered a step below full self-driving, since a human is still expected to stay in control, but they're also the building blocks that more autonomous driving systems are developed on top of.",
+    "icon": "🚗",
+    "cluster": "frontier-technologies"
+  },
+  "aesa": {
+    "term": "AESA (Active Electronically Scanned Array)",
+    "match": [
+      "active electronically scanned array",
+      "aesa radar",
+      "aesa"
+    ],
+    "definition": "An Active Electronically Scanned Array, or AESA, is a type of radar made up of thousands of small transmitter-receiver modules spread across a flat panel, each one independently steerable, instead of one large dish that has to physically rotate to scan the sky. Because the radar beam can be redirected electronically in microseconds rather than mechanically, AESA radars can track multiple targets simultaneously, switch tasks instantly, and are far more resistant to jamming than older designs. This makes AESA the standard radar technology on modern fighter jets, warships, and advanced air-defense systems.",
+    "icon": "📡",
+    "cluster": "frontier-technologies"
+  },
+  "nir": {
+    "term": "NIR (Near-Infrared)",
+    "match": [
+      "near-infrared",
+      "near infrared",
+      "nir light",
+      "nir"
+    ],
+    "definition": "Near-infrared, or NIR, light sits just beyond the red end of the visible spectrum, invisible to the human eye but close enough in wavelength to interact usefully with many of the same materials visible light does. Because it penetrates biological tissue more deeply than visible light while still being relatively safe, NIR is widely used in medical imaging, night-vision equipment, and remote controls, and researchers are exploring it for restoring vision, non-invasive health monitoring, and secure optical communication. Standard cameras can be adapted to detect it, since NIR light behaves in many ways like an invisible extension of ordinary light.",
+    "icon": "📷",
+    "cluster": "human-future"
+  },
+  "eeg": {
+    "term": "EEG (Electroencephalography)",
+    "match": [
+      "electroencephalography",
+      "eeg"
+    ],
+    "definition": "Electroencephalography, or EEG, is a technique for recording the brain's electrical activity using small sensors placed on the scalp, picking up the faint electrical signals produced when large groups of neurons fire together. It's non-invasive, relatively inexpensive, and captures activity with excellent timing precision, which is why it's widely used to study sleep stages, diagnose conditions like epilepsy, and, increasingly, to power brain-computer interfaces that translate brain activity into commands. Its main limitation compared to other brain-imaging methods is that it can't pinpoint exactly where in the brain a signal originated nearly as precisely as it can tell when it happened.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "nmr": {
+    "term": "NMR (Nuclear Magnetic Resonance)",
+    "match": [
+      "nuclear magnetic resonance",
+      "nmr spectroscopy",
+      "nmr"
+    ],
+    "definition": "Nuclear magnetic resonance, or NMR, is a technique for studying the structure of molecules and materials by placing a sample in a strong magnetic field and measuring how the nuclei of certain atoms, like hydrogen, respond to radio-frequency pulses. The pattern of that response reveals detailed information about how atoms are bonded and arranged, making NMR spectroscopy a core tool in chemistry for identifying unknown compounds. The same underlying physics, applied to water molecules in the body, is what MRI machines use to produce detailed medical images.",
+    "icon": "🧲",
+    "cluster": "frontier-technologies"
+  },
+  "engineered-living-therapeutics": {
+    "term": "Engineered Living Therapeutics (ELT)",
+    "match": [
+      "engineered living therapeutics",
+      "elt platform",
+      "elt platforms"
+    ],
+    "definition": "Engineered living therapeutics are treatments built from living cells, most often bacteria, that have been genetically modified to sense a specific problem in the body, such as inflammation or a metabolic imbalance, and respond by producing a therapeutic molecule right at the site where it's needed. Rather than delivering a single dose of a drug that acts once and clears out, an ELT can potentially keep monitoring and treating a condition continuously as long as it persists in the body. It's an emerging approach in synthetic biology aimed at chronic conditions like inflammatory bowel disease, where continuous, localized treatment could work better than periodic dosing.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "car-t-cell-therapy": {
+    "term": "CAR-T Cell Therapy",
+    "match": [
+      "car-t cell therapy",
+      "car-t cells",
+      "car-t",
+      "car-inkt cells"
+    ],
+    "definition": "CAR-T cell therapy is a cancer treatment that genetically re-engineers a patient's own immune T cells to recognize and attack their specific cancer, by giving them an artificial receptor, called a Chimeric Antigen Receptor (CAR), that targets a molecule on the tumor cells' surface. The modified cells are grown in large numbers in a lab and infused back into the patient, where they multiply further and hunt down cancer cells that would otherwise evade the immune system. It has shown dramatic results against certain blood cancers that had stopped responding to other treatments, though making it affordable and effective against solid tumors remains an active area of research.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "cryo-et": {
+    "term": "Cryo-Electron Tomography",
+    "match": [
+      "cryo-electron tomography",
+      "cryo-et",
+      "cryo electron tomography"
+    ],
+    "definition": "Cryo-electron tomography is a close relative of cryo-EM that goes a step further: instead of imaging many separate flash-frozen copies of a single molecule from different angles, it tilts one frozen sample itself and captures images from a whole range of angles to reconstruct a detailed 3D picture of the molecule or structure in its native, unpurified environment. This lets scientists see proteins and cellular machinery in the actual crowded context of a cell, rather than isolated in a test tube, making it a powerful tool for understanding how biological structures really look and interact where they naturally function.",
+    "icon": "🧊",
+    "cluster": "human-future"
+  },
+  "signal-to-noise-ratio": {
+    "term": "Signal-to-Noise Ratio",
+    "match": [
+      "signal-to-noise ratio",
+      "signal to noise ratio",
+      "snr"
+    ],
+    "definition": "Signal-to-noise ratio, often abbreviated SNR, is a measure of how much a meaningful signal stands out against random background interference, or \"noise,\" in any measurement or image. A high signal-to-noise ratio means the real data is easy to distinguish clearly; a low one means it's buried in static and hard to interpret reliably. The concept applies far beyond audio, where it originated, showing up in medical imaging, astronomy, wireless communication, and any scientific instrument, where improving it, whether through better hardware or smarter data processing, is usually the key to seeing something previously too faint to detect.",
+    "icon": "📡",
+    "cluster": "frontier-technologies"
+  },
+  "alzheimers-disease": {
+    "term": "Alzheimer's Disease",
+    "match": [
+      "alzheimer's disease",
+      "alzheimers disease",
+      "alzheimer's"
+    ],
+    "definition": "Alzheimer's disease is the most common cause of dementia, a progressive brain disorder that gradually destroys memory, thinking ability, and eventually the capacity to carry out daily tasks. It's associated with a buildup of abnormal protein clumps, called amyloid plaques and tau tangles, that damage and eventually kill brain cells, though exactly how this process begins and unfolds is still an active area of research. There's currently no cure, and treatments mainly aim to slow progression or manage symptoms, which is why the disease remains one of the largest ongoing focuses in both neuroscience research and drug development.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "parkinsons-disease": {
+    "term": "Parkinson's Disease",
+    "match": [
+      "parkinson's disease",
+      "parkinsons disease",
+      "parkinson's"
+    ],
+    "definition": "Parkinson's disease is a progressive neurological disorder caused by the gradual loss of brain cells that produce dopamine, a chemical messenger essential for smooth, controlled movement. This loss produces the disease's hallmark symptoms: tremors, stiffness, slowed movement, and balance problems, which typically worsen over years. There's no cure, but medications that boost dopamine levels, along with newer approaches like deep brain stimulation, can meaningfully manage symptoms for a long time. Because Parkinson's involves a specific, identifiable loss of one type of brain cell, it's also become a major focus for regenerative and cell-based therapies aiming at repair rather than just symptom control.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "autoimmune-disorder": {
+    "term": "Autoimmune Disorder",
+    "match": [
+      "autoimmune disorder",
+      "autoimmune disorders",
+      "autoimmune disease",
+      "autoimmune diseases"
+    ],
+    "definition": "An autoimmune disorder occurs when the immune system, which normally defends the body against outside threats like viruses and bacteria, mistakenly identifies the body's own healthy cells or tissue as a threat and attacks them. Depending on which tissue gets targeted, this can produce very different conditions, from rheumatoid arthritis attacking joints to type 1 diabetes attacking insulin-producing cells. There are more than 80 recognized autoimmune disorders, and their exact triggers are often unclear, involving some mix of genetic predisposition and environmental factors, which is why treatments generally focus on calming or redirecting immune activity rather than curing the underlying cause.",
+    "icon": "🛡️",
+    "cluster": "human-future"
+  },
+  "alphafold": {
+    "term": "AlphaFold",
+    "match": [
+      "alphafold"
+    ],
+    "definition": "AlphaFold is an AI system, developed by Google DeepMind, that predicts the detailed 3D shape a protein folds into based only on its amino acid sequence, a problem biologists had struggled with for decades. Because a protein's shape largely determines what it does in the body, accurately predicting structure without the slow, expensive process of laboratory imaging has dramatically accelerated research into diseases, drug targets, and enzyme design. AlphaFold's public database now includes predicted structures for hundreds of millions of proteins, and the breakthrough earned its creators the 2024 Nobel Prize in Chemistry.",
+    "icon": "🧬",
+    "cluster": "digital-intelligence"
+  },
+  "protein-engineering": {
+    "term": "Protein Engineering",
+    "match": [
+      "protein engineering"
+    ],
+    "definition": "Protein engineering is the deliberate design or modification of proteins to give them new or improved properties, such as binding more precisely to a disease target, working at higher temperatures, or breaking down a specific pollutant. Researchers achieve this either by tweaking a natural protein's existing structure or by designing an entirely new one from scratch, increasingly aided by AI tools like AlphaFold that can predict how a proposed design will actually fold. It underlies the development of many modern antibody drugs, industrial enzymes, and biosensors, and AI-assisted protein design is now one of the fastest-moving areas in biotechnology.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "biologics": {
+    "term": "Biologics",
+    "match": [
+      "biologics",
+      "biologic drug",
+      "biologic drugs"
+    ],
+    "definition": "Biologics are medicines manufactured from or derived using living cells, such as antibodies, vaccines, and gene and cell therapies, rather than being chemically synthesized from simple raw ingredients the way traditional small-molecule pills are. Because they're large, complex molecules produced through biological processes, biologics are typically much harder and more expensive to manufacture, and usually have to be injected or infused rather than taken as a pill. They now represent a major and fast-growing share of new medicines, particularly for cancer, autoimmune disorders, and rare genetic diseases, where their precision often makes them more effective than older drug types.",
+    "icon": "💉",
+    "cluster": "human-future"
+  },
+  "computational-drug-discovery": {
+    "term": "Computational Drug Discovery",
+    "match": [
+      "computational drug discovery",
+      "in silico drug discovery"
+    ],
+    "definition": "Computational drug discovery uses computer modeling and simulation, increasingly powered by AI, to identify and refine promising drug candidates before committing to the expensive and time-consuming step of testing them in a lab. Techniques range from simulating how a candidate molecule would physically bind to its target, to using AI models trained on existing chemical and biological data to predict which of millions of possible compounds are most worth actually synthesizing and testing. By narrowing an enormous field of possibilities down to a much smaller, higher-probability shortlist, it can significantly cut the time and cost of early-stage drug development.",
+    "icon": "🧪",
+    "cluster": "digital-intelligence"
+  },
+  "dalton": {
+    "term": "Dalton (Da)",
+    "match": [
+      "dalton",
+      "daltons",
+      "kilodalton",
+      "kilodaltons"
+    ],
+    "definition": "A dalton, abbreviated Da, is the standard unit scientists use to measure the mass of atoms, molecules, and proteins, roughly equal to the mass of a single hydrogen atom. Because proteins and other large biomolecules can be made of thousands of atoms, their mass is usually given in kilodaltons (kDa), or thousands of daltons, as a convenient shorthand. A protein's molecular weight in daltons is often one of the first things researchers report about it, since it gives a quick sense of its size and can hint at how it will behave, such as how easily it passes through cell membranes or filtration systems.",
+    "icon": "⚖️",
+    "cluster": "human-future"
+  },
+  "national-quantum-mission": {
+    "term": "National Quantum Mission (NQM)",
+    "match": [
+      "national quantum mission",
+      "nqm"
+    ],
+    "definition": "The National Quantum Mission is an Indian government program, launched with a budget of over six thousand crore rupees, aimed at building the country's capabilities across quantum computing, quantum communication, and quantum sensing. Rather than funding a single project, it supports a coordinated push across research institutions and startups to develop quantum hardware, secure quantum communication links, and precision quantum sensors, positioning India to compete in a technology area several other major economies are also investing in heavily. It's frequently cited across the country's quantum-technology research as the central government initiative tying individual breakthroughs into a broader national strategy.",
+    "icon": "⚛️",
+    "cluster": "india-society"
+  },
+  "gaganyaan": {
+    "term": "Gaganyaan Mission",
+    "match": [
+      "gaganyaan mission",
+      "gaganyaan"
+    ],
+    "definition": "Gaganyaan is India's human spaceflight program, designed to demonstrate the country's ability to independently launch astronauts into low Earth orbit and return them safely, a capability so far achieved by only a handful of nations. The mission involves developing a human-rated launch vehicle, a crew capsule with life-support systems, and extensive astronaut training and safety testing before any crewed flight is attempted. Beyond the mission itself, Gaganyaan is meant to lay the technological and institutional groundwork for India's longer-term space ambitions, including a planned space station and eventually crewed missions further into the solar system.",
+    "icon": "🚀",
+    "cluster": "india-society"
+  },
+  "spadex": {
+    "term": "SPADEX (Space Docking Experiment)",
+    "match": [
+      "spadex",
+      "space docking experiment"
+    ],
+    "definition": "SPADEX, short for Space Docking Experiment, is an ISRO mission that demonstrated India's ability to autonomously bring two small satellites together in orbit, dock them, and separate them again, without direct real-time human control. Two satellites, playing the roles of \"chaser\" and \"target,\" had to precisely match speed and position hundreds of kilometers above Earth for the docking to succeed. Autonomous docking is a foundational capability for building and resupplying a space station, assembling large structures in orbit, and crewed deep-space missions, making SPADEX an important technical milestone underpinning India's future human spaceflight and space station plans.",
+    "icon": "🛰️",
+    "cluster": "india-society"
+  },
+  "mars-orbiter-mission": {
+    "term": "Mars Orbiter Mission (Mangalyaan)",
+    "match": [
+      "mars orbiter mission",
+      "mangalyaan"
+    ],
+    "definition": "The Mars Orbiter Mission, popularly known as Mangalyaan, was India's first interplanetary mission, launched in 2013 and successfully entering orbit around Mars in 2014. It made India the first country to reach Mars orbit on its very first attempt, and did so at a fraction of the cost of comparable missions by other space agencies, drawing global attention to the efficiency of India's space program. The mission studied the Martian surface, atmosphere, and mineral composition, and its success helped build the technical confidence and public support behind India's subsequent, more ambitious interplanetary and human spaceflight programs.",
+    "icon": "🪐",
+    "cluster": "india-society"
+  },
+  "aditya-l1": {
+    "term": "Aditya-L1",
+    "match": [
+      "aditya-l1",
+      "aditya l1"
+    ],
+    "definition": "Aditya-L1 is India's first dedicated mission to study the Sun, positioned at a gravitationally stable point called L1 about 1.5 million kilometers from Earth, where it can continuously observe the Sun without being blocked by Earth's shadow. It carries a suite of instruments to study the solar corona, solar wind, and the magnetic and radiation environment around the Sun, contributing to global efforts to understand and eventually better predict space weather events that can disrupt satellites and power grids on Earth. It joined a small group of international solar observatories, including NASA and ESA missions, that continuously monitor the Sun.",
+    "icon": "☀️",
+    "cluster": "india-society"
+  },
+  "jwst": {
+    "term": "James Webb Space Telescope (JWST)",
+    "match": [
+      "james webb space telescope",
+      "jwst"
+    ],
+    "definition": "The James Webb Space Telescope, launched in 2021, is the most powerful space telescope ever built, designed to see further back in time and in far greater detail than its predecessor, the Hubble Space Telescope. Its 6.5-meter mirror, made of 18 gold-coated hexagonal segments, collects faint infrared light, letting it observe some of the earliest galaxies that formed after the Big Bang, peer through dust clouds where stars and planets are forming, and study the atmospheres of planets orbiting distant stars. It operates roughly 1.5 million kilometers from Earth, far enough to stay shielded from the Sun's heat and light for its sensitive instruments to work.",
+    "icon": "🔭",
+    "cluster": "frontier-technologies"
+  },
+  "hubble-space-telescope": {
+    "term": "Hubble Space Telescope",
+    "match": [
+      "hubble space telescope",
+      "hubble telescope"
+    ],
+    "definition": "The Hubble Space Telescope, launched in 1990, was one of the first major telescopes placed in orbit above Earth's atmosphere, which normally blurs and blocks much of the light reaching ground-based telescopes. Free of that interference, Hubble produced some of the most iconic and scientifically important images in astronomy's history, from detailed views of distant galaxies to sharp images of planets in our own solar system, and its observations helped precisely measure how fast the universe is expanding. Decades after launch, it's still operating alongside newer instruments like the James Webb Space Telescope, each observing different parts of the light spectrum.",
+    "icon": "🔭",
+    "cluster": "frontier-technologies"
+  },
+  "large-hadron-collider": {
+    "term": "Large Hadron Collider (LHC)",
+    "match": [
+      "large hadron collider",
+      "lhc"
+    ],
+    "definition": "The Large Hadron Collider is the world's largest and most powerful particle accelerator, a 27-kilometer ring of superconducting magnets buried beneath the border of France and Switzerland, where beams of protons are accelerated to nearly the speed of light and smashed together. By recreating conditions similar to those just after the Big Bang, physicists use the resulting particle collisions to study the fundamental building blocks of matter, most famously confirming the existence of the Higgs boson in 2012. It remains the primary tool for testing and extending the Standard Model of particle physics, the theory describing how fundamental particles and forces interact.",
+    "icon": "⚛️",
+    "cluster": "frontier-technologies"
+  },
+  "navic": {
+    "term": "NavIC (IRNSS)",
+    "match": [
+      "navic",
+      "irnss",
+      "indian regional navigation satellite system"
+    ],
+    "definition": "NavIC, formally the Indian Regional Navigation Satellite System (IRNSS), is India's own satellite-based navigation system, built to provide accurate positioning independent of foreign systems like GPS. Its development gained urgency after an incident during the 1999 Kargil conflict, when India was denied access to precise GPS data by the United States, exposing a strategic vulnerability. A constellation of satellites now provides positioning, navigation, and timing services across India and the surrounding region, supporting applications from defense and disaster management to everyday navigation apps, and it's increasingly built into Indian smartphones alongside GPS.",
+    "icon": "🛰️",
+    "cluster": "india-society"
+  },
+  "indiaai-mission": {
+    "term": "IndiaAI Mission",
+    "match": [
+      "indiaai mission",
+      "national ai mission",
+      "india's national ai mission"
+    ],
+    "definition": "The IndiaAI Mission is a government of India program aimed at building the country's artificial intelligence capabilities from the ground up, covering everything from subsidized access to computing infrastructure for startups and researchers, to funding foundational AI research, to building large public datasets in Indian languages. It's designed to support India's ambition of developing sovereign AI capability rather than depending entirely on foreign AI infrastructure and models. Alongside initiatives like Digital India and the National Quantum Mission, it's one of the government's central pillars for positioning India as a serious player in next-generation technology development.",
+    "icon": "🇮🇳",
+    "cluster": "india-society"
+  },
+  "smart-cities-mission": {
+    "term": "Smart Cities Mission",
+    "match": [
+      "smart cities mission"
+    ],
+    "definition": "The Smart Cities Mission is an Indian government initiative that funds selected cities to upgrade their infrastructure with technology-driven improvements, such as intelligent traffic management, real-time water and waste monitoring, digital governance services, and improved public safety systems. Rather than building entirely new cities, it primarily focuses on retrofitting and upgrading existing urban areas across a defined list of participating cities. The program reflects a broader global trend of using sensors, data, and connected infrastructure to manage the pressures of rapid urbanization more efficiently, and is frequently referenced as a natural adopter for new sensing and IoT technologies developed in India.",
+    "icon": "🏙️",
+    "cluster": "india-society"
+  },
+  "ayushman-bharat-digital-mission": {
+    "term": "Ayushman Bharat Digital Mission (ABDM)",
+    "match": [
+      "ayushman bharat digital mission",
+      "abdm"
+    ],
+    "definition": "The Ayushman Bharat Digital Mission is India's national initiative to build a unified digital health ecosystem, giving citizens a portable digital health ID that can link their medical records, prescriptions, and lab results across different hospitals and clinics rather than leaving them scattered on paper at each individual provider. The goal is to make healthcare data easier for patients to access and share with new doctors, while also giving health systems better aggregated data for planning and research. It's part of the broader digital public infrastructure approach India has used in other sectors, most notably UPI for payments.",
+    "icon": "🏥",
+    "cluster": "india-society"
+  },
+  "juno-neutrino": {
+    "term": "JUNO (Jiangmen Underground Neutrino Observatory)",
+    "match": [
+      "jiangmen underground neutrino observatory",
+      "juno"
+    ],
+    "definition": "JUNO, the Jiangmen Underground Neutrino Observatory, is a massive particle physics detector built roughly 700 meters underground in southern China, designed to study neutrinos, ghostly subatomic particles that pass through ordinary matter almost undetected. At its core sits an enormous sphere filled with ultra-pure liquid that produces faint flashes of light when a neutrino occasionally interacts with it, flashes sensitive detectors then capture and analyze. Since beginning operations, JUNO has delivered some of the most precise neutrino measurements ever recorded, helping physicists narrow down open questions about neutrino mass and behavior that have puzzled the field for decades.",
+    "icon": "👻",
+    "cluster": "frontier-technologies"
+  },
+  "parker-solar-probe": {
+    "term": "Parker Solar Probe",
+    "match": [
+      "parker solar probe"
+    ],
+    "definition": "The Parker Solar Probe is a NASA spacecraft launched in 2018 that has flown closer to the Sun than any prior human-made object, repeatedly diving through the Sun's outer atmosphere, the corona, to directly sample the environment that generates the solar wind, the stream of charged particles flowing out from the Sun. Protected by a specially engineered heat shield, it endures temperatures of well over a thousand degrees Celsius while its instruments stay at room temperature just behind it. Its measurements have helped solve long-standing mysteries about why the corona is far hotter than the Sun's visible surface, and how the solar wind gets accelerated to such high speeds.",
+    "icon": "☀️",
+    "cluster": "frontier-technologies"
+  },
+  "gene-therapy": {
+    "term": "Gene Therapy",
+    "match": [
+      "gene therapy",
+      "gene therapies"
+    ],
+    "definition": "Gene therapy is a broad category of treatment that works by introducing, removing, or altering genetic material inside a patient's cells to treat or prevent disease, rather than treating symptoms with a conventional drug. This can mean delivering a healthy copy of a gene to replace a faulty one, using a modified virus to carry therapeutic genetic instructions into cells, or using tools like CRISPR to directly edit existing DNA. It's a broader umbrella than gene editing specifically, and today covers everything from treatments for rare inherited disorders to CAR-T cancer therapies, representing one of the fastest-growing areas of modern medicine.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "oncolytic-virus-therapy": {
+    "term": "Oncolytic Virus Therapy",
+    "match": [
+      "oncolytic virus therapy",
+      "oncolytic virus",
+      "oncolytic viruses"
+    ],
+    "definition": "Oncolytic virus therapy is a cancer treatment that uses viruses, engineered to be safe in healthy tissue, that selectively infect and destroy cancer cells while leaving normal cells largely unharmed. Beyond directly killing infected tumor cells, the virus also triggers a broader immune response, essentially flagging the tumor as a threat the immune system should attack, which can help overcome cancers that have learned to hide from the immune system. It's an active area of cancer research, particularly for tumor types that don't respond well to existing immunotherapies, using a fundamentally different mechanism than chemotherapy or radiation.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "bariatric-surgery": {
+    "term": "Bariatric Surgery",
+    "match": [
+      "bariatric surgery"
+    ],
+    "definition": "Bariatric surgery refers to a group of surgical procedures that alter the stomach or digestive system to help people with severe obesity lose weight, typically by reducing stomach size, changing how food is digested and absorbed, or both. Common versions include gastric bypass and sleeve gastrectomy. It's generally reserved for cases where lifestyle changes and medication haven't worked and significant weight-related health risks are present, since it's an invasive procedure with real recovery time and lifelong dietary adjustments. The recent rise of highly effective weight-loss medications has begun shifting some patients away from surgery toward drug-based treatment instead.",
+    "icon": "🏥",
+    "cluster": "human-future"
+  },
+  "deep-brain-stimulation": {
+    "term": "Deep Brain Stimulation (DBS)",
+    "match": [
+      "deep brain stimulation",
+      "dbs",
+      "brain pacemaker",
+      "brain pacemakers"
+    ],
+    "definition": "Deep brain stimulation is a treatment that involves surgically implanting thin electrodes into specific, precisely targeted regions of the brain, connected to a small pulse generator, sometimes called a \"brain pacemaker,\" implanted under the skin, that delivers continuous, adjustable electrical stimulation. It's most established as a treatment for movement disorders like Parkinson's disease, where it can significantly reduce tremors and rigidity, and is increasingly being studied for treatment-resistant depression and other psychiatric conditions. Because the stimulation settings can be adjusted externally without further surgery, doctors can fine-tune treatment over time as a patient's condition changes.",
+    "icon": "🧠",
+    "cluster": "human-future"
+  },
+  "hantavirus-pulmonary-syndrome": {
+    "term": "Hantavirus Pulmonary Syndrome (HPS)",
+    "match": [
+      "hantavirus pulmonary syndrome",
+      "hps"
+    ],
+    "definition": "Hantavirus pulmonary syndrome is a rare but severe respiratory illness caused by certain hantaviruses, a family of viruses carried by rodents and typically transmitted to humans through contact with rodent droppings, urine, or saliva, most often by breathing in contaminated dust. It causes rapidly worsening breathing difficulty as fluid builds up in the lungs, and has a notably high fatality rate compared to many other viral illnesses, though it doesn't spread easily between people. First widely recognized in the United States in the early 1990s after a cluster of sudden deaths in otherwise healthy people, it remains a serious concern in regions with significant rodent populations.",
+    "icon": "🦠",
+    "cluster": "human-future"
+  },
+  "autism-spectrum-disorder": {
+    "term": "Autism Spectrum Disorder (ASD)",
+    "match": [
+      "autism spectrum disorder",
+      "asd",
+      "autism"
+    ],
+    "definition": "Autism spectrum disorder is a developmental condition that affects how a person communicates, interacts socially, and processes sensory information, typically appearing in early childhood and lasting throughout life. It's called a \"spectrum\" because it covers a wide range of presentations and support needs, from individuals who need significant daily assistance to those who live independently. Its exact biological causes aren't fully understood, but research points to a mix of genetic factors and differences in how the brain develops and forms connections before birth, which is why brain organoid models and early-development studies have become important research tools for understanding it.",
+    "icon": "🧩",
+    "cluster": "human-future"
+  },
+  "ttr-amyloidosis": {
+    "term": "TTR Amyloidosis (Transthyretin Amyloidosis)",
+    "match": [
+      "ttr amyloidosis",
+      "transthyretin amyloidosis",
+      "transthyretin (ttr) amyloidosis"
+    ],
+    "definition": "TTR amyloidosis is a disease in which a normally helpful blood protein called transthyretin (TTR) misfolds and clumps into rigid amyloid fibers. These fibers deposit in the heart, nerves, and other tissues, gradually stiffening organs and disrupting their function. It can be inherited or arise with age, and is under-diagnosed because its symptoms mimic more common heart and nerve conditions. New drugs increasingly target the protein directly — either stabilizing its normal shape or silencing the gene that makes it — rather than just treating symptoms.",
+    "icon": "🪢",
+    "cluster": "human-future"
+  },
+  "pgg": {
+    "term": "Penta-Galloyl-Glucose (PGG)",
+    "match": [
+      "penta galloyl glucose",
+      "penta-galloyl-glucose",
+      "pgg"
+    ],
+    "definition": "Penta-galloyl-glucose is a naturally occurring plant compound (found in sources like sumac and oak galls) studied for its ability to bind misfolded proteins and stabilize them before they clump together. In amyloidosis research, it's explored as a way to interrupt the protein-misfolding process at its source rather than only managing downstream damage. Because it's a natural molecule rather than a synthetic drug, researchers see it as a potentially gentler starting point for new anti-amyloid therapies, though it still needs full clinical validation.",
+    "icon": "🌿",
+    "cluster": "human-future"
+  },
+  "gene-silencing-therapy": {
+    "term": "Gene-Silencing Therapy",
+    "match": [
+      "gene-silencing therapies",
+      "gene silencing therapy",
+      "gene-silencing therapy"
+    ],
+    "definition": "Gene-silencing therapy works by blocking the instructions a faulty gene sends to make a harmful protein, rather than editing the gene itself. Using small RNA molecules that bind to and neutralize the gene's messenger RNA, doctors can dial down production of a disease-causing protein — for example, the misfolded protein behind TTR amyloidosis. It's a precision approach: instead of a broad drug, it targets one specific genetic instruction, often needing only a few doses a year to keep symptoms in check.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "c-elegans-model": {
+    "term": "C. elegans Model Organism",
+    "match": [
+      "c. elegans model",
+      "c elegans model",
+      "caenorhabditis elegans"
+    ],
+    "definition": "C. elegans is a microscopic roundworm that scientists have used for decades as a simple, fast, and transparent stand-in for studying human biology. Despite its simplicity, it shares many genes and cellular processes with humans, making it useful for testing how diseases like amyloidosis or neurodegeneration progress, and for screening whether a candidate drug slows that progression — all before moving to more expensive, slower animal or human trials.",
+    "icon": "🪠",
+    "cluster": "human-future"
+  },
+  "systemic-amyloidosis": {
+    "term": "Systemic Amyloidosis",
+    "match": [
+      "systemic amyloidosis"
+    ],
+    "definition": "Systemic amyloidosis is a group of disorders in which misfolded proteins form amyloid fibers that circulate through the bloodstream and deposit across multiple organs — commonly the heart, kidneys, liver, and nervous system — rather than staying confined to one tissue. As deposits build up, organs progressively stiffen and lose function. Because symptoms can look like ordinary heart failure or nerve damage, it's frequently caught late, which is why newer blood tests and protein-stabilizing drugs aimed at earlier detection and treatment are a major research focus.",
+    "icon": "🪢",
+    "cluster": "human-future"
+  },
+  "cerabyte": {
+    "term": "Cerabyte (Ceramic Glass Data Storage)",
+    "match": [
+      "cerabyte"
+    ],
+    "definition": "Cerabyte is a data-storage technology that writes information onto thin ceramic layers on glass instead of magnetic tape or spinning disks, using laser nanolithography to etch bits directly into the material. Because ceramic doesn't degrade the way tape or hard drives do, it's designed for \"cold\" archival storage that can last centuries without power, maintenance, or periodic re-copying — aimed at the exploding volumes of data companies need to keep but rarely access.",
+    "icon": "💿",
+    "cluster": "frontier-technologies"
+  },
+  "data-fragility": {
+    "term": "Data Fragility",
+    "match": [
+      "data fragility"
+    ],
+    "definition": "Data fragility refers to how easily stored digital information can be lost or corrupted over time — through hardware decay, magnetic drift, file-format obsolescence, or simple bit rot. Unlike paper or stone records that can last millennia with no upkeep, most digital media needs active refreshing and migration every few years. It's a growing concern as the world generates far more data than any current storage medium can reliably preserve for the long term, driving research into more durable formats like ceramic or DNA storage.",
+    "icon": "⚠️",
+    "cluster": "frontier-technologies"
+  },
+  "redundancy-mechanism": {
+    "term": "Redundancy (Engineering)",
+    "match": [
+      "redundancy mechanism",
+      "engineering redundancy"
+    ],
+    "definition": "Redundancy is an engineering strategy of building in duplicate components, pathways, or copies of data so that if one part fails, the system keeps working or the information survives. It trades some extra cost or space for reliability — seen everywhere from backup data copies and RAID storage arrays to spare engines on aircraft. In data storage specifically, redundancy mechanisms guard against corruption by keeping multiple independently verifiable copies of the same information.",
+    "icon": "🔁",
+    "cluster": "frontier-technologies"
+  },
+  "lithography": {
+    "term": "Lithography (Semiconductor Fabrication)",
+    "match": [
+      "lithography"
+    ],
+    "definition": "Lithography is the core manufacturing process used to print microscopic circuit patterns onto silicon wafers or other materials, typically by shining light or a laser through a stencil-like mask to expose a light-sensitive coating. The exposed pattern is then etched to build up the tiny transistors and wires of a chip, layer by layer. Advances in lithography — finer beams, shorter wavelengths, ultra-precise lasers — are what let manufacturers keep shrinking chip features and, more recently, etch durable data patterns into non-silicon materials.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "ferromagnetic-metals": {
+    "term": "Ferromagnetic Metals",
+    "match": [
+      "ferromagnetic metals",
+      "ferromagnetic metal"
+    ],
+    "definition": "Ferromagnetic metals — like iron, cobalt, and nickel — are materials whose atomic magnetic moments naturally align in the same direction, giving them strong, persistent magnetism even without an external field. This property makes them essential in everything from electric motors and transformers to magnetic sensors and data storage. In advanced research, ferromagnetic metals and thin films are also key building blocks for spintronic devices that use electron spin, not just charge, to process information.",
+    "icon": "🧲",
+    "cluster": "frontier-technologies"
+  },
+  "hzb": {
+    "term": "Helmholtz-Zentrum Berlin (HZB)",
+    "match": [
+      "helmholtz-zentrum berlin",
+      "helmholtz zentrum berlin",
+      "hzb"
+    ],
+    "definition": "Helmholtz-Zentrum Berlin is a German research institute that operates BESSY II, a synchrotron light source used to study the structure and behavior of materials at the atomic scale. Its facilities support research spanning energy materials, quantum technologies, and advanced spectroscopy, making it a recurring hub in cutting-edge materials-science breakthroughs reported out of Europe.",
+    "icon": "🏢",
+    "cluster": "frontier-technologies"
+  },
+  "bessy-ii": {
+    "term": "BESSY II Synchrotron",
+    "match": [
+      "bessy ii",
+      "bessy-ii"
+    ],
+    "definition": "BESSY II is a synchrotron facility in Berlin — a large ring that accelerates electrons to near light-speed to generate intense, tunable beams of X-ray and ultraviolet light. Scientists use that light like an extremely powerful microscope to probe the electronic and magnetic structure of materials, from battery chemicals to quantum devices, at a level of detail ordinary lab equipment can't reach.",
+    "icon": "🔭",
+    "cluster": "frontier-technologies"
+  },
+  "spin-arpes": {
+    "term": "Spin- and Angle-Resolved Photoemission Spectroscopy (Spin-ARPES)",
+    "match": [
+      "spin-arpes",
+      "spin arpes",
+      "spin- and angle-resolved photoemission spectroscopy"
+    ],
+    "definition": "Spin-ARPES is a technique that fires photons at a material's surface and measures the angle, energy, and spin direction of the electrons that get knocked loose. From that data, researchers can map exactly which electron states exist in a material and how they're magnetically oriented — crucial for understanding topological insulators, spintronic materials, and other exotic quantum materials where electron spin behavior determines the technology's usefulness.",
+    "icon": "🌀",
+    "cluster": "frontier-technologies"
+  },
+  "dft": {
+    "term": "Density Functional Theory (DFT)",
+    "match": [
+      "density functional theory",
+      "dft"
+    ],
+    "definition": "Density functional theory is a computational method physicists and chemists use to predict how electrons behave inside a material without having to solve the impossibly complex equations for every single particle. Instead, it works from the overall electron density, making it practical to simulate on a computer. DFT is a workhorse tool for designing new materials — batteries, catalysts, quantum devices — by predicting their properties before anyone builds them in a lab.",
+    "icon": "📊",
+    "cluster": "frontier-technologies"
+  },
+  "gpu": {
+    "term": "GPU (Graphics Processing Unit)",
+    "match": [
+      "gpu",
+      "gpus",
+      "graphics processing unit"
+    ],
+    "definition": "A GPU is a chip originally built to render graphics quickly by performing thousands of simple calculations in parallel, rather than a few complex ones in sequence like a traditional CPU. That parallel structure turned out to be perfectly suited to training AI models and running large-scale simulations, which is why GPUs — not CPUs — became the core hardware powering the modern AI boom, from chatbots to scientific computing.",
+    "icon": "🎞️",
+    "cluster": "frontier-technologies"
+  },
+  "liquid-gallium": {
+    "term": "Liquid Gallium",
+    "match": [
+      "liquid gallium"
+    ],
+    "definition": "Gallium is a metal that melts at just under 30°C — close to body temperature — making it liquid at only slightly warm conditions, unlike most metals which need extreme heat to melt. That unusual property makes it useful for flexible electronics, liquid-metal cooling, and chemical reactions like water splitting, where its liquid surface can catalyze reactions that solid metals can't.",
+    "icon": "🪩",
+    "cluster": "frontier-technologies"
+  },
+  "gallium-oxyhydroxide": {
+    "term": "Gallium Oxyhydroxide",
+    "match": [
+      "gallium oxyhydroxide"
+    ],
+    "definition": "Gallium oxyhydroxide is a compound that forms on the surface of liquid gallium when it reacts with water, and it plays a catalytic role in splitting water molecules into hydrogen and oxygen. Researchers are interested in it as a low-cost, self-renewing catalyst layer for clean hydrogen production, since the liquid metal underneath continuously exposes fresh reactive surface as the reaction proceeds.",
+    "icon": "⚗️",
+    "cluster": "sustainable-future"
+  },
+  "photocatalysis": {
+    "term": "Photocatalysis",
+    "match": [
+      "photocatalysis",
+      "plasma-based splitting",
+      "photocatalytic"
+    ],
+    "definition": "Photocatalysis is a chemical reaction that's sped up by light striking a catalyst material, which absorbs photons and uses that energy to break chemical bonds that wouldn't break on their own at room temperature. It's widely explored for clean hydrogen production — using sunlight to split water into hydrogen and oxygen — as well as pollution breakdown and self-cleaning surfaces, offering a way to drive useful chemistry with sunlight instead of fossil-fuel-derived heat or electricity.",
+    "icon": "☀️",
+    "cluster": "sustainable-future"
+  },
+  "qkd": {
+    "term": "Quantum Key Distribution (QKD)",
+    "match": [
+      "quantum key distribution",
+      "qkd"
+    ],
+    "definition": "Quantum key distribution is a method of sharing an encryption key between two parties using the physics of quantum particles rather than mathematical complexity alone. Because measuring a quantum particle inevitably disturbs it, any eavesdropper trying to intercept the key leaves a detectable trace, letting the two parties know their communication has been compromised. It's considered a foundation for \"unhackable\" communication networks, especially as quantum computers threaten to break today's conventional encryption.",
+    "icon": "🔐",
+    "cluster": "frontier-technologies"
+  },
+  "femtosecond-laser-writing": {
+    "term": "Femtosecond Laser Writing",
+    "match": [
+      "femtosecond laser writing"
+    ],
+    "definition": "Femtosecond laser writing uses ultra-short laser pulses — lasting mere quadrillionths of a second — to precisely modify a material at a specific point without heating or damaging the surrounding area. Because each pulse is so brief, it delivers energy faster than heat can spread, allowing extremely fine, three-dimensional structures to be etched inside glass or other transparent materials. It's used to inscribe durable data, optical circuits, and micro-scale devices with sub-micron precision.",
+    "icon": "✨",
+    "cluster": "frontier-technologies"
+  },
+  "qrng": {
+    "term": "Quantum Random Number Generation (QRNG)",
+    "match": [
+      "quantum random number generation",
+      "qrng"
+    ],
+    "definition": "Quantum random number generation produces truly random numbers by measuring an inherently unpredictable quantum event, such as when a single photon hits a beam splitter and randomly goes one way or the other. Unlike computer-generated \"pseudo-random\" numbers, which follow a deterministic formula and could in principle be predicted, QRNG output is fundamentally random at the physical level — valuable for cryptography, secure keys, and simulations where true unpredictability matters.",
+    "icon": "🎲",
+    "cluster": "frontier-technologies"
+  },
+  "electron-lighthouse": {
+    "term": "Electron Lighthouse Effect",
+    "match": [
+      "electron lighthouse"
+    ],
+    "definition": "The electron lighthouse effect describes a way of controlling the direction electrons are emitted from a material using precisely timed laser pulses — similar to how a rotating lighthouse beam sweeps in a controlled arc rather than shining everywhere at once. By steering ultrafast electron bursts this way, researchers can study material properties on femtosecond timescales and potentially build faster, light-controlled electronic and imaging devices.",
+    "icon": "🗼",
+    "cluster": "frontier-technologies"
+  },
+  "nitrogen-vacancy": {
+    "term": "Nitrogen-Vacancy (NV) Center",
+    "match": [
+      "nitrogen-vacancy",
+      "nitrogen vacancy",
+      "nv center"
+    ],
+    "definition": "A nitrogen-vacancy center is a tiny defect in a diamond's crystal lattice, where a nitrogen atom sits next to an empty spot where a carbon atom should be. This defect behaves like a controllable quantum system at room temperature, making it useful for extremely sensitive magnetic and temperature sensors, as well as a candidate building block for quantum computing and secure communication, without needing the extreme cooling most quantum hardware requires.",
+    "icon": "💎",
+    "cluster": "frontier-technologies"
+  },
+  "quantum-coherence": {
+    "term": "Quantum Coherence",
+    "match": [
+      "quantum coherence"
+    ],
+    "definition": "Quantum coherence is the property that lets a quantum particle exist in a combination of multiple states at once and interfere with itself, the way overlapping waves can reinforce or cancel each other. It's the resource that gives quantum computers and sensors their power — but it's fragile, easily destroyed by heat, vibration, or stray interactions with the environment, which is why maintaining coherence long enough to do useful work is one of the central challenges in quantum technology.",
+    "icon": "🌊",
+    "cluster": "frontier-technologies"
+  },
+  "seebeck-effect": {
+    "term": "Seebeck Effect",
+    "match": [
+      "seebeck effect"
+    ],
+    "definition": "The Seebeck effect is the phenomenon where a temperature difference across a material directly generates an electric voltage, as heat pushes charge carriers from the hot side toward the cold side. It's the physical principle behind thermoelectric generators, which convert waste heat — from engines, industrial processes, or even body heat — directly into usable electricity with no moving parts.",
+    "icon": "🌡️",
+    "cluster": "sustainable-future"
+  },
+  "trae-solo": {
+    "term": "TRAE SOLO",
+    "match": [
+      "trae solo"
+    ],
+    "definition": "TRAE SOLO is an AI-powered coding assistant designed to work autonomously inside a development environment — writing, testing, and modifying code with minimal step-by-step human direction. It represents the broader shift toward \"agentic\" coding tools that don't just suggest code but can independently carry out multi-step programming tasks, raising both productivity gains and new security considerations for how much autonomy such tools should have inside a codebase.",
+    "icon": "🤖",
+    "cluster": "digital-intelligence"
+  },
+  "ai-ide": {
+    "term": "AI IDE (AI-Powered Integrated Development Environment)",
+    "match": [
+      "ai ide",
+      "ai-powered ide"
+    ],
+    "definition": "An AI IDE is a coding environment that embeds an AI assistant directly into the software development workflow — writing code, fixing bugs, running commands, and sometimes making changes autonomously, rather than the developer typing every line themselves. Tools like this are increasingly \"agentic,\" meaning they can carry out multi-step tasks on their own, which speeds up development but also expands the ways malicious code or vulnerabilities could be introduced if the tool itself is compromised.",
+    "icon": "💻",
+    "cluster": "digital-intelligence"
+  },
+  "linux-malware": {
+    "term": "Linux Malware",
+    "match": [
+      "linux malware"
+    ],
+    "definition": "Linux malware is malicious software specifically designed to infect systems running the Linux operating system, which powers the majority of servers, cloud infrastructure, and embedded devices worldwide. Historically considered less targeted than Windows, Linux systems are an increasingly attractive target precisely because they run critical infrastructure, and modern Linux malware increasingly uses advanced stealth techniques like rootkits to stay hidden long after the initial breach.",
+    "icon": "🐞",
+    "cluster": "digital-intelligence"
+  },
+  "rootkit-techniques": {
+    "term": "Rootkit Techniques",
+    "match": [
+      "rootkit techniques",
+      "rootkit"
+    ],
+    "definition": "A rootkit is a set of tools malware uses to hide its own presence deep inside a computer's operating system, often by tampering with core system processes so that security software and even the system itself can't \"see\" the infection. Rootkit techniques can operate at different levels — intercepting software calls, modifying the kernel, or hiding in low-level system components — making them among the hardest types of malware to detect and remove.",
+    "icon": "👻",
+    "cluster": "digital-intelligence"
+  },
+  "ld-preload-injection": {
+    "term": "LD_PRELOAD Injection",
+    "match": [
+      "ld_preload injection",
+      "ld preload injection",
+      "ld_preload"
+    ],
+    "definition": "LD_PRELOAD is a legitimate Linux system feature that lets a program load a custom code library before the normal ones, originally meant for debugging and testing. Attackers abuse it to inject malicious code that intercepts and manipulates a program's normal function calls, letting malware hide files, processes, or network connections from monitoring tools without needing deeper system privileges.",
+    "icon": "🪤",
+    "cluster": "digital-intelligence"
+  },
+  "lkm": {
+    "term": "Loadable Kernel Modules (LKMs)",
+    "match": [
+      "loadable kernel modules",
+      "lkm",
+      "lkms"
+    ],
+    "definition": "Loadable kernel modules are pieces of code that can be added to or removed from a running Linux operating system's core (the kernel) without rebooting the machine — normally used to add hardware drivers or new features on the fly. Because they run with the highest level of system privilege, malicious kernel modules are especially dangerous: a rootkit built as an LKM can operate essentially invisibly, with full control over what the operating system reports back to the user.",
+    "icon": "⚙️",
+    "cluster": "digital-intelligence"
+  },
+  "ebpf": {
+    "term": "Extended Berkeley Packet Filter (eBPF)",
+    "match": [
+      "extended berkeley packet filter",
+      "ebpf"
+    ],
+    "definition": "eBPF is a Linux kernel technology that lets small, sandboxed programs run safely inside the operating system's core to monitor network traffic, system calls, and performance — without needing to modify the kernel itself. It's widely used for legitimate security monitoring and networking, but its deep visibility and low-level access have also made it a technique attackers explore for stealthy surveillance or evasion inside compromised systems.",
+    "icon": "🔎",
+    "cluster": "digital-intelligence"
+  },
+  "docker-containers": {
+    "term": "Docker Containers",
+    "match": [
+      "docker containers",
+      "docker container"
+    ],
+    "definition": "Docker containers are lightweight, self-contained packages that bundle an application together with everything it needs to run — code, libraries, settings — so it behaves identically no matter what computer or cloud server it's deployed on. They're faster and more efficient than full virtual machines because they share the host system's underlying operating system, which is what makes them the standard way modern software is built, shipped, and scaled.",
+    "icon": "🐳",
+    "cluster": "digital-intelligence"
+  },
+  "kubernetes": {
+    "term": "Kubernetes Clusters",
+    "match": [
+      "kubernetes clusters",
+      "kubernetes cluster",
+      "kubernetes"
+    ],
+    "definition": "Kubernetes is a system for automatically managing large numbers of software containers across many computers at once — starting them, restarting them if they crash, and scaling them up or down based on demand. A \"cluster\" is the group of machines it coordinates. It's the backbone of most modern cloud infrastructure, which also makes a compromised Kubernetes cluster a high-value target, since it can control huge swaths of an organization's running applications.",
+    "icon": "☸️",
+    "cluster": "digital-intelligence"
+  },
+  "sog": {
+    "term": "Secondary Optical Group (SOG)",
+    "match": [
+      "secondary optical group",
+      "sog"
+    ],
+    "definition": "A Secondary Optical Group is a set of precisely aligned optical components — lenses, mirrors, or fibers — positioned to guide and refine a light or laser beam after it leaves its primary source, ensuring it hits its target (such as a single atom or photon detector) with the accuracy an experiment requires. It's a supporting piece of the broader optical setup used in quantum-optics experiments involving light-matter interaction.",
+    "icon": "🔍",
+    "cluster": "frontier-technologies"
+  },
+  "light-cage-architecture": {
+    "term": "Light Cage Architecture",
+    "match": [
+      "light cage architecture",
+      "light cage"
+    ],
+    "definition": "A light cage is a microscopic hollow structure built to trap and guide light along a precise path while it interacts with atoms or molecules placed inside it. By confining both the light and the particles in the same tiny space, researchers can study and control light-matter interactions — such as single-photon absorption and emission — far more efficiently than in open, uncontained setups.",
+    "icon": "🦅",
+    "cluster": "frontier-technologies"
+  },
+  "optical-control-laser": {
+    "term": "Optical Control Laser",
+    "match": [
+      "optical control laser"
+    ],
+    "definition": "An optical control laser is a precisely tuned laser used to manipulate the quantum state of atoms, ions, or photons in an experiment — for example, exciting an atom into a specific energy level or triggering a controlled release of light. Its role is not to power the experiment but to steer it, acting like a precision remote control for quantum-scale processes.",
+    "icon": "🔴",
+    "cluster": "frontier-technologies"
+  },
+  "collective-atomic-excitation": {
+    "term": "Collective Atomic Excitation",
+    "match": [
+      "collective atomic excitation"
+    ],
+    "definition": "Collective atomic excitation happens when a group of atoms absorbs and shares energy together as a single coordinated quantum system, rather than each atom acting independently. This shared state can behave in ways individual atoms can't — for instance, emitting light in a single, controllable burst — and is a building block for quantum memory and quantum-networking technologies that need to store or transmit information reliably.",
+    "icon": "⚛️",
+    "cluster": "frontier-technologies"
+  },
+  "attenuated-light-pulses": {
+    "term": "Attenuated Light Pulses",
+    "match": [
+      "attenuated light pulses"
+    ],
+    "definition": "Attenuated light pulses are laser pulses deliberately weakened until they carry only a handful of photons — sometimes just one — instead of the trillions in an ordinary beam. Working at this single-photon level is essential for quantum experiments and quantum communication, where the goal is to study or transmit information encoded in individual quanta of light rather than a bright, classical beam.",
+    "icon": "💡",
+    "cluster": "frontier-technologies"
+  },
+  "lpbf": {
+    "term": "Laser Powder Bed Fusion (LPBF)",
+    "match": [
+      "laser powder bed fusion",
+      "lpbf"
+    ],
+    "definition": "Laser powder bed fusion is a 3D-printing technique that builds metal parts by spreading a thin layer of fine metal powder and selectively melting it with a laser, layer by layer, until a complete solid object takes shape. It allows complex geometries that traditional casting or machining can't achieve, and is widely used in aerospace, medical implants, and advanced manufacturing where precision and material strength both matter.",
+    "icon": "🔥",
+    "cluster": "frontier-technologies"
+  },
+  "von-neumann-architecture": {
+    "term": "Von Neumann Architecture",
+    "match": [
+      "von neumann architecture"
+    ],
+    "definition": "Von Neumann architecture is the basic blueprint nearly all modern computers are built on: a single memory holding both data and program instructions, with a separate processor that fetches and executes them one step at a time. It's simple and flexible, but it means the processor and memory are physically separate — a design choice that becomes a performance bottleneck as computing demands grow.",
+    "icon": "💻",
+    "cluster": "frontier-technologies"
+  },
+  "von-neumann-bottleneck": {
+    "term": "Von Neumann Bottleneck",
+    "match": [
+      "von neumann bottleneck"
+    ],
+    "definition": "The Von Neumann bottleneck is the performance limit caused by data constantly having to shuttle back and forth between a computer's processor and its separate memory. Even as processors get faster, they often sit idle waiting for data to arrive, wasting energy and time. It's a core motivation behind newer computing designs — like neuromorphic and in-memory computing — that try to process data where it's stored instead of moving it constantly.",
+    "icon": "🚦",
+    "cluster": "frontier-technologies"
+  },
+  "helios": {
+    "term": "HELIOS (High Energy Laser)",
+    "match": [
+      "helios"
+    ],
+    "definition": "HELIOS is a high-energy laser weapon system developed for naval defense, designed to track and disable threats like drones or small boats using a focused beam instead of conventional ammunition. As a directed-energy weapon, it offers a deep, reusable \"magazine\" limited mainly by the ship's power supply rather than physical ammo stocks, representing a broader military shift toward laser and electromagnetic-based defense systems.",
+    "icon": "🔫",
+    "cluster": "india-society"
+  },
+  "de-mshorad": {
+    "term": "DE M-SHORAD (Directed Energy Maneuver Short-Range Air Defense)",
+    "match": [
+      "de m-shorad",
+      "de mshorad",
+      "m-shorad"
+    ],
+    "definition": "DE M-SHORAD is a mobile, vehicle-mounted laser weapon system built to intercept short-range aerial threats such as drones, rockets, and mortar rounds while moving with ground troops. Unlike a fixed installation, it's designed to travel with a maneuvering unit, giving forces a portable, directed-energy air-defense layer as an alternative or complement to traditional missile-based interceptors.",
+    "icon": "🚛",
+    "cluster": "india-society"
+  },
+  "drude-weight": {
+    "term": "Drude Weight",
+    "match": [
+      "drude weights",
+      "drude weight"
+    ],
+    "definition": "Drude weight is a physics measure of how freely charge carriers can move through a material without resistance — essentially quantifying a material's capacity for lossless, ballistic electrical conduction. A high Drude weight signals unusually efficient charge transport, which researchers look for when studying exotic conductors and materials relevant to next-generation, low-energy-loss electronics.",
+    "icon": "⚡",
+    "cluster": "frontier-technologies"
+  },
+  "newtons-cradle": {
+    "term": "Newton's Cradle",
+    "match": [
+      "newton's cradle",
+      "newtons cradle"
+    ],
+    "definition": "Newton's cradle is the classic desktop toy of suspended metal balls where striking one end sends energy rippling through the row to launch the ball at the far end, while the middle balls stay still. Physicists use it as an intuitive analogy for studying how energy and momentum transfer through a chain of particles — a useful mental model when exploring thermalization and energy flow in quantum and many-body systems.",
+    "icon": "⚪",
+    "cluster": "frontier-technologies"
+  },
+  "thermalization": {
+    "term": "Thermalization",
+    "match": [
+      "thermalization"
+    ],
+    "definition": "Thermalization is the process by which a system that starts out in an ordered or uneven energy state gradually settles into a uniform, evenly spread-out equilibrium — the same way a hot object cools to match room temperature. In quantum physics, understanding whether and how isolated quantum systems thermalize (or resist it) is a deep open question with implications for quantum computing, since maintaining a system out of equilibrium is often exactly what's needed to preserve quantum information.",
+    "icon": "🌡️",
+    "cluster": "frontier-technologies"
+  },
+  "artemis-program": {
+    "term": "Artemis Program",
+    "match": [
+      "artemis program"
+    ],
+    "definition": "The Artemis program is NASA's initiative to return astronauts to the Moon and establish a sustained human presence there, serving as a stepping stone toward eventual crewed missions to Mars. It involves new rockets, a lunar-orbiting space station, and international and commercial partnerships, and represents a shift from the flag-and-footprints Apollo era toward long-term lunar infrastructure and resource utilization.",
+    "icon": "🚀",
+    "cluster": "frontier-technologies"
+  },
+  "shanti-bill": {
+    "term": "SHANTI Bill",
+    "match": [
+      "shanti bill"
+    ],
+    "definition": "The SHANTI Bill refers to proposed Indian legislation aimed at regulating a specific emerging-technology or security domain, part of the country's broader push to build a modern legal framework around fast-moving technologies. As with most such bills, the details — scope, enforcement, and obligations — are shaped through debate and amendment before becoming law, and it's worth checking current status for the latest provisions.",
+    "icon": "🏛️",
+    "cluster": "india-society"
+  },
+  "mram": {
+    "term": "MRAM (Magnetoresistive RAM)",
+    "match": [
+      "mram",
+      "magnetoresistive ram",
+      "magnetoresistive random-access memory"
+    ],
+    "definition": "MRAM is a type of computer memory that stores data using magnetic states instead of electric charge, which means it retains information even when the power is switched off — unlike conventional RAM. It combines the speed of working memory with the persistence of storage, making it attractive for applications that need fast, non-volatile memory such as edge devices, aerospace systems, and next-generation computing architectures.",
+    "icon": "🧠",
+    "cluster": "frontier-technologies"
+  },
+  "sram": {
+    "term": "SRAM (Static RAM)",
+    "match": [
+      "sram",
+      "static ram",
+      "static random-access memory"
+    ],
+    "definition": "SRAM is a fast type of computer memory that holds data using tiny electronic switches, requiring continuous power to retain information (it \"forgets\" when powered off). It's faster and more power-efficient per operation than the DRAM used for a computer's main memory, which is why it's used for small, speed-critical jobs like a processor's cache, where every nanosecond of access time counts.",
+    "icon": "⚡",
+    "cluster": "frontier-technologies"
+  },
+  "xmld": {
+    "term": "X-ray Magnetic Linear Dichroism (XMLD)",
+    "match": [
+      "x-ray magnetic linear dichroism",
+      "xmld"
+    ],
+    "definition": "X-ray magnetic linear dichroism is a technique that measures how a material absorbs polarized X-rays differently depending on the orientation of its internal magnetic structure. It lets researchers map antiferromagnetic materials — whose magnetism cancels out overall and is otherwise very hard to detect — which is increasingly important for developing faster, more compact spintronic memory and computing devices.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "parasitic-inductance": {
+    "term": "Parasitic Inductance",
+    "match": [
+      "parasitic inductance"
+    ],
+    "definition": "Parasitic inductance is unwanted electrical resistance-to-current-change that arises naturally from the physical wires and connections in a circuit, even though it's not an intentional part of the design. At high speeds or high frequencies, it can cause voltage spikes, signal noise, and energy loss, making it a key constraint engineers must account for when designing fast chips, power electronics, and compact circuit layouts.",
+    "icon": "🔌",
+    "cluster": "frontier-technologies"
+  },
+  "lvm3": {
+    "term": "LVM3 (Launch Vehicle Mark-3)",
+    "match": [
+      "lvm3",
+      "launch vehicle mark-3",
+      "launch vehicle mark 3"
+    ],
+    "definition": "LVM3 is ISRO's most powerful operational rocket, capable of lifting heavy satellites into orbit and carrying crewed missions under India's Gaganyaan program. Originally developed to reduce India's reliance on foreign launch providers for heavy payloads, it has since become the workhorse for the country's biggest missions, including lunar and human spaceflight ambitions.",
+    "icon": "🚀",
+    "cluster": "india-society"
+  },
+  "gslv-mk3": {
+    "term": "GSLV Mk III",
+    "match": [
+      "gslv mk iii",
+      "gslv mk 3",
+      "gslv mk3"
+    ],
+    "definition": "GSLV Mk III was the earlier name for what is now called LVM3 — ISRO's heavy-lift rocket capable of carrying large communication satellites and crewed spacecraft. It marked a major leap in India's launch capability, using an indigenously developed cryogenic upper-stage engine that had previously been a major technological bottleneck for the country's space program.",
+    "icon": "🛰️",
+    "cluster": "india-society"
+  },
+  "rhodopseudomonas-palustris": {
+    "term": "Rhodopseudomonas palustris",
+    "match": [
+      "rhodopseudomonas palustris"
+    ],
+    "definition": "Rhodopseudomonas palustris is a remarkably versatile bacterium that can generate energy through several different methods — using light, organic matter, or even absorbing electrons directly from metal surfaces. Researchers study it for potential uses in clean bio-hydrogen production, wastewater treatment, and bioelectronics, since few other organisms can switch so flexibly between different energy-harvesting strategies.",
+    "icon": "🦠",
+    "cluster": "sustainable-future"
+  },
+  "cryptochromes": {
+    "term": "Cryptochromes",
+    "match": [
+      "cryptochromes",
+      "cryptochrome"
+    ],
+    "definition": "Cryptochromes are light-sensitive proteins found in plants, animals, and some bacteria that help regulate biological clocks and, in some species, are believed to enable magnetic sensing — letting migratory birds and other animals detect Earth's magnetic field. Understanding how cryptochromes work is opening new questions about the overlap between biology, quantum physics, and animal navigation.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "magnetic-sensing": {
+    "term": "Magnetic Sensing (Magnetoreception)",
+    "match": [
+      "magnetic sensing",
+      "magnetoreception"
+    ],
+    "definition": "Magnetic sensing, or magnetoreception, is the ability of some animals — and potentially some engineered materials — to detect Earth's magnetic field and use it for orientation or navigation. In biology, it's best known in migratory birds, sea turtles, and some fish. In technology, magnetic sensing refers to devices and materials engineered to detect subtle magnetic fields for uses ranging from navigation systems to medical imaging and quantum sensors.",
+    "icon": "🧭",
+    "cluster": "human-future"
+  },
+  "olmocr-bench": {
+    "term": "olmOCR-Bench",
+    "match": [
+      "olmocr-bench",
+      "olmocr bench"
+    ],
+    "definition": "olmOCR-Bench is a benchmark test used to evaluate how accurately AI systems can convert scanned documents and images into machine-readable text (optical character recognition). It measures performance across challenging real-world documents — varied fonts, layouts, and image quality — giving researchers a standardized way to compare how well different OCR and document-AI models actually perform.",
+    "icon": "📄",
+    "cluster": "digital-intelligence"
+  },
+  "bfi": {
+    "term": "Beamforming Feedback Information (BFI)",
+    "match": [
+      "beamforming feedback information",
+      "bfi"
+    ],
+    "definition": "Beamforming Feedback Information is data that a Wi-Fi device sends back to a router describing how radio signals bounced and changed on their way through a room, which the router uses to focus its signal more precisely toward that device. Because those signal reflections are shaped by everything in the room — including a person's body — researchers have found BFI can be repurposed to sense motion, breathing, and even gestures without a camera.",
+    "icon": "📡",
+    "cluster": "digital-intelligence"
+  },
+  "rf-biometric-sensing": {
+    "term": "Radio-Frequency Biometric Sensing",
+    "match": [
+      "radio-frequency biometric system",
+      "rf biometric sensing",
+      "radio frequency biometric"
+    ],
+    "definition": "Radio-frequency biometric sensing uses ordinary wireless signals — like Wi-Fi — to detect physical characteristics or vital signs, such as breathing rate, heartbeat, or even a person's gait, by analyzing how radio waves reflect off the human body. It offers a camera-free way to monitor health or identify individuals, raising both promising healthcare applications and new privacy questions since it can work through walls and without the subject's awareness.",
+    "icon": "📶",
+    "cluster": "digital-intelligence"
+  },
+  "ieee-80211bf": {
+    "term": "IEEE 802.11bf (WLAN Sensing)",
+    "match": [
+      "ieee 802.11bf",
+      "802.11bf"
+    ],
+    "definition": "IEEE 802.11bf is an official Wi-Fi standard that formally adds sensing capability to wireless networks — letting Wi-Fi devices detect motion, presence, and gestures using the same radio signals they already use for internet connectivity, no extra sensors or cameras required. It standardizes what researchers had been doing experimentally, paving the way for commercial Wi-Fi-based sensing in smart homes, health monitoring, and security systems.",
+    "icon": "📶",
+    "cluster": "digital-intelligence"
+  },
+  "gan-radar": {
+    "term": "Gallium Nitride (GaN) Radar Technology",
+    "match": [
+      "gan radar technology",
+      "gan radar",
+      "gallium nitride radar"
+    ],
+    "definition": "GaN radar uses gallium nitride semiconductors — which can handle much higher power, voltage, and temperature than traditional silicon — to build radar systems that are more powerful, compact, and energy-efficient. This lets radar detect targets at greater range and with finer resolution while using less space and cooling, which is why GaN has become a key material in next-generation military and civilian radar systems.",
+    "icon": "📡",
+    "cluster": "india-society"
+  },
+  "ai-persona-swarms": {
+    "term": "AI-Controlled Persona Swarms",
+    "match": [
+      "ai-controlled persona swarms",
+      "persona swarms",
+      "organized digital crowds"
+    ],
+    "definition": "AI-controlled persona swarms are networks of AI-generated fake social media accounts, each with a distinct synthetic personality, that are coordinated to post, comment, and interact in ways designed to look like an organic, independent crowd of real people. Unlike older bot networks that posted identical messages, AI-driven swarms can generate varied, contextually convincing content at scale, making manufactured public opinion far harder to distinguish from genuine grassroots sentiment.",
+    "icon": "🤖",
+    "cluster": "digital-intelligence"
+  },
+  "troll-farms": {
+    "term": "Troll Farms",
+    "match": [
+      "troll farms",
+      "troll farm"
+    ],
+    "definition": "Troll farms are organized operations — sometimes state-backed, sometimes commercial — that employ people or AI systems to flood social media with coordinated posts, comments, and fake engagement, aiming to manipulate public opinion, harass targets, or drown out genuine conversation. Increasingly, troll farms are augmented or replaced by AI tools that can generate convincing content and manage far more fake accounts than human operators alone ever could.",
+    "icon": "👹",
+    "cluster": "digital-intelligence"
+  },
+  "deepfake-technology": {
+    "term": "Deepfake Technology",
+    "match": [
+      "deepfake technology",
+      "deepfake",
+      "deepfakes"
+    ],
+    "definition": "Deepfake technology uses AI — typically machine-learning models trained on real images, video, or audio — to generate convincing fake media that shows a real person saying or doing something they never actually did. It's built on the same generative AI techniques behind other AI content tools, but its ability to fabricate realistic video and voice raises serious concerns for misinformation, fraud, and non-consensual content, driving growing demand for detection tools and legal safeguards.",
+    "icon": "🎭",
+    "cluster": "digital-intelligence"
   }
 }
