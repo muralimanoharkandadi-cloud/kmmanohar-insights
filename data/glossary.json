@@ -1429,5 +1429,663 @@
     "definition": "Autism spectrum disorder is a developmental condition that affects how a person communicates, interacts socially, and processes sensory information, typically appearing in early childhood and lasting throughout life. It's called a \"spectrum\" because it covers a wide range of presentations and support needs, from individuals who need significant daily assistance to those who live independently. Its exact biological causes aren't fully understood, but research points to a mix of genetic factors and differences in how the brain develops and forms connections before birth, which is why brain organoid models and early-development studies have become important research tools for understanding it.",
     "icon": "🧩",
     "cluster": "human-future"
+  },
+  "ttr-amyloidosis": {
+    "term": "TTR Amyloidosis (Transthyretin Amyloidosis)",
+    "match": [
+      "ttr amyloidosis",
+      "transthyretin amyloidosis",
+      "transthyretin (ttr) amyloidosis"
+    ],
+    "definition": "TTR amyloidosis is a disease in which a normally helpful blood protein called transthyretin (TTR) misfolds and clumps into rigid amyloid fibers. These fibers deposit in the heart, nerves, and other tissues, gradually stiffening organs and disrupting their function. It can be inherited or arise with age, and is under-diagnosed because its symptoms mimic more common heart and nerve conditions. New drugs increasingly target the protein directly — either stabilizing its normal shape or silencing the gene that makes it — rather than just treating symptoms.",
+    "icon": "🪢",
+    "cluster": "human-future"
+  },
+  "pgg": {
+    "term": "Penta-Galloyl-Glucose (PGG)",
+    "match": [
+      "penta galloyl glucose",
+      "penta-galloyl-glucose",
+      "pgg"
+    ],
+    "definition": "Penta-galloyl-glucose is a naturally occurring plant compound (found in sources like sumac and oak galls) studied for its ability to bind misfolded proteins and stabilize them before they clump together. In amyloidosis research, it's explored as a way to interrupt the protein-misfolding process at its source rather than only managing downstream damage. Because it's a natural molecule rather than a synthetic drug, researchers see it as a potentially gentler starting point for new anti-amyloid therapies, though it still needs full clinical validation.",
+    "icon": "🌿",
+    "cluster": "human-future"
+  },
+  "gene-silencing-therapy": {
+    "term": "Gene-Silencing Therapy",
+    "match": [
+      "gene-silencing therapies",
+      "gene silencing therapy",
+      "gene-silencing therapy"
+    ],
+    "definition": "Gene-silencing therapy works by blocking the instructions a faulty gene sends to make a harmful protein, rather than editing the gene itself. Using small RNA molecules that bind to and neutralize the gene's messenger RNA, doctors can dial down production of a disease-causing protein — for example, the misfolded protein behind TTR amyloidosis. It's a precision approach: instead of a broad drug, it targets one specific genetic instruction, often needing only a few doses a year to keep symptoms in check.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "c-elegans-model": {
+    "term": "C. elegans Model Organism",
+    "match": [
+      "c. elegans model",
+      "c elegans model",
+      "caenorhabditis elegans"
+    ],
+    "definition": "C. elegans is a microscopic roundworm that scientists have used for decades as a simple, fast, and transparent stand-in for studying human biology. Despite its simplicity, it shares many genes and cellular processes with humans, making it useful for testing how diseases like amyloidosis or neurodegeneration progress, and for screening whether a candidate drug slows that progression — all before moving to more expensive, slower animal or human trials.",
+    "icon": "🪠",
+    "cluster": "human-future"
+  },
+  "systemic-amyloidosis": {
+    "term": "Systemic Amyloidosis",
+    "match": [
+      "systemic amyloidosis"
+    ],
+    "definition": "Systemic amyloidosis is a group of disorders in which misfolded proteins form amyloid fibers that circulate through the bloodstream and deposit across multiple organs — commonly the heart, kidneys, liver, and nervous system — rather than staying confined to one tissue. As deposits build up, organs progressively stiffen and lose function. Because symptoms can look like ordinary heart failure or nerve damage, it's frequently caught late, which is why newer blood tests and protein-stabilizing drugs aimed at earlier detection and treatment are a major research focus.",
+    "icon": "🪢",
+    "cluster": "human-future"
+  },
+  "cerabyte": {
+    "term": "Cerabyte (Ceramic Glass Data Storage)",
+    "match": [
+      "cerabyte"
+    ],
+    "definition": "Cerabyte is a data-storage technology that writes information onto thin ceramic layers on glass instead of magnetic tape or spinning disks, using laser nanolithography to etch bits directly into the material. Because ceramic doesn't degrade the way tape or hard drives do, it's designed for \"cold\" archival storage that can last centuries without power, maintenance, or periodic re-copying — aimed at the exploding volumes of data companies need to keep but rarely access.",
+    "icon": "💿",
+    "cluster": "frontier-technologies"
+  },
+  "data-fragility": {
+    "term": "Data Fragility",
+    "match": [
+      "data fragility"
+    ],
+    "definition": "Data fragility refers to how easily stored digital information can be lost or corrupted over time — through hardware decay, magnetic drift, file-format obsolescence, or simple bit rot. Unlike paper or stone records that can last millennia with no upkeep, most digital media needs active refreshing and migration every few years. It's a growing concern as the world generates far more data than any current storage medium can reliably preserve for the long term, driving research into more durable formats like ceramic or DNA storage.",
+    "icon": "⚠️",
+    "cluster": "frontier-technologies"
+  },
+  "redundancy-mechanism": {
+    "term": "Redundancy (Engineering)",
+    "match": [
+      "redundancy mechanism",
+      "engineering redundancy"
+    ],
+    "definition": "Redundancy is an engineering strategy of building in duplicate components, pathways, or copies of data so that if one part fails, the system keeps working or the information survives. It trades some extra cost or space for reliability — seen everywhere from backup data copies and RAID storage arrays to spare engines on aircraft. In data storage specifically, redundancy mechanisms guard against corruption by keeping multiple independently verifiable copies of the same information.",
+    "icon": "🔁",
+    "cluster": "frontier-technologies"
+  },
+  "lithography": {
+    "term": "Lithography (Semiconductor Fabrication)",
+    "match": [
+      "lithography"
+    ],
+    "definition": "Lithography is the core manufacturing process used to print microscopic circuit patterns onto silicon wafers or other materials, typically by shining light or a laser through a stencil-like mask to expose a light-sensitive coating. The exposed pattern is then etched to build up the tiny transistors and wires of a chip, layer by layer. Advances in lithography — finer beams, shorter wavelengths, ultra-precise lasers — are what let manufacturers keep shrinking chip features and, more recently, etch durable data patterns into non-silicon materials.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "ferromagnetic-metals": {
+    "term": "Ferromagnetic Metals",
+    "match": [
+      "ferromagnetic metals",
+      "ferromagnetic metal"
+    ],
+    "definition": "Ferromagnetic metals — like iron, cobalt, and nickel — are materials whose atomic magnetic moments naturally align in the same direction, giving them strong, persistent magnetism even without an external field. This property makes them essential in everything from electric motors and transformers to magnetic sensors and data storage. In advanced research, ferromagnetic metals and thin films are also key building blocks for spintronic devices that use electron spin, not just charge, to process information.",
+    "icon": "🧲",
+    "cluster": "frontier-technologies"
+  },
+  "hzb": {
+    "term": "Helmholtz-Zentrum Berlin (HZB)",
+    "match": [
+      "helmholtz-zentrum berlin",
+      "helmholtz zentrum berlin",
+      "hzb"
+    ],
+    "definition": "Helmholtz-Zentrum Berlin is a German research institute that operates BESSY II, a synchrotron light source used to study the structure and behavior of materials at the atomic scale. Its facilities support research spanning energy materials, quantum technologies, and advanced spectroscopy, making it a recurring hub in cutting-edge materials-science breakthroughs reported out of Europe.",
+    "icon": "🏢",
+    "cluster": "frontier-technologies"
+  },
+  "bessy-ii": {
+    "term": "BESSY II Synchrotron",
+    "match": [
+      "bessy ii",
+      "bessy-ii"
+    ],
+    "definition": "BESSY II is a synchrotron facility in Berlin — a large ring that accelerates electrons to near light-speed to generate intense, tunable beams of X-ray and ultraviolet light. Scientists use that light like an extremely powerful microscope to probe the electronic and magnetic structure of materials, from battery chemicals to quantum devices, at a level of detail ordinary lab equipment can't reach.",
+    "icon": "🔭",
+    "cluster": "frontier-technologies"
+  },
+  "spin-arpes": {
+    "term": "Spin- and Angle-Resolved Photoemission Spectroscopy (Spin-ARPES)",
+    "match": [
+      "spin-arpes",
+      "spin arpes",
+      "spin- and angle-resolved photoemission spectroscopy"
+    ],
+    "definition": "Spin-ARPES is a technique that fires photons at a material's surface and measures the angle, energy, and spin direction of the electrons that get knocked loose. From that data, researchers can map exactly which electron states exist in a material and how they're magnetically oriented — crucial for understanding topological insulators, spintronic materials, and other exotic quantum materials where electron spin behavior determines the technology's usefulness.",
+    "icon": "🌀",
+    "cluster": "frontier-technologies"
+  },
+  "dft": {
+    "term": "Density Functional Theory (DFT)",
+    "match": [
+      "density functional theory",
+      "dft"
+    ],
+    "definition": "Density functional theory is a computational method physicists and chemists use to predict how electrons behave inside a material without having to solve the impossibly complex equations for every single particle. Instead, it works from the overall electron density, making it practical to simulate on a computer. DFT is a workhorse tool for designing new materials — batteries, catalysts, quantum devices — by predicting their properties before anyone builds them in a lab.",
+    "icon": "📊",
+    "cluster": "frontier-technologies"
+  },
+  "gpu": {
+    "term": "GPU (Graphics Processing Unit)",
+    "match": [
+      "gpu",
+      "gpus",
+      "graphics processing unit"
+    ],
+    "definition": "A GPU is a chip originally built to render graphics quickly by performing thousands of simple calculations in parallel, rather than a few complex ones in sequence like a traditional CPU. That parallel structure turned out to be perfectly suited to training AI models and running large-scale simulations, which is why GPUs — not CPUs — became the core hardware powering the modern AI boom, from chatbots to scientific computing.",
+    "icon": "🎞️",
+    "cluster": "frontier-technologies"
+  },
+  "liquid-gallium": {
+    "term": "Liquid Gallium",
+    "match": [
+      "liquid gallium"
+    ],
+    "definition": "Gallium is a metal that melts at just under 30°C — close to body temperature — making it liquid at only slightly warm conditions, unlike most metals which need extreme heat to melt. That unusual property makes it useful for flexible electronics, liquid-metal cooling, and chemical reactions like water splitting, where its liquid surface can catalyze reactions that solid metals can't.",
+    "icon": "🪩",
+    "cluster": "frontier-technologies"
+  },
+  "gallium-oxyhydroxide": {
+    "term": "Gallium Oxyhydroxide",
+    "match": [
+      "gallium oxyhydroxide"
+    ],
+    "definition": "Gallium oxyhydroxide is a compound that forms on the surface of liquid gallium when it reacts with water, and it plays a catalytic role in splitting water molecules into hydrogen and oxygen. Researchers are interested in it as a low-cost, self-renewing catalyst layer for clean hydrogen production, since the liquid metal underneath continuously exposes fresh reactive surface as the reaction proceeds.",
+    "icon": "⚗️",
+    "cluster": "sustainable-future"
+  },
+  "photocatalysis": {
+    "term": "Photocatalysis",
+    "match": [
+      "photocatalysis",
+      "plasma-based splitting",
+      "photocatalytic"
+    ],
+    "definition": "Photocatalysis is a chemical reaction that's sped up by light striking a catalyst material, which absorbs photons and uses that energy to break chemical bonds that wouldn't break on their own at room temperature. It's widely explored for clean hydrogen production — using sunlight to split water into hydrogen and oxygen — as well as pollution breakdown and self-cleaning surfaces, offering a way to drive useful chemistry with sunlight instead of fossil-fuel-derived heat or electricity.",
+    "icon": "☀️",
+    "cluster": "sustainable-future"
+  },
+  "qkd": {
+    "term": "Quantum Key Distribution (QKD)",
+    "match": [
+      "quantum key distribution",
+      "qkd"
+    ],
+    "definition": "Quantum key distribution is a method of sharing an encryption key between two parties using the physics of quantum particles rather than mathematical complexity alone. Because measuring a quantum particle inevitably disturbs it, any eavesdropper trying to intercept the key leaves a detectable trace, letting the two parties know their communication has been compromised. It's considered a foundation for \"unhackable\" communication networks, especially as quantum computers threaten to break today's conventional encryption.",
+    "icon": "🔐",
+    "cluster": "frontier-technologies"
+  },
+  "femtosecond-laser-writing": {
+    "term": "Femtosecond Laser Writing",
+    "match": [
+      "femtosecond laser writing"
+    ],
+    "definition": "Femtosecond laser writing uses ultra-short laser pulses — lasting mere quadrillionths of a second — to precisely modify a material at a specific point without heating or damaging the surrounding area. Because each pulse is so brief, it delivers energy faster than heat can spread, allowing extremely fine, three-dimensional structures to be etched inside glass or other transparent materials. It's used to inscribe durable data, optical circuits, and micro-scale devices with sub-micron precision.",
+    "icon": "✨",
+    "cluster": "frontier-technologies"
+  },
+  "qrng": {
+    "term": "Quantum Random Number Generation (QRNG)",
+    "match": [
+      "quantum random number generation",
+      "qrng"
+    ],
+    "definition": "Quantum random number generation produces truly random numbers by measuring an inherently unpredictable quantum event, such as when a single photon hits a beam splitter and randomly goes one way or the other. Unlike computer-generated \"pseudo-random\" numbers, which follow a deterministic formula and could in principle be predicted, QRNG output is fundamentally random at the physical level — valuable for cryptography, secure keys, and simulations where true unpredictability matters.",
+    "icon": "🎲",
+    "cluster": "frontier-technologies"
+  },
+  "electron-lighthouse": {
+    "term": "Electron Lighthouse Effect",
+    "match": [
+      "electron lighthouse"
+    ],
+    "definition": "The electron lighthouse effect describes a way of controlling the direction electrons are emitted from a material using precisely timed laser pulses — similar to how a rotating lighthouse beam sweeps in a controlled arc rather than shining everywhere at once. By steering ultrafast electron bursts this way, researchers can study material properties on femtosecond timescales and potentially build faster, light-controlled electronic and imaging devices.",
+    "icon": "🗼",
+    "cluster": "frontier-technologies"
+  },
+  "nitrogen-vacancy": {
+    "term": "Nitrogen-Vacancy (NV) Center",
+    "match": [
+      "nitrogen-vacancy",
+      "nitrogen vacancy",
+      "nv center"
+    ],
+    "definition": "A nitrogen-vacancy center is a tiny defect in a diamond's crystal lattice, where a nitrogen atom sits next to an empty spot where a carbon atom should be. This defect behaves like a controllable quantum system at room temperature, making it useful for extremely sensitive magnetic and temperature sensors, as well as a candidate building block for quantum computing and secure communication, without needing the extreme cooling most quantum hardware requires.",
+    "icon": "💎",
+    "cluster": "frontier-technologies"
+  },
+  "quantum-coherence": {
+    "term": "Quantum Coherence",
+    "match": [
+      "quantum coherence"
+    ],
+    "definition": "Quantum coherence is the property that lets a quantum particle exist in a combination of multiple states at once and interfere with itself, the way overlapping waves can reinforce or cancel each other. It's the resource that gives quantum computers and sensors their power — but it's fragile, easily destroyed by heat, vibration, or stray interactions with the environment, which is why maintaining coherence long enough to do useful work is one of the central challenges in quantum technology.",
+    "icon": "🌊",
+    "cluster": "frontier-technologies"
+  },
+  "seebeck-effect": {
+    "term": "Seebeck Effect",
+    "match": [
+      "seebeck effect"
+    ],
+    "definition": "The Seebeck effect is the phenomenon where a temperature difference across a material directly generates an electric voltage, as heat pushes charge carriers from the hot side toward the cold side. It's the physical principle behind thermoelectric generators, which convert waste heat — from engines, industrial processes, or even body heat — directly into usable electricity with no moving parts.",
+    "icon": "🌡️",
+    "cluster": "sustainable-future"
+  },
+  "trae-solo": {
+    "term": "TRAE SOLO",
+    "match": [
+      "trae solo"
+    ],
+    "definition": "TRAE SOLO is an AI-powered coding assistant designed to work autonomously inside a development environment — writing, testing, and modifying code with minimal step-by-step human direction. It represents the broader shift toward \"agentic\" coding tools that don't just suggest code but can independently carry out multi-step programming tasks, raising both productivity gains and new security considerations for how much autonomy such tools should have inside a codebase.",
+    "icon": "🤖",
+    "cluster": "digital-intelligence"
+  },
+  "ai-ide": {
+    "term": "AI IDE (AI-Powered Integrated Development Environment)",
+    "match": [
+      "ai ide",
+      "ai-powered ide"
+    ],
+    "definition": "An AI IDE is a coding environment that embeds an AI assistant directly into the software development workflow — writing code, fixing bugs, running commands, and sometimes making changes autonomously, rather than the developer typing every line themselves. Tools like this are increasingly \"agentic,\" meaning they can carry out multi-step tasks on their own, which speeds up development but also expands the ways malicious code or vulnerabilities could be introduced if the tool itself is compromised.",
+    "icon": "💻",
+    "cluster": "digital-intelligence"
+  },
+  "linux-malware": {
+    "term": "Linux Malware",
+    "match": [
+      "linux malware"
+    ],
+    "definition": "Linux malware is malicious software specifically designed to infect systems running the Linux operating system, which powers the majority of servers, cloud infrastructure, and embedded devices worldwide. Historically considered less targeted than Windows, Linux systems are an increasingly attractive target precisely because they run critical infrastructure, and modern Linux malware increasingly uses advanced stealth techniques like rootkits to stay hidden long after the initial breach.",
+    "icon": "🐞",
+    "cluster": "digital-intelligence"
+  },
+  "rootkit-techniques": {
+    "term": "Rootkit Techniques",
+    "match": [
+      "rootkit techniques",
+      "rootkit"
+    ],
+    "definition": "A rootkit is a set of tools malware uses to hide its own presence deep inside a computer's operating system, often by tampering with core system processes so that security software and even the system itself can't \"see\" the infection. Rootkit techniques can operate at different levels — intercepting software calls, modifying the kernel, or hiding in low-level system components — making them among the hardest types of malware to detect and remove.",
+    "icon": "👻",
+    "cluster": "digital-intelligence"
+  },
+  "ld-preload-injection": {
+    "term": "LD_PRELOAD Injection",
+    "match": [
+      "ld_preload injection",
+      "ld preload injection",
+      "ld_preload"
+    ],
+    "definition": "LD_PRELOAD is a legitimate Linux system feature that lets a program load a custom code library before the normal ones, originally meant for debugging and testing. Attackers abuse it to inject malicious code that intercepts and manipulates a program's normal function calls, letting malware hide files, processes, or network connections from monitoring tools without needing deeper system privileges.",
+    "icon": "🪤",
+    "cluster": "digital-intelligence"
+  },
+  "lkm": {
+    "term": "Loadable Kernel Modules (LKMs)",
+    "match": [
+      "loadable kernel modules",
+      "lkm",
+      "lkms"
+    ],
+    "definition": "Loadable kernel modules are pieces of code that can be added to or removed from a running Linux operating system's core (the kernel) without rebooting the machine — normally used to add hardware drivers or new features on the fly. Because they run with the highest level of system privilege, malicious kernel modules are especially dangerous: a rootkit built as an LKM can operate essentially invisibly, with full control over what the operating system reports back to the user.",
+    "icon": "⚙️",
+    "cluster": "digital-intelligence"
+  },
+  "ebpf": {
+    "term": "Extended Berkeley Packet Filter (eBPF)",
+    "match": [
+      "extended berkeley packet filter",
+      "ebpf"
+    ],
+    "definition": "eBPF is a Linux kernel technology that lets small, sandboxed programs run safely inside the operating system's core to monitor network traffic, system calls, and performance — without needing to modify the kernel itself. It's widely used for legitimate security monitoring and networking, but its deep visibility and low-level access have also made it a technique attackers explore for stealthy surveillance or evasion inside compromised systems.",
+    "icon": "🔎",
+    "cluster": "digital-intelligence"
+  },
+  "docker-containers": {
+    "term": "Docker Containers",
+    "match": [
+      "docker containers",
+      "docker container"
+    ],
+    "definition": "Docker containers are lightweight, self-contained packages that bundle an application together with everything it needs to run — code, libraries, settings — so it behaves identically no matter what computer or cloud server it's deployed on. They're faster and more efficient than full virtual machines because they share the host system's underlying operating system, which is what makes them the standard way modern software is built, shipped, and scaled.",
+    "icon": "🐳",
+    "cluster": "digital-intelligence"
+  },
+  "kubernetes": {
+    "term": "Kubernetes Clusters",
+    "match": [
+      "kubernetes clusters",
+      "kubernetes cluster",
+      "kubernetes"
+    ],
+    "definition": "Kubernetes is a system for automatically managing large numbers of software containers across many computers at once — starting them, restarting them if they crash, and scaling them up or down based on demand. A \"cluster\" is the group of machines it coordinates. It's the backbone of most modern cloud infrastructure, which also makes a compromised Kubernetes cluster a high-value target, since it can control huge swaths of an organization's running applications.",
+    "icon": "☸️",
+    "cluster": "digital-intelligence"
+  },
+  "sog": {
+    "term": "Secondary Optical Group (SOG)",
+    "match": [
+      "secondary optical group",
+      "sog"
+    ],
+    "definition": "A Secondary Optical Group is a set of precisely aligned optical components — lenses, mirrors, or fibers — positioned to guide and refine a light or laser beam after it leaves its primary source, ensuring it hits its target (such as a single atom or photon detector) with the accuracy an experiment requires. It's a supporting piece of the broader optical setup used in quantum-optics experiments involving light-matter interaction.",
+    "icon": "🔍",
+    "cluster": "frontier-technologies"
+  },
+  "light-cage-architecture": {
+    "term": "Light Cage Architecture",
+    "match": [
+      "light cage architecture",
+      "light cage"
+    ],
+    "definition": "A light cage is a microscopic hollow structure built to trap and guide light along a precise path while it interacts with atoms or molecules placed inside it. By confining both the light and the particles in the same tiny space, researchers can study and control light-matter interactions — such as single-photon absorption and emission — far more efficiently than in open, uncontained setups.",
+    "icon": "🦅",
+    "cluster": "frontier-technologies"
+  },
+  "optical-control-laser": {
+    "term": "Optical Control Laser",
+    "match": [
+      "optical control laser"
+    ],
+    "definition": "An optical control laser is a precisely tuned laser used to manipulate the quantum state of atoms, ions, or photons in an experiment — for example, exciting an atom into a specific energy level or triggering a controlled release of light. Its role is not to power the experiment but to steer it, acting like a precision remote control for quantum-scale processes.",
+    "icon": "🔴",
+    "cluster": "frontier-technologies"
+  },
+  "collective-atomic-excitation": {
+    "term": "Collective Atomic Excitation",
+    "match": [
+      "collective atomic excitation"
+    ],
+    "definition": "Collective atomic excitation happens when a group of atoms absorbs and shares energy together as a single coordinated quantum system, rather than each atom acting independently. This shared state can behave in ways individual atoms can't — for instance, emitting light in a single, controllable burst — and is a building block for quantum memory and quantum-networking technologies that need to store or transmit information reliably.",
+    "icon": "⚛️",
+    "cluster": "frontier-technologies"
+  },
+  "attenuated-light-pulses": {
+    "term": "Attenuated Light Pulses",
+    "match": [
+      "attenuated light pulses"
+    ],
+    "definition": "Attenuated light pulses are laser pulses deliberately weakened until they carry only a handful of photons — sometimes just one — instead of the trillions in an ordinary beam. Working at this single-photon level is essential for quantum experiments and quantum communication, where the goal is to study or transmit information encoded in individual quanta of light rather than a bright, classical beam.",
+    "icon": "💡",
+    "cluster": "frontier-technologies"
+  },
+  "lpbf": {
+    "term": "Laser Powder Bed Fusion (LPBF)",
+    "match": [
+      "laser powder bed fusion",
+      "lpbf"
+    ],
+    "definition": "Laser powder bed fusion is a 3D-printing technique that builds metal parts by spreading a thin layer of fine metal powder and selectively melting it with a laser, layer by layer, until a complete solid object takes shape. It allows complex geometries that traditional casting or machining can't achieve, and is widely used in aerospace, medical implants, and advanced manufacturing where precision and material strength both matter.",
+    "icon": "🔥",
+    "cluster": "frontier-technologies"
+  },
+  "von-neumann-architecture": {
+    "term": "Von Neumann Architecture",
+    "match": [
+      "von neumann architecture"
+    ],
+    "definition": "Von Neumann architecture is the basic blueprint nearly all modern computers are built on: a single memory holding both data and program instructions, with a separate processor that fetches and executes them one step at a time. It's simple and flexible, but it means the processor and memory are physically separate — a design choice that becomes a performance bottleneck as computing demands grow.",
+    "icon": "💻",
+    "cluster": "frontier-technologies"
+  },
+  "von-neumann-bottleneck": {
+    "term": "Von Neumann Bottleneck",
+    "match": [
+      "von neumann bottleneck"
+    ],
+    "definition": "The Von Neumann bottleneck is the performance limit caused by data constantly having to shuttle back and forth between a computer's processor and its separate memory. Even as processors get faster, they often sit idle waiting for data to arrive, wasting energy and time. It's a core motivation behind newer computing designs — like neuromorphic and in-memory computing — that try to process data where it's stored instead of moving it constantly.",
+    "icon": "🚦",
+    "cluster": "frontier-technologies"
+  },
+  "helios": {
+    "term": "HELIOS (High Energy Laser)",
+    "match": [
+      "helios"
+    ],
+    "definition": "HELIOS is a high-energy laser weapon system developed for naval defense, designed to track and disable threats like drones or small boats using a focused beam instead of conventional ammunition. As a directed-energy weapon, it offers a deep, reusable \"magazine\" limited mainly by the ship's power supply rather than physical ammo stocks, representing a broader military shift toward laser and electromagnetic-based defense systems.",
+    "icon": "🔫",
+    "cluster": "india-society"
+  },
+  "de-mshorad": {
+    "term": "DE M-SHORAD (Directed Energy Maneuver Short-Range Air Defense)",
+    "match": [
+      "de m-shorad",
+      "de mshorad",
+      "m-shorad"
+    ],
+    "definition": "DE M-SHORAD is a mobile, vehicle-mounted laser weapon system built to intercept short-range aerial threats such as drones, rockets, and mortar rounds while moving with ground troops. Unlike a fixed installation, it's designed to travel with a maneuvering unit, giving forces a portable, directed-energy air-defense layer as an alternative or complement to traditional missile-based interceptors.",
+    "icon": "🚛",
+    "cluster": "india-society"
+  },
+  "drude-weight": {
+    "term": "Drude Weight",
+    "match": [
+      "drude weights",
+      "drude weight"
+    ],
+    "definition": "Drude weight is a physics measure of how freely charge carriers can move through a material without resistance — essentially quantifying a material's capacity for lossless, ballistic electrical conduction. A high Drude weight signals unusually efficient charge transport, which researchers look for when studying exotic conductors and materials relevant to next-generation, low-energy-loss electronics.",
+    "icon": "⚡",
+    "cluster": "frontier-technologies"
+  },
+  "newtons-cradle": {
+    "term": "Newton's Cradle",
+    "match": [
+      "newton's cradle",
+      "newtons cradle"
+    ],
+    "definition": "Newton's cradle is the classic desktop toy of suspended metal balls where striking one end sends energy rippling through the row to launch the ball at the far end, while the middle balls stay still. Physicists use it as an intuitive analogy for studying how energy and momentum transfer through a chain of particles — a useful mental model when exploring thermalization and energy flow in quantum and many-body systems.",
+    "icon": "⚪",
+    "cluster": "frontier-technologies"
+  },
+  "thermalization": {
+    "term": "Thermalization",
+    "match": [
+      "thermalization"
+    ],
+    "definition": "Thermalization is the process by which a system that starts out in an ordered or uneven energy state gradually settles into a uniform, evenly spread-out equilibrium — the same way a hot object cools to match room temperature. In quantum physics, understanding whether and how isolated quantum systems thermalize (or resist it) is a deep open question with implications for quantum computing, since maintaining a system out of equilibrium is often exactly what's needed to preserve quantum information.",
+    "icon": "🌡️",
+    "cluster": "frontier-technologies"
+  },
+  "artemis-program": {
+    "term": "Artemis Program",
+    "match": [
+      "artemis program"
+    ],
+    "definition": "The Artemis program is NASA's initiative to return astronauts to the Moon and establish a sustained human presence there, serving as a stepping stone toward eventual crewed missions to Mars. It involves new rockets, a lunar-orbiting space station, and international and commercial partnerships, and represents a shift from the flag-and-footprints Apollo era toward long-term lunar infrastructure and resource utilization.",
+    "icon": "🚀",
+    "cluster": "frontier-technologies"
+  },
+  "shanti-bill": {
+    "term": "SHANTI Bill",
+    "match": [
+      "shanti bill"
+    ],
+    "definition": "The SHANTI Bill refers to proposed Indian legislation aimed at regulating a specific emerging-technology or security domain, part of the country's broader push to build a modern legal framework around fast-moving technologies. As with most such bills, the details — scope, enforcement, and obligations — are shaped through debate and amendment before becoming law, and it's worth checking current status for the latest provisions.",
+    "icon": "🏛️",
+    "cluster": "india-society"
+  },
+  "mram": {
+    "term": "MRAM (Magnetoresistive RAM)",
+    "match": [
+      "mram",
+      "magnetoresistive ram",
+      "magnetoresistive random-access memory"
+    ],
+    "definition": "MRAM is a type of computer memory that stores data using magnetic states instead of electric charge, which means it retains information even when the power is switched off — unlike conventional RAM. It combines the speed of working memory with the persistence of storage, making it attractive for applications that need fast, non-volatile memory such as edge devices, aerospace systems, and next-generation computing architectures.",
+    "icon": "🧠",
+    "cluster": "frontier-technologies"
+  },
+  "sram": {
+    "term": "SRAM (Static RAM)",
+    "match": [
+      "sram",
+      "static ram",
+      "static random-access memory"
+    ],
+    "definition": "SRAM is a fast type of computer memory that holds data using tiny electronic switches, requiring continuous power to retain information (it \"forgets\" when powered off). It's faster and more power-efficient per operation than the DRAM used for a computer's main memory, which is why it's used for small, speed-critical jobs like a processor's cache, where every nanosecond of access time counts.",
+    "icon": "⚡",
+    "cluster": "frontier-technologies"
+  },
+  "xmld": {
+    "term": "X-ray Magnetic Linear Dichroism (XMLD)",
+    "match": [
+      "x-ray magnetic linear dichroism",
+      "xmld"
+    ],
+    "definition": "X-ray magnetic linear dichroism is a technique that measures how a material absorbs polarized X-rays differently depending on the orientation of its internal magnetic structure. It lets researchers map antiferromagnetic materials — whose magnetism cancels out overall and is otherwise very hard to detect — which is increasingly important for developing faster, more compact spintronic memory and computing devices.",
+    "icon": "🔬",
+    "cluster": "frontier-technologies"
+  },
+  "parasitic-inductance": {
+    "term": "Parasitic Inductance",
+    "match": [
+      "parasitic inductance"
+    ],
+    "definition": "Parasitic inductance is unwanted electrical resistance-to-current-change that arises naturally from the physical wires and connections in a circuit, even though it's not an intentional part of the design. At high speeds or high frequencies, it can cause voltage spikes, signal noise, and energy loss, making it a key constraint engineers must account for when designing fast chips, power electronics, and compact circuit layouts.",
+    "icon": "🔌",
+    "cluster": "frontier-technologies"
+  },
+  "lvm3": {
+    "term": "LVM3 (Launch Vehicle Mark-3)",
+    "match": [
+      "lvm3",
+      "launch vehicle mark-3",
+      "launch vehicle mark 3"
+    ],
+    "definition": "LVM3 is ISRO's most powerful operational rocket, capable of lifting heavy satellites into orbit and carrying crewed missions under India's Gaganyaan program. Originally developed to reduce India's reliance on foreign launch providers for heavy payloads, it has since become the workhorse for the country's biggest missions, including lunar and human spaceflight ambitions.",
+    "icon": "🚀",
+    "cluster": "india-society"
+  },
+  "gslv-mk3": {
+    "term": "GSLV Mk III",
+    "match": [
+      "gslv mk iii",
+      "gslv mk 3",
+      "gslv mk3"
+    ],
+    "definition": "GSLV Mk III was the earlier name for what is now called LVM3 — ISRO's heavy-lift rocket capable of carrying large communication satellites and crewed spacecraft. It marked a major leap in India's launch capability, using an indigenously developed cryogenic upper-stage engine that had previously been a major technological bottleneck for the country's space program.",
+    "icon": "🛰️",
+    "cluster": "india-society"
+  },
+  "rhodopseudomonas-palustris": {
+    "term": "Rhodopseudomonas palustris",
+    "match": [
+      "rhodopseudomonas palustris"
+    ],
+    "definition": "Rhodopseudomonas palustris is a remarkably versatile bacterium that can generate energy through several different methods — using light, organic matter, or even absorbing electrons directly from metal surfaces. Researchers study it for potential uses in clean bio-hydrogen production, wastewater treatment, and bioelectronics, since few other organisms can switch so flexibly between different energy-harvesting strategies.",
+    "icon": "🦠",
+    "cluster": "sustainable-future"
+  },
+  "cryptochromes": {
+    "term": "Cryptochromes",
+    "match": [
+      "cryptochromes",
+      "cryptochrome"
+    ],
+    "definition": "Cryptochromes are light-sensitive proteins found in plants, animals, and some bacteria that help regulate biological clocks and, in some species, are believed to enable magnetic sensing — letting migratory birds and other animals detect Earth's magnetic field. Understanding how cryptochromes work is opening new questions about the overlap between biology, quantum physics, and animal navigation.",
+    "icon": "🧬",
+    "cluster": "human-future"
+  },
+  "magnetic-sensing": {
+    "term": "Magnetic Sensing (Magnetoreception)",
+    "match": [
+      "magnetic sensing",
+      "magnetoreception"
+    ],
+    "definition": "Magnetic sensing, or magnetoreception, is the ability of some animals — and potentially some engineered materials — to detect Earth's magnetic field and use it for orientation or navigation. In biology, it's best known in migratory birds, sea turtles, and some fish. In technology, magnetic sensing refers to devices and materials engineered to detect subtle magnetic fields for uses ranging from navigation systems to medical imaging and quantum sensors.",
+    "icon": "🧭",
+    "cluster": "human-future"
+  },
+  "olmocr-bench": {
+    "term": "olmOCR-Bench",
+    "match": [
+      "olmocr-bench",
+      "olmocr bench"
+    ],
+    "definition": "olmOCR-Bench is a benchmark test used to evaluate how accurately AI systems can convert scanned documents and images into machine-readable text (optical character recognition). It measures performance across challenging real-world documents — varied fonts, layouts, and image quality — giving researchers a standardized way to compare how well different OCR and document-AI models actually perform.",
+    "icon": "📄",
+    "cluster": "digital-intelligence"
+  },
+  "bfi": {
+    "term": "Beamforming Feedback Information (BFI)",
+    "match": [
+      "beamforming feedback information",
+      "bfi"
+    ],
+    "definition": "Beamforming Feedback Information is data that a Wi-Fi device sends back to a router describing how radio signals bounced and changed on their way through a room, which the router uses to focus its signal more precisely toward that device. Because those signal reflections are shaped by everything in the room — including a person's body — researchers have found BFI can be repurposed to sense motion, breathing, and even gestures without a camera.",
+    "icon": "📡",
+    "cluster": "digital-intelligence"
+  },
+  "rf-biometric-sensing": {
+    "term": "Radio-Frequency Biometric Sensing",
+    "match": [
+      "radio-frequency biometric system",
+      "rf biometric sensing",
+      "radio frequency biometric"
+    ],
+    "definition": "Radio-frequency biometric sensing uses ordinary wireless signals — like Wi-Fi — to detect physical characteristics or vital signs, such as breathing rate, heartbeat, or even a person's gait, by analyzing how radio waves reflect off the human body. It offers a camera-free way to monitor health or identify individuals, raising both promising healthcare applications and new privacy questions since it can work through walls and without the subject's awareness.",
+    "icon": "📶",
+    "cluster": "digital-intelligence"
+  },
+  "ieee-80211bf": {
+    "term": "IEEE 802.11bf (WLAN Sensing)",
+    "match": [
+      "ieee 802.11bf",
+      "802.11bf"
+    ],
+    "definition": "IEEE 802.11bf is an official Wi-Fi standard that formally adds sensing capability to wireless networks — letting Wi-Fi devices detect motion, presence, and gestures using the same radio signals they already use for internet connectivity, no extra sensors or cameras required. It standardizes what researchers had been doing experimentally, paving the way for commercial Wi-Fi-based sensing in smart homes, health monitoring, and security systems.",
+    "icon": "📶",
+    "cluster": "digital-intelligence"
+  },
+  "gan-radar": {
+    "term": "Gallium Nitride (GaN) Radar Technology",
+    "match": [
+      "gan radar technology",
+      "gan radar",
+      "gallium nitride radar"
+    ],
+    "definition": "GaN radar uses gallium nitride semiconductors — which can handle much higher power, voltage, and temperature than traditional silicon — to build radar systems that are more powerful, compact, and energy-efficient. This lets radar detect targets at greater range and with finer resolution while using less space and cooling, which is why GaN has become a key material in next-generation military and civilian radar systems.",
+    "icon": "📡",
+    "cluster": "india-society"
+  },
+  "ai-persona-swarms": {
+    "term": "AI-Controlled Persona Swarms",
+    "match": [
+      "ai-controlled persona swarms",
+      "persona swarms",
+      "organized digital crowds"
+    ],
+    "definition": "AI-controlled persona swarms are networks of AI-generated fake social media accounts, each with a distinct synthetic personality, that are coordinated to post, comment, and interact in ways designed to look like an organic, independent crowd of real people. Unlike older bot networks that posted identical messages, AI-driven swarms can generate varied, contextually convincing content at scale, making manufactured public opinion far harder to distinguish from genuine grassroots sentiment.",
+    "icon": "🤖",
+    "cluster": "digital-intelligence"
+  },
+  "troll-farms": {
+    "term": "Troll Farms",
+    "match": [
+      "troll farms",
+      "troll farm"
+    ],
+    "definition": "Troll farms are organized operations — sometimes state-backed, sometimes commercial — that employ people or AI systems to flood social media with coordinated posts, comments, and fake engagement, aiming to manipulate public opinion, harass targets, or drown out genuine conversation. Increasingly, troll farms are augmented or replaced by AI tools that can generate convincing content and manage far more fake accounts than human operators alone ever could.",
+    "icon": "👹",
+    "cluster": "digital-intelligence"
+  },
+  "deepfake-technology": {
+    "term": "Deepfake Technology",
+    "match": [
+      "deepfake technology",
+      "deepfake",
+      "deepfakes"
+    ],
+    "definition": "Deepfake technology uses AI — typically machine-learning models trained on real images, video, or audio — to generate convincing fake media that shows a real person saying or doing something they never actually did. It's built on the same generative AI techniques behind other AI content tools, but its ability to fabricate realistic video and voice raises serious concerns for misinformation, fraud, and non-consensual content, driving growing demand for detection tools and legal safeguards.",
+    "icon": "🎭",
+    "cluster": "digital-intelligence"
   }
 }
