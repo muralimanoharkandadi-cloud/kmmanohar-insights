@@ -43,24 +43,38 @@ cd dist && python3 -m http.server 8000
    configured in `netlify.toml` (`python3 generate_site.py` → `dist`).
 2. Trigger a deploy once to confirm it builds cleanly.
 
-## Daily automatic updates (one-time setup)
+## Daily automatic updates
 
 New Blogger posts appear on the live site automatically, once a day,
 with no manual step:
 
-1. In Netlify: **Site settings → Build & deploy → Build hooks → Add build
-   hook**. Name it e.g. `daily-rebuild`, copy the URL it gives you.
-2. In GitHub: **Repo → Settings → Secrets and variables → Actions → New
-   repository secret**. Name: `NETLIFY_BUILD_HOOK`. Value: the URL from
-   step 1.
-3. That's it — `.github/workflows/daily-rebuild.yml` pings that hook
-   every day at 03:00 IST, Netlify rebuilds, `generate_site.py` re-fetches
-   the live feed, and any new post gets its own full article page,
-   correct category, and correct prev/next links automatically.
+The rebuild is triggered by a **Netlify Scheduled Function**
+(`netlify/functions/scheduled-rebuild`), configured directly in
+`netlify.toml`:
 
-You can also trigger a rebuild manually anytime from the repo's
-**Actions** tab → *Daily site rebuild* → *Run workflow*, or just publish
-a new Blogger post and wait for the next scheduled run.
+```toml
+[functions."scheduled-rebuild"]
+  schedule = "20 5 * * *"   # 10:50 AM IST daily
+```
+
+Netlify reads this schedule straight from the repo on every deploy —
+no extra setup, no build hook, no GitHub secret needed. When it fires,
+Netlify rebuilds the site, `generate_site.py` re-fetches the live feed,
+and any new post gets its own full article page, correct category, and
+correct prev/next links automatically.
+
+You can check recent runs and the next scheduled time anytime under
+**Netlify dashboard → Logs & metrics → Functions → scheduled-rebuild**.
+
+To change the time, edit the `schedule` line above (cron syntax, in
+UTC) and push — no dashboard setting to touch separately.
+
+> **Note:** an earlier version of this project used a GitHub Actions
+> workflow (`daily-rebuild.yml`) pinging a Netlify build hook instead.
+> That approach has been disabled in favor of the Netlify Scheduled
+> Function above, since GitHub Actions cron was landing hours late
+> under load. The old workflow file is disabled but left in the repo
+> for reference.
 
 ## Files
 
@@ -77,7 +91,7 @@ styles.css                  # site design system (unchanged, plus article-body
 app.js                       # unchanged
 netlify.toml                 # build command + publish dir
 requirements.txt              # beautifulsoup4, lxml
-.github/workflows/daily-rebuild.yml   # scheduled Netlify rebuild trigger
+.github/workflows/daily-rebuild.yml   # legacy rebuild trigger, disabled — see "Daily automatic updates" above
 ```
 
 ## If categorization looks wrong for a specific article
