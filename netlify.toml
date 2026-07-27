@@ -2,19 +2,14 @@
   command = "pip install -r requirements.txt && python3 generate_site.py"
   publish = "dist"
   functions = "netlify/functions"
-
 [build.environment]
   PYTHON_VERSION = "3.12"
-
 # Rebuild trigger, runs on Netlify's own infrastructure (Scheduled
 # Functions) rather than GitHub Actions cron, which was landing hours late
-# under load. Checks every 15 minutes across 04:30-05:45 UTC (09:30-11:15
-# AM IST) to reliably catch a publish around the user's typical late-morning
-# posting window, rather than a single once-daily fire that can miss same-day
-# updates entirely.
+# under load. Fires once daily at 10:50 AM IST (05:20 UTC) to pick up that
+# day's publish without burning credits on repeated 15-minute checks.
 [functions."scheduled-rebuild"]
-  schedule = "*/15 4,5 * * *"
-
+  schedule = "20 5 * * *"
 # Redirect the old teaser/Blogger-jump pattern if any external links still
 # point at the previous stub-page paths - safe no-op if none exist.
 [[redirects]]
@@ -22,7 +17,6 @@
   to = "/articles/:splat/"
   status = 301
   force = false
-
 # Normalize article URLs missing a trailing slash (some old inbound links
 # and leftover in-article references point at the bare slug).
 [[redirects]]
@@ -30,13 +24,11 @@
   to = "/articles/:slug/"
   status = 301
   force = false
-
 # Custom branded 404 page instead of Netlify's generic default.
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
-
 # Interactive Knowledge Cards (Glossary) payload - small file, safe to cache
 # aggressively client-side; a fresh copy ships on every rebuild anyway so a
 # short max-age keeps repeat pageviews fast without risking stale terms for
