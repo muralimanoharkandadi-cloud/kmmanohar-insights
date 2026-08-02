@@ -292,6 +292,7 @@ def load_and_prepare():
 
     articles = []
     mismatch_count = 0
+    link_warnings = []
     for i, a in enumerate(raw_articles, start=1):
         cluster_slug, cluster_name = get_cluster(a["labels"], a["title"], a["content_text"])
 
@@ -306,7 +307,7 @@ def load_and_prepare():
         content, toc_items = build_toc_and_ids(
             vary_template_headings(
                 strip_leading_duplicate_title(
-                    dedupe_hero_image(deep_clean(a["content"]), a["hero_image"]),
+                    dedupe_hero_image(deep_clean(a["content"], link_warnings), a["hero_image"]),
                     a["title"],
                 ),
                 a["slug"],
@@ -327,6 +328,14 @@ def load_and_prepare():
 
     if mismatch_count:
         print(f"Found {mismatch_count} article(s) with a possibly mismatched Summary section - see warnings above")
+
+    if link_warnings:
+        print(f"WARNING: {len(link_warnings)} suspicious internal link(s) found (likely a pasted "
+              f"title instead of a slug, or another malformed href — review and fix these in the "
+              f"source Blogger post; leading slashes on relative links were auto-fixed, these are "
+              f"the ones that need a human look):")
+        for href in link_warnings:
+            print(f"  {href}")
 
     slug_counts = {}
     for a in articles:
