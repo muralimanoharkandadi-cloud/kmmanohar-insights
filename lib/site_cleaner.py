@@ -21,8 +21,58 @@ import re
 
 HASHTAG_LINE_RE = re.compile(r"^(#\S+[\s,&middot;\u00b7]*)+$")
 
+# Matches internal-link hrefs that look like a raw article TITLE got pasted
+# in instead of a slug: a literal space, a %-escape (%20 etc.), an uppercase
+# letter, or a parenthesis. Real generated slugs (see generate_site.py's
+# slugify()) are always lowercase, hyphenated, alnum-only.
+SUSPECT_HREF_RE = re.compile(r"[ %()]|[A-Z]")
 
-def deep_clean(html: str) -> str:
+
+def _normalize_internal_links(soup, warnings):
+    """Root-relative-ize internal <a href> links.
+
+    This generator's article/category pages are directory-style
+    (/articles/some-slug/), so any internal link that is HAND-AUTHORED in
+    Blogger content without a leading slash (e.g. href="some-slug/" instead
+    of href="/some-slug/") resolves, in the browser, relative to the
+    CURRENT page's path rather than site root. On a directory-style URL
+    that silently chains: clicking through two such links in a row produces
+    something like /articles/article-a/article-b/article-c/ instead of
+    /articles/article-c/ — a real pattern seen in Netlify's 404 report.
+    (External links, mailto:, tel:, and same-page #anchors are left alone.)
+
+    Also flags — but does not silently rewrite — any href matching
+    SUSPECT_HREF_RE, since a space/uppercase/parenthesis in an internal
+    path is a strong sign the article's TITLE was pasted in as the href
+    instead of its slug (also confirmed in the 404 report). These are
+    collected into `warnings` so build() can print them the same way it
+    already prints slug-collision and summary-mismatch warnings — worth a
+    manual look rather than an auto-fix, since the correct target slug
+    isn't always guessable from the title alone.
+    """
+    for a in soup.find_all("a", href=True):
+        href = a["href"].strip()
+        if not href or href.startswith(("http://", "https://", "mailto:", "tel:", "#")):
+            continue
+
+        if not href.startswith("/"):
+            href = "/" + href
+            a["href"] = href
+
+        if SUSPECT_HREF_RE.search(href):
+            warnings.append(href)
+
+    return soup
+
+
+def deep_clean(html: str, link_warnings: list | None = None) -> str:
+    """Clean and normalize a single article's raw content HTML.
+
+    `link_warnings`, if passed, is a list that suspicious internal hrefs
+    (see _normalize_internal_links) get appended to, so the caller can
+    print them alongside the other build-time warnings once, after all
+    articles are processed, instead of per-article.
+    """
     if not html:
         return ""
 
@@ -144,6 +194,13 @@ def deep_clean(html: str) -> str:
         text = p.get_text(" ", strip=True)
         if text and HASHTAG_LINE_RE.match(text.replace(" ", "")):
             p.decompose()
+
+    # Fix/flag any remaining internal links (in-body mentions, hand-pasted
+    # "related article" links, etc.) that survived all the above — this
+    # must run AFTER the explore-btn/back-btn/nav-artifact stripping above,
+    # so it only ever touches genuine in-content links, not template debris
+    # that's about to be deleted anyway.
+    _normalize_internal_links(soup, link_warnings if link_warnings is not None else [])
 
     # Final pass: remove now-empty paragraphs/divs left behind by the above
     for _ in range(2):
