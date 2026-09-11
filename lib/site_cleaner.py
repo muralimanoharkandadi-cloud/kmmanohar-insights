@@ -1,6 +1,4 @@
-for span in soup.find_all("span"):
-   """
-   
+﻿"""
 Second-pass cleaner, applied after lib.content_cleaner.clean_content().
 
 Handles two realities of this specific content set:
@@ -15,7 +13,7 @@ Handles two realities of this specific content set:
    <a name="sN"> anchors, .bento-* TOC markup, a "Signal Depth Navigator"
    heading, back-btn / explore-btn links pointing at old Blogger-relative
    URLs, a "Visit Us on:" promo line, and a duplicate "About the Author"
-   section — all of which this generator already renders itself, so the
+   section â€” all of which this generator already renders itself, so the
    duplicates must be stripped rather than kept.
 """
 from bs4 import BeautifulSoup
@@ -40,15 +38,15 @@ def _normalize_internal_links(soup, warnings):
     CURRENT page's path rather than site root. On a directory-style URL
     that silently chains: clicking through two such links in a row produces
     something like /articles/article-a/article-b/article-c/ instead of
-    /articles/article-c/ — a real pattern seen in Netlify's 404 report.
+    /articles/article-c/ â€” a real pattern seen in Netlify's 404 report.
     (External links, mailto:, tel:, and same-page #anchors are left alone.)
 
-    Also flags — but does not silently rewrite — any href matching
+    Also flags â€” but does not silently rewrite â€” any href matching
     SUSPECT_HREF_RE, since a space/uppercase/parenthesis in an internal
     path is a strong sign the article's TITLE was pasted in as the href
     instead of its slug (also confirmed in the 404 report). These are
     collected into `warnings` so build() can print them the same way it
-    already prints slug-collision and summary-mismatch warnings — worth a
+    already prints slug-collision and summary-mismatch warnings â€” worth a
     manual look rather than an auto-fix, since the correct target slug
     isn't always guessable from the title alone.
     """
@@ -86,7 +84,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
         comment.extract()
 
     # Strip any embedded <style>/<script> blocks (e.g. the Signal Depth
-    # Navigator's own inline CSS baked into already-recoded posts) — this
+    # Navigator's own inline CSS baked into already-recoded posts) â€” this
     # site's own styles.css already covers everything needed.
     for tag in soup.find_all(["style", "script"]):
         tag.decompose()
@@ -102,7 +100,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
         del tag["class"]
 
     # Strip all leftover inline style attributes (font-family, text-align,
-    # mso-* properties, etc.) — this site's own styles.css owns typography
+    # mso-* properties, etc.) â€” this site's own styles.css owns typography
     # now, so none of these per-element overrides should survive.
     for tag in soup.find_all(style=True):
         del tag["style"]
@@ -110,6 +108,16 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
     # Unwrap every span (legacy font-family/size styling only, no semantic value)
     for span in soup.find_all("span"):
         span.unwrap()
+
+    # Wrap every table in a scrollable container (this site's own table CSS
+    # in styles.css handles the header/border/zebra styling that used to
+    # live in the now-stripped inline <style> block; the wrapper just keeps
+    # wide comparison tables from breaking the mobile layout).
+    for table in soup.find_all("table"):
+        if table.parent and table.parent.get("class") and "table-wrap" in table.parent.get("class"):
+            continue
+        wrapper = soup.new_tag("div", **{"class": "table-wrap"})
+        table.wrap(wrapper)
 
     # Remove Blogger same-page anchors: <a name="more">, <a name="s3">, <a name="top">
     for a in soup.find_all("a"):
@@ -123,7 +131,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
             a.unwrap()
 
     # If this post was already run through the Signal Depth Navigator
-    # (Blogger bento) recode, strip its structural leftovers entirely —
+    # (Blogger bento) recode, strip its structural leftovers entirely â€”
     # this generator renders its own TOC, related links, and author bio.
     # Different drafting sessions used different class names for the same
     # thing (.bento-toc vs .signal-depth-navigator vs .nav-title), so match
@@ -143,7 +151,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
         if heading.get_text(" ", strip=True) == "Signal Depth Navigator":
             heading.decompose()
 
-    # Truncate everything from "Explore More" onward — in the Navigator
+    # Truncate everything from "Explore More" onward â€” in the Navigator
     # template this is immediately followed by the "Visit Us on:" promo
     # line and a duplicate About the Author section, none of which should
     # appear (this generator renders its own related-articles + author box).
@@ -156,7 +164,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
 
     # Drop any remaining back-btn / explore-btn links and their captions
     # (belt and suspenders, in case some slipped through without a matching
-    # "Explore More" heading to anchor the truncation above — some older
+    # "Explore More" heading to anchor the truncation above â€” some older
     # Navigator variants embed these links with no heading at all)
     def _has_class(tag, names):
         classes = tag.get("class") or []
@@ -198,7 +206,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
             p.decompose()
 
     # Fix/flag any remaining internal links (in-body mentions, hand-pasted
-    # "related article" links, etc.) that survived all the above — this
+    # "related article" links, etc.) that survived all the above â€” this
     # must run AFTER the explore-btn/back-btn/nav-artifact stripping above,
     # so it only ever touches genuine in-content links, not template debris
     # that's about to be deleted anyway.
@@ -218,7 +226,7 @@ def deep_clean(html: str, link_warnings: list | None = None) -> str:
 
 def dedupe_hero_image(html: str, hero_image_url: str) -> str:
     """The first image in a Blogger post's content is also promoted to the
-    page's <figure class="article-media"> hero — drop that same image if it
+    page's <figure class="article-media"> hero â€” drop that same image if it
     reappears as the first inline image in the body, otherwise it renders
     twice back-to-back."""
     if not html or not hero_image_url:

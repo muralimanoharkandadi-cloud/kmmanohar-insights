@@ -1,4 +1,4 @@
-:root {
+﻿:root {
     --navy: #020817;
     --blue: #071a54;
     --electric: #176bff;
@@ -1395,6 +1395,50 @@ footer small {
 
 .article-body li {
     margin: 0 0 10px
+}
+
+.article-body .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 8px 0 30px;
+    border: 1px solid var(--line);
+    border-radius: 12px
+}
+
+.article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    font: 400 15px/1.6 "DM Sans", sans-serif
+}
+
+.article-body th {
+    background: var(--electric);
+    color: #fff;
+    font: 700 12px/1.4 "DM Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    text-align: left;
+    padding: 14px 16px;
+    white-space: nowrap
+}
+
+.article-body td {
+    padding: 14px 16px;
+    border-top: 1px solid var(--line);
+    vertical-align: top
+}
+
+.article-body tr:nth-child(even) td {
+    background: var(--paper)
+}
+
+@media(max-width: 560px) {
+    .article-body th,
+    .article-body td {
+        padding: 10px 12px;
+        font-size: 14px
+    }
 }
 
 .article-body figcaption {
