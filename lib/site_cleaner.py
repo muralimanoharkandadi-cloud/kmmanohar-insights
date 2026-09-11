@@ -1,4 +1,6 @@
-"""
+for span in soup.find_all("span"):
+   """
+   
 Second-pass cleaner, applied after lib.content_cleaner.clean_content().
 
 Handles two realities of this specific content set:
