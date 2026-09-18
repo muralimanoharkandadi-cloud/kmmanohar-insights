@@ -6,10 +6,15 @@
   PYTHON_VERSION = "3.12"
 # Rebuild trigger, runs on Netlify's own infrastructure (Scheduled
 # Functions) rather than GitHub Actions cron, which was landing hours late
-# under load. Fires once daily at 10:50 AM IST (05:20 UTC) to pick up that
+# under load. Fires once daily at 11:50 AM IST (06:20 UTC) to pick up that
 # day's publish without burning credits on repeated 15-minute checks.
+# Was 10:50 AM IST, but posts land between 10:23 and 10:35 IST, and that
+# close to the publish window the Blogger feed can still hand back a
+# pre-publish cached copy - on 2026-09-18 the 10:30 IST post was missed
+# even though it went up 19 minutes before the rebuild fired. The extra
+# hour lets the feed settle so the day's article is actually picked up.
 [functions."scheduled-rebuild"]
-  schedule = "20 5 * * *"
+  schedule = "20 6 * * *"
 # Redirect the old teaser/Blogger-jump pattern if any external links still
 # point at the previous stub-page paths - safe no-op if none exist.
 [[redirects]]
