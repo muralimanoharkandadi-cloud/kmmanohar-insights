@@ -1,6 +1,6 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """
-K M Manohar Insights — static site generator.
+K M Manohar Insights â€” static site generator.
 
 Reads all posts from the Blogger Atom feed (live URL in production, local
 feed.atom fallback for testing), cleans and categorizes each one, and
@@ -54,8 +54,23 @@ GA_MEASUREMENT_ID = "G-QXYM2YY1N9"
 # Live Blogger Atom feed (paginates automatically via lib.parser's rel="next"
 # handling). Overridable via FEED_SOURCE env var for local/offline testing
 # against the committed feed.atom snapshot.
-LIVE_FEED_URL = "https://kmmanohar1602.blogspot.com/feeds/posts/default?alt=atom&max-results=10"
-FEED_SOURCE = os.environ.get("FEED_SOURCE", LIVE_FEED_URL)
+#
+# The URL carries a cache-busting timestamp query param: Blogger/Google's
+# frontend caches public feed responses for some period after a post is
+# published, and a scheduled rebuild running shortly after a new post goes
+# live can otherwise fetch a stale cached copy that's missing it (seen
+# 2026-09-18 â€” the 10:50 AM IST scheduled rebuild deployed without that
+# morning's newest post despite the feed itself already listing it moments
+# later). A fresh, never-before-seen query string forces a cache miss on
+# every fetch, ensuring the build always sees the true current feed.
+def _live_feed_url():
+    cache_bust = int(datetime.now(timezone.utc).timestamp())
+    return (
+        "https://kmmanohar1602.blogspot.com/feeds/posts/default"
+        f"?alt=atom&max-results=10&_cb={cache_bust}"
+    )
+
+FEED_SOURCE = os.environ.get("FEED_SOURCE", _live_feed_url())
 
 OUTPUT_DIR = Path(os.environ.get("OUTPUT_DIR", "dist"))
 STATIC_FILES = ["styles.css", "app.js", "favicon.ico", "robots.txt"]  # copied as-is into OUTPUT_DIR root
@@ -115,7 +130,7 @@ def _pick_variant(slug, slot_key, pool):
 
 
 def _normalize_heading_key(title):
-    """Strip leading emoji/flag glyphs (e.g. '🇮🇳 India Angle') and
+    """Strip leading emoji/flag glyphs (e.g. 'ðŸ‡®ðŸ‡³ India Angle') and
     trailing punctuation (e.g. 'What Just Happened?') before matching
     against the known template phrases - raw variants in the archive
     include both, and an exact-dict-key match would silently miss them
@@ -160,7 +175,7 @@ def vary_template_headings(html_content, slug):
 
 def build_toc_and_ids(html_content):
     """Scan cleaned article HTML for h2 tags, inject id= anchors, and return
-    (modified_html, toc_items). Only h2s get TOC entries — h3/h4 stay as
+    (modified_html, toc_items). Only h2s get TOC entries â€” h3/h4 stay as
     in-flow subheads."""
     toc_items = []
     counter = {"n": 0}
@@ -331,7 +346,7 @@ def load_and_prepare():
 
     if link_warnings:
         print(f"WARNING: {len(link_warnings)} suspicious internal link(s) found (likely a pasted "
-              f"title instead of a slug, or another malformed href — review and fix these in the "
+              f"title instead of a slug, or another malformed href â€” review and fix these in the "
               f"source Blogger post; leading slashes on relative links were auto-fixed, these are "
               f"the ones that need a human look):")
         for href in link_warnings:
@@ -528,7 +543,7 @@ crossorigin="anonymous"
 async>
 </script>"""
     else:
-        embed = '<p class="comments-placeholder">Comments are being set up — check back soon.</p>'
+        embed = '<p class="comments-placeholder">Comments are being set up â€” check back soon.</p>'
     return f'<section id="comments" class="comments-section"><h2>Discussion</h2>{embed}</section>'
 
 
@@ -644,7 +659,7 @@ def render_category_page(cluster_slug, cluster_name, members):
     )
 
     body = render_head(
-        cluster_name, f"{cluster_name} — independent science & technology analysis from {SITE_NAME}.",
+        cluster_name, f"{cluster_name} â€” independent science & technology analysis from {SITE_NAME}.",
         f"/category/{cluster_slug}/"
     )
     body += f'<body class="subpage">\n{render_header()}\n'
@@ -677,7 +692,7 @@ def render_archive_search_page(kind, articles):
     body += f"""<header class="collection-hero">
 <p class="eyebrow">{title}</p>
 <h1>{"Find a signal." if is_search else "Every article, in order."}</h1>
-<p class="collection-blurb">{len(articles)} articles across five clusters — filter by topic or search by keyword.</p>
+<p class="collection-blurb">{len(articles)} articles across five clusters â€” filter by topic or search by keyword.</p>
 </header>
 """
     body += """<div class="archive-tools">
@@ -711,13 +726,13 @@ STATIC_PAGES = {
         "title": "About Us",
         "content": """
 <p class="lead">K M Manohar Insights is an independent science and technology publication, written and curated by one person: K M Manohar.</p>
-<p>This site exists for a simple reason — most breakthroughs in AI, quantum computing, biotechnology, materials science, and clean energy are reported either too shallowly (a press-release rewrite) or too technically (a paper only specialists can parse). K M Manohar Insights tries to sit in between: independent analysis that explains why a discovery matters, without dumbing it down.</p>
+<p>This site exists for a simple reason â€” most breakthroughs in AI, quantum computing, biotechnology, materials science, and clean energy are reported either too shallowly (a press-release rewrite) or too technically (a paper only specialists can parse). K M Manohar Insights tries to sit in between: independent analysis that explains why a discovery matters, without dumbing it down.</p>
 <h2>What we cover</h2>
 <p>Every article falls into one of five clusters: Digital Intelligence (AI, cybersecurity, robotics), Frontier Technologies (quantum computing, semiconductors, materials science), Human Future (biotech, health, fundamental science), Sustainable Future (clean energy, climate, emerging systems), and India &amp; Society (policy, defence, space, enterprise).</p>
 <h2>Editorial independence</h2>
-<p>K M Manohar Insights is self-funded and editorially independent. Articles are not sponsored, and no company has editorial input into what gets covered or how. Where the site earns revenue — for example through advertising — that revenue has no bearing on editorial coverage.</p>
+<p>K M Manohar Insights is self-funded and editorially independent. Articles are not sponsored, and no company has editorial input into what gets covered or how. Where the site earns revenue â€” for example through advertising â€” that revenue has no bearing on editorial coverage.</p>
 <h2>Get in touch</h2>
-<p>Questions, corrections, or story tips are always welcome — see the <a href="/contact/">Contact</a> page.</p>
+<p>Questions, corrections, or story tips are always welcome â€” see the <a href="/contact/">Contact</a> page.</p>
 """,
     },
     "privacy-policy": {
@@ -732,7 +747,7 @@ STATIC_PAGES = {
 <h2>Analytics</h2>
 <p>This site may use analytics services to understand aggregate traffic patterns (e.g. which articles are read most, which countries visitors come from). This data is anonymized and aggregated; it is not used to identify individual visitors.</p>
 <h2>Third-party links</h2>
-<p>Articles may link to external sources, including the Blogspot journal (kmmanohar1602.blogspot.com) and referenced research. This Privacy Policy does not extend to those external sites — please review their own privacy policies.</p>
+<p>Articles may link to external sources, including the Blogspot journal (kmmanohar1602.blogspot.com) and referenced research. This Privacy Policy does not extend to those external sites â€” please review their own privacy policies.</p>
 <h2>Children's privacy</h2>
 <p>This site does not knowingly collect information from children under 13. It is a general-audience science and technology publication not directed at children.</p>
 <h2>Changes to this policy</h2>
@@ -776,20 +791,20 @@ STATIC_PAGES = {
     "contact": {
         "title": "Contact",
         "content": """
-<p class="lead">Questions, corrections, story tips, or partnership enquiries — get in touch.</p>
+<p class="lead">Questions, corrections, story tips, or partnership enquiries â€” get in touch.</p>
 <h2>Email</h2>
 <p>The best way to reach K M Manohar Insights is by email: <a href="mailto:kmmanohar@yahoo.com">kmmanohar@yahoo.com</a></p>
 <h2>Journal</h2>
 <p>You can also find the full archive of articles on the original journal at <a href="https://kmmanohar1602.blogspot.com/" target="_blank" rel="noopener">kmmanohar1602.blogspot.com</a>.</p>
 <h2>Corrections</h2>
-<p>If you spot an error in any article, please include the article title and a brief description of the issue — corrections are reviewed and addressed promptly.</p>
+<p>If you spot an error in any article, please include the article title and a brief description of the issue â€” corrections are reviewed and addressed promptly.</p>
 """,
     },
 }
 
 
 def render_static_page(slug, title, content_html):
-    body = render_head(title, f"{title} — {SITE_NAME}.", f"/{slug}/")
+    body = render_head(title, f"{title} â€” {SITE_NAME}.", f"/{slug}/")
     body += f'<body class="subpage">\n{render_header()}\n'
     body += '<main class="article-page" id="main-content" style="--accent:#2fbf9b">\n<article>\n'
     body += f'<nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><i>/</i><span>{esc(title)}</span></nav>\n'
@@ -911,7 +926,7 @@ def render_home_page(articles):
 <p class="eyebrow">The Analyst</p>
 <h2>K M Manohar</h2>
 <h3>Independent Sci-Tech Writer &amp; Research Curator</h3>
-<p>K M Manohar explains breakthrough discoveries that are shaping the future of technology — across AI, quantum computing, biotech, materials science, and beyond.</p>
+<p>K M Manohar explains breakthrough discoveries that are shaping the future of technology â€” across AI, quantum computing, biotech, materials science, and beyond.</p>
 <a href="/about/">More about this journal &rarr;</a>
 </div>
 <div class="principles">
