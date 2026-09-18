@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 import xml.etree.ElementTree as ET
 from html import unescape
 import re
@@ -14,7 +14,23 @@ ATOM = {
 def load_feed(source="feed.atom"):
     if source.startswith("http://") or source.startswith("https://"):
         from urllib.request import Request
-        req = Request(source, headers={"User-Agent": "Mozilla/5.0 (compatible; KMManoharInsightsBot/1.0)"})
+        # Cache-Control/Pragma here are the actual cache-bypass signal for
+        # Google's frontend cache in front of Blogger's feed endpoint - the
+        # query-string cache-busting alone (see generate_site.py's
+        # _live_feed_url) was found insufficient on its own: Google's cache
+        # can key on the normalized path and ignore unrecognized query
+        # params, so a build could still receive a cached response missing
+        # the very latest post(s) even with a unique query string attached.
+        # These headers are the standard, explicit way to tell an
+        # intermediate cache to skip itself and hit the origin.
+        req = Request(
+            source,
+            headers={
+                "User-Agent": "Mozilla/5.0 (compatible; KMManoharInsightsBot/1.0)",
+                "Cache-Control": "no-cache, no-store, max-age=0",
+                "Pragma": "no-cache",
+            },
+        )
         with urlopen(req, timeout=30) as response:
             return response.read().decode("utf-8")
     else:
@@ -230,6 +246,23 @@ def get_slug(entry):
     slug = re.sub(r'[<>:"/\\|?*]', "-", slug)
     slug = re.sub(r"\s+", "-", slug)
     slug = re.sub(r"-{2,}", "-", slug)
+
+    # Blogger assigns the literal permalink "blog-post" (optionally with a
+    # numeric suffix like "blog-post_01") whenever a post is published
+    # without a custom permalink set. load_articles() used to treat any
+    # slug matching that pattern as a placeholder test post and silently
+    # drop it - which meant a genuine, real article could vanish from every
+    # build forever just because its author forgot to set a custom slug
+    # (confirmed 2026-09-18: this dropped that morning's newest live
+    # article for several days' worth of rebuilds). A real article should
+    # never disappear silently, so fall back to a slug built from the
+    # actual title instead of the generic Blogger default.
+    if re.fullmatch(r"blog-post(_\d+)?", slug):
+        title = get_title(entry)
+        title_slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+        title_slug = re.sub(r"-{2,}", "-", title_slug)
+        if title_slug:
+            slug = title_slug
 
     return slug
 
