@@ -54,7 +54,7 @@ The rebuild is triggered by a **Netlify Scheduled Function**
 
 ```toml
 [functions."scheduled-rebuild"]
-  schedule = "20 5 * * *"   # 10:50 AM IST daily
+  schedule = "20 6 * * *"   # 11:50 AM IST daily
 ```
 
 Netlify reads this schedule straight from the repo on every deploy —
@@ -62,6 +62,14 @@ no extra setup, no build hook, no GitHub secret needed. When it fires,
 Netlify rebuilds the site, `generate_site.py` re-fetches the live feed,
 and any new post gets its own full article page, correct category, and
 correct prev/next links automatically.
+
+The time deliberately leaves roughly an hour of margin after the usual
+publish slot (posts land between 10:23 and 10:35 IST). It used to run at
+10:50 AM IST, but that close to the publish window the Blogger feed can
+still return a cached copy from before the post appeared, so the rebuild
+would occasionally regenerate the site without the day's new article. If
+you start publishing noticeably later in the day, move this schedule
+back as well.
 
 You can check recent runs and the next scheduled time anytime under
 **Netlify dashboard → Logs & metrics → Functions → scheduled-rebuild**.
