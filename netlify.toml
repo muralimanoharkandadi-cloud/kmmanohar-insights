@@ -1,4 +1,4 @@
-[build]
+﻿[build]
   command = "pip install -r requirements.txt && python3 generate_site.py"
   publish = "dist"
   functions = "netlify/functions"
@@ -6,15 +6,24 @@
   PYTHON_VERSION = "3.12"
 # Rebuild trigger, runs on Netlify's own infrastructure (Scheduled
 # Functions) rather than GitHub Actions cron, which was landing hours late
-# under load. Fires once daily at 11:50 AM IST (06:20 UTC) to pick up that
-# day's publish without burning credits on repeated 15-minute checks.
-# Was 10:50 AM IST, but posts land between 10:23 and 10:35 IST, and that
-# close to the publish window the Blogger feed can still hand back a
-# pre-publish cached copy - on 2026-09-18 the 10:30 IST post was missed
-# even though it went up 19 minutes before the rebuild fired. The extra
-# hour lets the feed settle so the day's article is actually picked up.
+# under load. Fires once daily at 10:50 AM IST (05:20 UTC), matching the
+# author's publish (~10:23-10:35 IST) plus social media promotion starting
+# 11:00-11:15 IST - the article needs to be live on-site before that.
+#
+# This was briefly moved to 11:50 AM on 2026-09-18 as a stopgap after that
+# day's 10:30 IST post was missed by a rebuild firing only 19 minutes
+# later, when Google's frontend cache in front of the Blogger feed still
+# returned a pre-publish snapshot. That timing buffer is no longer needed:
+# the actual causes are now fixed independently of scheduling -
+# generate_site.py's feed fetch sends explicit Cache-Control/Pragma
+# no-cache headers plus a cache-busting query param on every request (see
+# lib/parser.py's load_feed and generate_site.py's _live_feed_url), and
+# lib/parser.py's get_slug() no longer silently drops a post just because
+# Blogger assigned it the generic default "blog-post" permalink. Moved
+# back to 10:50 AM accordingly - if a similar miss recurs, look at those
+# two fixes before reaching for a schedule delay again.
 [functions."scheduled-rebuild"]
-  schedule = "20 6 * * *"
+  schedule = "20 5 * * *"
 # Redirect the old teaser/Blogger-jump pattern if any external links still
 # point at the previous stub-page paths - safe no-op if none exist.
 [[redirects]]
