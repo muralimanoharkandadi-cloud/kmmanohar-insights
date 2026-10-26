@@ -36,6 +36,167 @@
   from = "/articles/india-lays-foundation-for-its-first-drone-city-space-cities-a-bold/"
   to = "/articles/india-first-drone-city-space-cities-andhra-pradesh/"
   status = 301
+# batch 1: article #175
+[[redirects]]
+  from = "/articles/revolutionary-gas-turbine-without-air-compression-kits-hydrogen/"
+  to = "/articles/kit-gas-turbine-without-air-compression-hydrogen-breakthrough/"
+  status = 301
+
+# batch 1: article #35
+[[redirects]]
+  from = "/articles/powering-the-future-how-solid-state-batteries-and-smart-storage-can/"
+  to = "/articles/solid-state-batteries-smart-storage-india-energy-transition/"
+  status = 301
+
+# batch 1: article #205
+[[redirects]]
+  from = "/articles/redefine-wearable-electronics-soft-robotics-and-human-machine/"
+  to = "/articles/self-healing-ionic-hydrogels-flexible-energy-harvesting-soft-electronics/"
+  status = 301
+
+# batch 1: article #243
+[[redirects]]
+  from = "/articles/chinas-open-ai-challenge-can-kimi-k2-7-and-glm-5-2-beat-gpt-5-5/"
+  to = "/articles/china-open-ai-challenge-kimi-k2-7-glm-5-2-vs-gpt-5-5/"
+  status = 301
+
+# batch 1: article #2
+[[redirects]]
+  from = "/articles/next-generation-semiconductor-devices-materials-architectures-future/"
+  to = "/articles/next-generation-semiconductor-devices-materials-applications/"
+  status = 301
+
+# batch 1: article #202
+[[redirects]]
+  from = "/articles/brain-decision-making-breakthrough-how-early-neural-feedback-loops/"
+  to = "/articles/brain-decision-making-breakthrough-ai-neural-feedback-loops/"
+  status = 301
+
+# batch 1: article #138
+[[redirects]]
+  from = "/articles/proton-shuttle-assisted-triplet-energy-transfer-ps-tet-a-quantum/"
+  to = "/articles/proton-shuttle-triplet-energy-transfer-ps-tet/"
+  status = 301
+
+# batch 1: article #217
+[[redirects]]
+  from = "/articles/glp-1-revolution-2026-how-ozempic-wegovy-mounjaro-are-disrupting/"
+  to = "/articles/glp1-revolution-2026-ozempic-bariatric-surgery-decline-obesity-treatment/"
+  status = 301
+
+# batch 1: article #104
+[[redirects]]
+  from = "/articles/mars-water-ice-discovery-could-decide-humanitys-first-landing-site-on/"
+  to = "/articles/mars-water-ice-discovery-amazonis-planitia-human-landing-site/"
+  status = 301
+
+# batch 1: article #114
+[[redirects]]
+  from = "/articles/india-enters-the-directed-energy-era-drdos-300-kw-laser-weapon-surya/"
+  to = "/articles/drdo-surya-300kw-laser-weapon-india-directed-energy-warfare/"
+  status = 301
+
+# batch 1: article #229
+[[redirects]]
+  from = "/articles/brain-pacemakers-for-depression-the-breakthrough-that-could-rewire/"
+  to = "/articles/brain-pacemakers-depression-deep-brain-stimulation-breakthrough/"
+  status = 301
+
+# batch 1: article #198
+[[redirects]]
+  from = "/articles/mazdas-hybrid-rotary-engine-breakthrough-the-smart-mobility-shift/"
+  to = "/articles/mazda-hybrid-rotary-engine-vs-ev-future-mobility-shift/"
+  status = 301
+
+# batch 1: article #200
+[[redirects]]
+  from = "/articles/iron-dome-vs-akash-teer-vs-golden-dome-2026-the-ai-air-defense-race/"
+  to = "/articles/iron-dome-vs-akashteer-vs-golden-dome-2026-ai-air-defense-race/"
+  status = 301
+
+# batch 1: article #234
+[[redirects]]
+  from = "/articles/soft-neuromorphic-electronics-the-future-of-ai-skin-and-brain-like/"
+  to = "/articles/soft-neuromorphic-electronics-ai-skin-brain-computing/"
+  status = 301
+
+# batch 1: article #136
+[[redirects]]
+  from = "/articles/ai-breakthrough-discovery-sleep-brain-waves-reveal-early-dementia/"
+  to = "/articles/ai-sleep-brain-age-dementia-risk/"
+  status = 301
+
+# batch 1: article #195
+[[redirects]]
+  from = "/articles/prime-assembly-genome-editing-breakthrough-replacing-entire-genes-to/"
+  to = "/articles/prime-assembly-genome-editing-replace-genes-fix-1000-mutations/"
+  status = 301
+
+# batch 1: article #86
+[[redirects]]
+  from = "/articles/bharat-taxi-can-a-driver-owned-app-disrupt-ola-uber/"
+  to = "/articles/bharat-taxi-cooperative-ride-hailing-india-analysis/"
+  status = 301
+
+# batch 1: article #78
+[[redirects]]
+  from = "/articles/quantum-clock-is-ticking-is-bitcoin-safe-from-quantum-computers/"
+  to = "/articles/quantum-computers-vs-bitcoin-post-quantum-cryptography-future-crypto/"
+  status = 301
+
+# batch 1: article #204
+[[redirects]]
+  from = "/articles/rna-barcodes-to-map-the-brains-hidden-wiring-faster-than-ever/"
+  to = "/articles/rna-barcodes-brain-connectome-seq-breakthrough/"
+  status = 301
+
+# batch 1: article #130
+[[redirects]]
+  from = "/articles/cobalts-hidden-quantum-power-a-familiar-metal-reveals-extraordinary/"
+  to = "/articles/cobalt-hidden-quantum-topological-electronic-states-spintronics/"
+  status = 301
+
+# batch 1: article #15
+[[redirects]]
+  from = "/articles/scientists-may-have-found-a-way-to-fix-green-hydrogens-biggest/"
+  to = "/articles/green-hydrogen-pfas-free-electrolysis-breakthrough/"
+  status = 301
+
+# batch 1: article #116
+[[redirects]]
+  from = "/articles/turning-waste-into-watts-the-inspiring-journey-of-dr-sandhya-shenoy/"
+  to = "/articles/dr-sandhya-shenoy-thermoelectric-energy-waste-heat-electricity/"
+  status = 301
+
+# batch 1: article #206
+[[redirects]]
+  from = "/articles/what-is-hantavirus-the-deadly-rodent-borne-disease-raising-global/"
+  to = "/articles/what-is-hantavirus-deadly-rodent-virus-global-health-alarm/"
+  status = 301
+
+# batch 1: article #7
+[[redirects]]
+  from = "/articles/the-lazarus-superconductor-how-uranium-ditelluride-revived/"
+  to = "/articles/strange-superconductivity-uranium-ditelluride-lazarus-phase/"
+  status = 301
+
+# batch 1: article #16
+[[redirects]]
+  from = "/articles/microscopic-spotlight-scientists-create-ultra-thin-meta-surface-chip/"
+  to = "/articles/microscopic-spotlight-metasurface-chip-controls-light/"
+  status = 301
+
+# batch 1: article #31
+[[redirects]]
+  from = "/articles/indias-deep-sea-bet-turning-polymetallic-sulphides-into-strategic/"
+  to = "/articles/india-deep-sea-polymetallic-sulphides-roi-strategy-self-reliance/"
+  status = 301
+
+# batch 1: article #197
+[[redirects]]
+  from = "/articles/digital-brain-twins-the-race-to-build-a-virtual-copy-of-your-mind-and/"
+  to = "/articles/digital-brain-twins-virtual-brain-simulation-future-medicine-ai/"
+  status = 301
 # Custom branded 404 page instead of Netlify's generic default.
 [[redirects]]
   from = "/*"
