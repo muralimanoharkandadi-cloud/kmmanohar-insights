@@ -31,6 +31,11 @@
   to = "/articles/:splat/"
   status = 301
   force = false
+# Permalink was edited on Blogger after first publish
+[[redirects]]
+  from = "/articles/india-lays-foundation-for-its-first-drone-city-space-cities-a-bold/"
+  to = "/articles/india-first-drone-city-space-cities-andhra-pradesh/"
+  status = 301
 # Custom branded 404 page instead of Netlify's generic default.
 [[redirects]]
   from = "/*"
