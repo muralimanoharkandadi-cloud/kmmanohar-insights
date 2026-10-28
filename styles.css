@@ -1103,8 +1103,8 @@ footer small {
 
 .article-media img {
     width: 100%;
-   height: 100%; becomes height: auto;;
-    object-fit: cover; becomes object-fit: contain;
+    height: auto;
+    object-fit: contain;
     display: block
 }
 
